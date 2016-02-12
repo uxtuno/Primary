@@ -36,8 +36,8 @@
 			half3 col2 = (_Color.rgb * _Velocity) + tex2D(_MainTex, IN.uv_MainTex).rgb * (1 - _Velocity);
 			half4 col = half4(col2.r, col2.g, col2.b, _Color.a);
 			o.Albedo = dot(col.rgb, float3(0.3, 0.59, 0.11)) * ((1 - col.a) / 10.0) + (col.rgb * col.a);
-			o.Alpha = col.a + 0.1;
-			o.Emission = col.rgb / 10;
+			o.Alpha = col.a;
+			o.Emission = col.rgb / 50;
 		}
 
 		ENDCG
