@@ -1,0 +1,15 @@
+.vs/
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Tt]est/
+ignoreAssets/
+Sounds/
+
+*.exe
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
