@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: .00999999978
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: .211999997, g: .226999998, b: .259000003, a: 1}
+  m_AmbientSkyColor: {r: .0941176489, g: .0941176489, b: .0941176489, a: 1}
   m_AmbientEquatorColor: {r: .114, g: .125, b: .133000001, a: 1}
   m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
-  m_AmbientIntensity: 0
-  m_AmbientMode: 0
+  m_AmbientIntensity: .75
+  m_AmbientMode: 3
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: .5
   m_FlareStrength: 1
@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -679,10 +677,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea877170dde029498cd08c5f13cd18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageNumber: -1
-  useMessage: 0
-  CallOnce: 0
-  sameTimeItem: {fileID: 0}
   useSounds: 
   _flag: 0
   _objectColor:
@@ -811,10 +805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea877170dde029498cd08c5f13cd18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageNumber: -1
-  useMessage: 0
-  CallOnce: 0
-  sameTimeItem: {fileID: 0}
   useSounds: 
   _flag: 0
   _objectColor:
@@ -1642,7 +1632,7 @@ Transform:
   - {fileID: 203328599}
   m_Father: {fileID: 532598367}
   m_RootOrder: 2
---- !u!4 &186380915
+--- !u!4 &186380915 stripped
 Transform:
   m_PrefabParentObject: {fileID: 410114, guid: 2f200b5100015934d927d0cc451e6b9b, type: 2}
   m_PrefabInternal: {fileID: 1885982840}
@@ -4759,7 +4749,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6e84e916dca36e4e93e8182435155cf, type: 3}
   m_IsPrefabParent: 0
---- !u!1 &368725879
+--- !u!1 &368725879 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100076, guid: d6e84e916dca36e4e93e8182435155cf, type: 3}
   m_PrefabInternal: {fileID: 368725878}
@@ -4774,10 +4764,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b10fd723bbf8704da84ace82ff40d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageNumber: 0
-  useMessage: 1
-  CallOnce: 1
-  sameTimeItem: {fileID: 0}
   useSounds: 
   _flag: 0
   _item: 5
@@ -4808,7 +4794,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: .269836545, z: .0953573138}
   m_Center: {x: 0, y: .20020771, z: -.00486755371}
---- !u!4 &368725883
+--- !u!4 &368725883 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400076, guid: d6e84e916dca36e4e93e8182435155cf, type: 3}
   m_PrefabInternal: {fileID: 368725878}
@@ -5004,22 +4990,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1340db291b039478963d4cd9456ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageNumber: -1
-  useMessage: 0
-  CallOnce: 0
-  sameTimeItem: {fileID: 0}
   useSounds: 
   _flag: 0
-  ScaffoldsPrefab: {fileID: 0}
   moveType: 1
   playOnAwake: 1
   controlPoints:
   - position: {x: -18.2000008, y: 14.8999996, z: 111.589996}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    scale: {x: 0, y: 0, z: 0}
     wait: 3
-    speed: 3
+    travelTime: 0
+    prevHandle: {x: 0, y: 0, z: 0}
+    nextHandle: {x: 0, y: 0, z: 0}
   - position: {x: -18.2000008, y: -3.37999964, z: 111.589996}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    scale: {x: 0, y: 0, z: 0}
     wait: 3
-    speed: 3
+    travelTime: 0
+    prevHandle: {x: 0, y: 0, z: 0}
+    nextHandle: {x: 0, y: 0, z: 0}
 --- !u!1 &382885299
 GameObject:
   m_ObjectHideFlags: 0
@@ -5091,10 +5080,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea877170dde029498cd08c5f13cd18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageNumber: -1
-  useMessage: 0
-  CallOnce: 0
-  sameTimeItem: {fileID: 0}
   useSounds: 
   _flag: 0
   _objectColor:
@@ -5519,10 +5504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea877170dde029498cd08c5f13cd18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageNumber: -1
-  useMessage: 0
-  CallOnce: 0
-  sameTimeItem: {fileID: 0}
   useSounds: 
   _flag: 0
   _objectColor:
@@ -5793,10 +5774,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71801ff45ccaf4b4d849cf3de8d1b128, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageNumber: -1
-  useMessage: 0
-  CallOnce: 0
-  sameTimeItem: {fileID: 0}
   useSounds: 
   _flag: 0
   _objectColor:
@@ -7923,13 +7900,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9bffb0427939a4cbf72e252c28f034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageNumber: -1
-  useMessage: 0
-  CallOnce: 0
-  sameTimeItem: {fileID: 0}
   useSounds: 
   _flag: 0
-  _isIrradiation: 1
+  lookTarget: {fileID: 0}
   playOnAwake: 1
 --- !u!1 &592954645
 GameObject:
@@ -8186,7 +8159,7 @@ Transform:
   - {fileID: 725300624}
   m_Father: {fileID: 2089699998}
   m_RootOrder: 0
---- !u!4 &634713308
+--- !u!4 &634713308 stripped
 Transform:
   m_PrefabParentObject: {fileID: 492630, guid: 73fe1141c0ff1fe4d98106ee5cd5abdf, type: 2}
   m_PrefabInternal: {fileID: 2019131308}
@@ -8438,22 +8411,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1340db291b039478963d4cd9456ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageNumber: -1
-  useMessage: 0
-  CallOnce: 0
-  sameTimeItem: {fileID: 0}
   useSounds: 
   _flag: 0
-  ScaffoldsPrefab: {fileID: 0}
   moveType: 1
   playOnAwake: 1
   controlPoints:
   - position: {x: -14.3000002, y: -3.14999962, z: 15.3300009}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    scale: {x: 0, y: 0, z: 0}
     wait: 3
-    speed: 5
+    travelTime: 0
+    prevHandle: {x: 0, y: 0, z: 0}
+    nextHandle: {x: 0, y: 0, z: 0}
   - position: {x: -14.3000002, y: -1.14999962, z: 28.5600014}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    scale: {x: 0, y: 0, z: 0}
     wait: 3
-    speed: 5
+    travelTime: 0
+    prevHandle: {x: 0, y: 0, z: 0}
+    nextHandle: {x: 0, y: 0, z: 0}
 --- !u!1 &705892039
 GameObject:
   m_ObjectHideFlags: 0
@@ -8558,10 +8534,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea877170dde029498cd08c5f13cd18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageNumber: -1
-  useMessage: 0
-  CallOnce: 0
-  sameTimeItem: {fileID: 0}
   useSounds: 
   _flag: 0
   _objectColor:
@@ -9817,7 +9789,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 946665870}
   m_Mesh: {fileID: 4300000, guid: 891bf23ec251ad242b5f42d77d64452f, type: 3}
---- !u!4 &947168616
+--- !u!4 &947168616 stripped
 Transform:
   m_PrefabParentObject: {fileID: 410114, guid: 2f200b5100015934d927d0cc451e6b9b, type: 2}
   m_PrefabInternal: {fileID: 977170062}
@@ -9863,7 +9835,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 528ba72969242014ab36e47d3f3cb670, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &950927269
+--- !u!4 &950927269 stripped
 Transform:
   m_PrefabParentObject: {fileID: 410114, guid: 2f200b5100015934d927d0cc451e6b9b, type: 2}
   m_PrefabInternal: {fileID: 1793256274}
@@ -10804,7 +10776,7 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!4 &1032254778
+--- !u!4 &1032254778 stripped
 Transform:
   m_PrefabParentObject: {fileID: 439922, guid: 29dbab0704b38b046a1685669d47359a, type: 2}
   m_PrefabInternal: {fileID: 1114820485}
@@ -11103,7 +11075,7 @@ Transform:
   - {fileID: 2108343814}
   m_Father: {fileID: 862388855}
   m_RootOrder: 0
---- !u!4 &1082499133
+--- !u!4 &1082499133 stripped
 Transform:
   m_PrefabParentObject: {fileID: 492630, guid: 73fe1141c0ff1fe4d98106ee5cd5abdf, type: 2}
   m_PrefabInternal: {fileID: 1860116464}
@@ -11150,13 +11122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9bffb0427939a4cbf72e252c28f034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageNumber: -1
-  useMessage: 0
-  CallOnce: 0
-  sameTimeItem: {fileID: 0}
   useSounds: 
   _flag: 0
-  _isIrradiation: 1
+  lookTarget: {fileID: 0}
   playOnAwake: 1
 --- !u!1 &1100198052
 GameObject:
@@ -14112,7 +14080,7 @@ Transform:
   - {fileID: 1100198053}
   m_Father: {fileID: 967843095}
   m_RootOrder: 0
---- !u!4 &1414023100
+--- !u!4 &1414023100 stripped
 Transform:
   m_PrefabParentObject: {fileID: 419378, guid: 528ba72969242014ab36e47d3f3cb670, type: 2}
   m_PrefabInternal: {fileID: 1824330418}
@@ -16683,7 +16651,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1651926203}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1659970011
+--- !u!1 &1659970011 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 134170, guid: e74ed81bed68ac74a967a6f05f4bfa8d, type: 2}
   m_PrefabInternal: {fileID: 1748651383}
@@ -17136,7 +17104,7 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!1 &1714667175
+--- !u!1 &1714667175 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 168382, guid: 3b0d11b254f7c2848a8e825339d130d8, type: 2}
   m_PrefabInternal: {fileID: 20345704}
@@ -17657,13 +17625,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9bffb0427939a4cbf72e252c28f034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageNumber: -1
-  useMessage: 0
-  CallOnce: 0
-  sameTimeItem: {fileID: 0}
   useSounds: 
   _flag: 0
-  _isIrradiation: 1
+  lookTarget: {fileID: 0}
   playOnAwake: 1
 --- !u!1 &1784030249
 GameObject:
@@ -18898,7 +18862,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 576a4123f875b744796522c3cc62b20b, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1947301699
+--- !u!4 &1947301699 stripped
 Transform:
   m_PrefabParentObject: {fileID: 439922, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
   m_PrefabInternal: {fileID: 1425064452}
@@ -19150,7 +19114,7 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!114 &2000041494
+--- !u!114 &2000041494 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11489126, guid: d48ead3436c29104c82536d93de3fb7d,
     type: 2}
@@ -19511,22 +19475,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1340db291b039478963d4cd9456ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageNumber: -1
-  useMessage: 0
-  CallOnce: 0
-  sameTimeItem: {fileID: 0}
   useSounds: 
   _flag: 0
-  ScaffoldsPrefab: {fileID: 0}
   moveType: 1
   playOnAwake: 1
   controlPoints:
   - position: {x: -14.3000002, y: -.429999352, z: 40.8600006}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    scale: {x: 0, y: 0, z: 0}
     wait: 3
-    speed: 5
+    travelTime: 0
+    prevHandle: {x: 0, y: 0, z: 0}
+    nextHandle: {x: 0, y: 0, z: 0}
   - position: {x: -14.3000002, y: -3.75999928, z: 52.7000008}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    scale: {x: 0, y: 0, z: 0}
     wait: 3
-    speed: 5
+    travelTime: 0
+    prevHandle: {x: 0, y: 0, z: 0}
+    nextHandle: {x: 0, y: 0, z: 0}
 --- !u!1 &2044134733
 GameObject:
   m_ObjectHideFlags: 0
@@ -19589,7 +19556,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2044134733}
   m_Mesh: {fileID: 4300008, guid: c84ec27c862230147859b8c05a82202c, type: 3}
---- !u!4 &2054991926
+--- !u!4 &2054991926 stripped
 Transform:
   m_PrefabParentObject: {fileID: 419378, guid: 528ba72969242014ab36e47d3f3cb670, type: 2}
   m_PrefabInternal: {fileID: 950300390}
@@ -20092,13 +20059,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9bffb0427939a4cbf72e252c28f034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageNumber: -1
-  useMessage: 0
-  CallOnce: 0
-  sameTimeItem: {fileID: 0}
   useSounds: 
   _flag: 0
-  _isIrradiation: 1
+  lookTarget: {fileID: 0}
   playOnAwake: 1
 --- !u!1 &2131906844
 GameObject:
