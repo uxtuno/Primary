@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -244,7 +242,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3434979b75f1ca8408f4ddf67eeafd8b, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &915912927
+--- !u!4 &915912927 stripped
 Transform:
   m_PrefabParentObject: {fileID: 439922, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
   m_PrefabInternal: {fileID: 1071053383}
@@ -290,6 +288,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3b0d11b254f7c2848a8e825339d130d8, type: 2}
   m_IsPrefabParent: 0
+--- !u!108 &1039144314 stripped
+Light:
+  m_PrefabParentObject: {fileID: 10898704, guid: 576a4123f875b744796522c3cc62b20b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2032119291}
 --- !u!1001 &1071053383
 Prefab:
   m_ObjectHideFlags: 0
@@ -455,6 +458,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2382414, guid: 576a4123f875b744796522c3cc62b20b, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d3aadcc76dc260468c22d2c68d9869a, type: 2}
+    - target: {fileID: 11404378, guid: 576a4123f875b744796522c3cc62b20b, type: 2}
+      propertyPath: rayGunLight
+      value: 
+      objectReference: {fileID: 1039144314}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 576a4123f875b744796522c3cc62b20b, type: 2}
   m_IsPrefabParent: 0

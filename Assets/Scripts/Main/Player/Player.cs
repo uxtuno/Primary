@@ -107,7 +107,7 @@ public class Player : MyMonoBehaviour
 	private float rotateSpeed = 1.5f;   // 視点回転の速度
 	private float facingUpLimit = 60.0f; // 視点移動の上方向制限
 	private float facingDownLimit = 70.0f;  // 視点移動の下方向制限
-	//private Vector3 defaultCameraDirection = Vector3.zero;	 // 開始時の視点方向
+											//private Vector3 defaultCameraDirection = Vector3.zero;	 // 開始時の視点方向
 
 	private static readonly int itemPossessionMax = 10;
 	private List<Items> items = new List<Items>(itemPossessionMax); // プレイヤーのアイテムリスト
@@ -129,6 +129,15 @@ public class Player : MyMonoBehaviour
 	private GameObject rayGunIconPrefab = null; // 現在のレイガンの色を表すアイコン
 	private MovableObjectController[] rayGunIconControllers = null; // 現在のレイガンの色を表すアイコンを制御する
 	private int rollCount = 0; // レイガンの色アイコンを回転させる回数
+
+	[SerializeField, Tooltip("レイガンのコア(マテリアルを変更する部分)")]
+	private GameObject rayGunCoreCylinder = null;
+	[SerializeField, Tooltip("レイガンのコアを照らすライト")]
+	private Light rayGunLight = null;
+	// レイガンのコアに使用するマテリアル
+	private Material rayGunCoreRedMaterial;
+	private Material rayGunCoreGreenMaterial;
+	private Material rayGunCoreBlueMaterial;
 
 	protected override void Awake()
 	{
@@ -158,12 +167,23 @@ public class Player : MyMonoBehaviour
 			rayGunIconControllers = (Instantiate(rayGunIconPrefab) as GameObject).GetComponentsInChildren<MovableObjectController>();
 		}
 
+		rayGunCoreRedMaterial = Resources.Load<Material>("3DModels/Materials/RayGunCoreRed");
+		rayGunCoreGreenMaterial = Resources.Load<Material>("3DModels/Materials/RayGunCoreGreen");
+		rayGunCoreBlueMaterial = Resources.Load<Material>("3DModels/Materials/RayGunCoreBlue");
+		if (!rayGunCoreRedMaterial)
+			Debug.Log("rayGunCoreRedMaterialがnullです");
+		if (!rayGunCoreGreenMaterial)
+			Debug.Log("rayGunCoreGreenMaterialがnullです");
+		if (!rayGunCoreBlueMaterial)
+			Debug.Log("rrayGunCoreBlueMaterialがnullです");
+
 		Cursor.visible = false;
 	}
 
 	void Start()
 	{
 		cameraTransform = Camera.main.transform;
+		ApplyRayGunCoreMaterial();
 		//defaultCameraDirection = cameraTransform.forward;
 	}
 
@@ -220,10 +240,10 @@ public class Player : MyMonoBehaviour
 			StopLaser();
 		}
 
-		bool isLaserCange = false;
+		bool isLaserChange = false;
 		if (Input.GetMouseButton(0) && Input.GetMouseButtonDown(1))
 		{
-			isLaserCange = true;
+			isLaserChange = true;
 		}
 
 		if (Input.GetMouseButtonDown(1) && !isRightClick)
@@ -232,7 +252,7 @@ public class Player : MyMonoBehaviour
 		}
 		else if (Input.GetMouseButtonDown(1) && isRightClick)
 		{
-			isLaserCange = true;
+			isLaserChange = true;
 			isRightClick = false;
 			rightClickWindowTimeCount = 0.0f;
 		}
@@ -249,10 +269,10 @@ public class Player : MyMonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.Q) && lasers[currentLaserIndex].isPossible)
 		{
-			isLaserCange = true;
+			isLaserChange = true;
 		}
 
-		if (isLaserCange)
+		if (isLaserChange)
 		{
 			ChangeLaser();
 
@@ -436,7 +456,31 @@ public class Player : MyMonoBehaviour
 		if (isLaserChanged)
 		{
 			currentLaserIndex = laserIndex;
+			ApplyRayGunCoreMaterial();
+
 			SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[SoundCollector.SoundName.LensReplacement]);
+		}
+	}
+
+	/// <summary>
+	/// レイガンのコアの描画設定を現在のレーザーの状態に合わせる
+	/// </summary>
+	private void ApplyRayGunCoreMaterial()
+	{
+		rayGunLight.color = ObjectColor.GetColor(lasers[currentLaserIndex].color);
+		switch (lasers[currentLaserIndex].color)
+		{
+			case ColorState.RED:
+				rayGunCoreCylinder.GetComponent<MeshRenderer>().material = rayGunCoreRedMaterial;
+				break;
+
+			case ColorState.GREEN:
+				rayGunCoreCylinder.GetComponent<MeshRenderer>().material = rayGunCoreGreenMaterial;
+				break;
+
+			case ColorState.BLUE:
+				rayGunCoreCylinder.GetComponent<MeshRenderer>().material = rayGunCoreBlueMaterial;
+				break;
 		}
 	}
 

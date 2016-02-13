@@ -951,7 +951,7 @@ GameObject:
   - 33: {fileID: 3395922}
   - 23: {fileID: 2382414}
   m_Layer: 0
-  m_Name: pCylinder5
+  m_Name: ColorCylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3633,8 +3633,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101344}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: .70710659, z: 0, w: -.707106948}
+  m_LocalPosition: {x: 4, y: 2.5, z: .35800001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 408598}
@@ -4626,10 +4626,12 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!20 &2095502
 Camera:
   m_ObjectHideFlags: 1
@@ -4658,10 +4660,12 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!23 &2301160
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -7554,6 +7558,7 @@ MonoBehaviour:
   examine: {fileID: 11458278}
   raygun: {fileID: 130488}
   rayGunIconPrefab: {fileID: 111260, guid: bc974ad430d4287469d76a8ed4b8753c, type: 2}
+  rayGunCoreCylinder: {fileID: 134520}
 --- !u!114 &11411274
 MonoBehaviour:
   m_ObjectHideFlags: 1
