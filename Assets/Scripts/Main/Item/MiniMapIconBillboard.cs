@@ -23,9 +23,8 @@ public class MiniMapIconBillboard : MonoBehaviour {
 
 	void LateUpdate()
 	{
-		transform.forward = targetCamera.transform.forward;
 		Vector3 angles = transform.eulerAngles;
-		angles.y = targetCamera.transform.eulerAngles.y;
+		angles.y = targetCamera.transform.eulerAngles.y + 180.0f;
 		transform.eulerAngles = angles;
     }
 }
