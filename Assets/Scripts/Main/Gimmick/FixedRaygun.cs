@@ -93,6 +93,10 @@ public class FixedRaygun : Gimmick, ISwitchEvent
 	public void Switch()
 	{
 		isIrradiation = !isIrradiation;
-		ShowPickIcon();
+		// オンになった時のみアイコンを出す
+		if(isIrradiation)
+		{
+			ShowPickIcon();
+		}
 	}
 }
