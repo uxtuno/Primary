@@ -73,6 +73,7 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 	private bool playOnAwake = true; // 開始時に動いているかどうか
 	[SerializeField]
 	private ControlPoint[] controlPoints = null; // 制御点
+
 	#endregion
 
 	private Transform scaffoldsTransform;   // 足場
@@ -362,7 +363,7 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 		switchState = !switchState;
 		MovableObject.Switch();
 
-		ShowPickIcon(transform.TransformPoint(controlPoints[0].position));
+		ShowPickIcon(transform.TransformPoint(controlPoints[0].position), scaffoldsTransform);
 	}
 
 	public void Action()
