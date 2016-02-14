@@ -6315,7 +6315,7 @@ MeshRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2df247badd77a58468b93b298db74fc0, type: 2}
+  - {fileID: 2100000, guid: 1d3aadcc76dc260468c22d2c68d9869a, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -7559,6 +7559,7 @@ MonoBehaviour:
   raygun: {fileID: 130488}
   rayGunIconPrefab: {fileID: 111260, guid: bc974ad430d4287469d76a8ed4b8753c, type: 2}
   rayGunCoreCylinder: {fileID: 134520}
+  rayGunLight: {fileID: 10898704}
 --- !u!114 &11411274
 MonoBehaviour:
   m_ObjectHideFlags: 1

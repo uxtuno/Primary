@@ -361,6 +361,8 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 	{
 		switchState = !switchState;
 		MovableObject.Switch();
+
+		ShowPickIcon(transform.TransformPoint(controlPoints[0].position));
 	}
 
 	public void Action()

@@ -31,7 +31,6 @@ public class Switch : Gimmick
 		}
 	}
 
-
     void Start()
     {
         int index = 0;
@@ -122,4 +121,6 @@ public class Switch : Gimmick
             target.Switch();
         }
 	}
+
+
 }
