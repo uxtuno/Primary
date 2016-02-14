@@ -102,7 +102,7 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 
 	private static readonly float defaultWait = 3.0f;   // デフォルトの停止時間
 	private static readonly float defaultSpeed = 3.0f;  // デフォルトの速度
-	//private float elapsedTime = 0.0f; // 現在の制御点から次の制御点へ移動する際の経過時間(0~1)
+														//private float elapsedTime = 0.0f; // 現在の制御点から次の制御点へ移動する際の経過時間(0~1)
 
 	private bool _switchState = false; // switchStateのバッキングフィールド
 

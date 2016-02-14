@@ -4,7 +4,7 @@ using System.Collections;
 /// <summary>
 /// オブジェクトを一定時間点滅後、破棄する
 /// </summary>
-public class Flashing : MyMonoBehaviour
+public class PickIconFlashing : MyMonoBehaviour
 {
 	[SerializeField, Tooltip("生存時間")]
 	private float lifeSeconds = 0.0f;
@@ -16,7 +16,9 @@ public class Flashing : MyMonoBehaviour
 		float count = 0.0f;
 		while (count < lifeSeconds)
 		{
-			yield return new WaitForSeconds(flashingIntervalSeconds);
+			yield return new WaitForSeconds(flashingIntervalSeconds * 0.64f);
+			IsShow = !IsShow;
+			yield return new WaitForSeconds(flashingIntervalSeconds * 0.36f);
 			IsShow = !IsShow;
 			count += flashingIntervalSeconds;
 		}
