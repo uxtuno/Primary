@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: .00999999978
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: .211999997, g: .226999998, b: .259000003, a: 1}
+  m_AmbientSkyColor: {r: .0941176489, g: .0941176489, b: .0941176489, a: 1}
   m_AmbientEquatorColor: {r: .114, g: .125, b: .133000001, a: 1}
   m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
-  m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientIntensity: .75
+  m_AmbientMode: 3
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: .5
   m_FlareStrength: 1
@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -87,18 +85,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &128314290
-Transform:
-  m_PrefabParentObject: {fileID: 492626, guid: 80125cf382884a7458b880d6b844b641, type: 2}
-  m_PrefabInternal: {fileID: 1127198097}
---- !u!1 &200594705
-GameObject:
-  m_PrefabParentObject: {fileID: 146172, guid: 80125cf382884a7458b880d6b844b641, type: 2}
-  m_PrefabInternal: {fileID: 2019440791}
---- !u!4 &200594706
-Transform:
-  m_PrefabParentObject: {fileID: 492626, guid: 80125cf382884a7458b880d6b844b641, type: 2}
-  m_PrefabInternal: {fileID: 2019440791}
 --- !u!1001 &227044341
 Prefab:
   m_ObjectHideFlags: 0
@@ -260,10 +246,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80125cf382884a7458b880d6b844b641, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &568587759
+--- !u!4 &556510856 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 492626, guid: 80125cf382884a7458b880d6b844b641, type: 2}
-  m_PrefabInternal: {fileID: 969826023}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 556510855}
 --- !u!1001 &969826023
 Prefab:
   m_ObjectHideFlags: 0
@@ -310,6 +296,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80125cf382884a7458b880d6b844b641, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &969826024 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 969826023}
 --- !u!1 &970497521
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,8 +326,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 128314290}
-  - {fileID: 1160145529}
+  - {fileID: 1127198098}
+  - {fileID: 556510856}
   m_Father: {fileID: 0}
   m_RootOrder: 5
 --- !u!114 &970497523
@@ -351,23 +341,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1340db291b039478963d4cd9456ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageNumber: -1
-  useMessage: 0
-  CallOnce: 0
-  sameTimeItem: {fileID: 0}
   useSounds: 
   _flag: 0
-  _isNotifyController: 0
-  ScaffoldsPrefab: {fileID: 1393362837}
-  playOnAwake: 1
   moveType: 1
+  playOnAwake: 1
   controlPoints:
   - position: {x: 0, y: 10, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    scale: {x: 0, y: 0, z: 0}
     wait: 3
-    speed: 3
+    travelTime: 0
+    prevHandle: {x: 0, y: 0, z: 0}
+    nextHandle: {x: 0, y: 0, z: 0}
   - position: {x: 0, y: 1, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    scale: {x: 0, y: 0, z: 0}
     wait: 3
-    speed: 3
+    travelTime: 0
+    prevHandle: {x: 0, y: 0, z: 0}
+    nextHandle: {x: 0, y: 0, z: 0}
 --- !u!1001 &1112656486
 Prefab:
   m_ObjectHideFlags: 0
@@ -452,13 +444,9 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80125cf382884a7458b880d6b844b641, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &1160145529
+--- !u!4 &1127198098 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 492626, guid: 80125cf382884a7458b880d6b844b641, type: 2}
-  m_PrefabInternal: {fileID: 556510855}
---- !u!1 &1393362837
-GameObject:
-  m_PrefabParentObject: {fileID: 146172, guid: 80125cf382884a7458b880d6b844b641, type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 1127198097}
 --- !u!1 &1408933956
 GameObject:
@@ -533,7 +521,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!1 &1476521942
+--- !u!1 &1476521942 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 168382, guid: 3b0d11b254f7c2848a8e825339d130d8, type: 2}
   m_PrefabInternal: {fileID: 227044341}
@@ -686,8 +674,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 9, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 568587759}
-  - {fileID: 200594706}
+  - {fileID: 969826024}
+  - {fileID: 2019440792}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!114 &1871116827
@@ -701,23 +689,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1340db291b039478963d4cd9456ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messageNumber: -1
-  useMessage: 0
-  CallOnce: 0
-  sameTimeItem: {fileID: 0}
   useSounds: 
   _flag: 0
-  _isNotifyController: 0
-  ScaffoldsPrefab: {fileID: 200594705}
-  playOnAwake: 1
   moveType: 1
+  playOnAwake: 1
   controlPoints:
   - position: {x: 0, y: 10, z: 2}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    scale: {x: 0, y: 0, z: 0}
     wait: 3
-    speed: 3
+    travelTime: 0
+    prevHandle: {x: 0, y: 0, z: 0}
+    nextHandle: {x: 0, y: 0, z: 0}
   - position: {x: 0, y: 19, z: 2}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+    scale: {x: 0, y: 0, z: 0}
     wait: 3
-    speed: 3
+    travelTime: 0
+    prevHandle: {x: 0, y: 0, z: 0}
+    nextHandle: {x: 0, y: 0, z: 0}
 --- !u!1001 &1871310453
 Prefab:
   m_ObjectHideFlags: 0
@@ -827,3 +817,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 80125cf382884a7458b880d6b844b641, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &2019440792 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 2019440791}
