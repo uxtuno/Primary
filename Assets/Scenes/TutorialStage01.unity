@@ -20,10 +20,10 @@ RenderSettings:
   m_FogDensity: .00999999978
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: .211999997, g: .226999998, b: .259000003, a: 1}
+  m_AmbientSkyColor: {r: .0941176489, g: .0941176489, b: .0941176489, a: 1}
   m_AmbientEquatorColor: {r: .114, g: .125, b: .133000001, a: 1}
   m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
-  m_AmbientIntensity: .218999997
+  m_AmbientIntensity: .75
   m_AmbientMode: 3
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: .5
@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: .25
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -313,7 +311,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 24818071}
   m_Mesh: {fileID: 4300140, guid: a890c4c841545f74baa880e0af6cf461, type: 3}
---- !u!1 &30062817
+--- !u!1 &30062817 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 177372, guid: ac174f14725f5244e914a55be3485c69, type: 2}
   m_PrefabInternal: {fileID: 1990630932}
@@ -1734,7 +1732,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 150671115}
   m_Mesh: {fileID: 4300110, guid: a890c4c841545f74baa880e0af6cf461, type: 3}
---- !u!1 &156789067
+--- !u!1 &156789067 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 168382, guid: 3b0d11b254f7c2848a8e825339d130d8, type: 2}
   m_PrefabInternal: {fileID: 509118215}
@@ -7002,11 +7000,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 766698103}
   m_Mesh: {fileID: 4300074, guid: 61e81fc0ed94fae4cb4bc0413ebe9dd4, type: 3}
---- !u!1 &777816976
+--- !u!1 &777816976 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 179232, guid: f8a9909a0c5d76842986d1519f53367c, type: 2}
   m_PrefabInternal: {fileID: 1645966543}
---- !u!4 &777816977
+--- !u!4 &777816977 stripped
 Transform:
   m_PrefabParentObject: {fileID: 435792, guid: f8a9909a0c5d76842986d1519f53367c, type: 2}
   m_PrefabInternal: {fileID: 1645966543}
@@ -10705,11 +10703,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1340634613}
   m_Mesh: {fileID: 4300232, guid: a890c4c841545f74baa880e0af6cf461, type: 3}
---- !u!4 &1349600327
+--- !u!4 &1349600327 stripped
 Transform:
   m_PrefabParentObject: {fileID: 444654, guid: afb2adcab02d0b243a6e3259bc4bfe84, type: 2}
   m_PrefabInternal: {fileID: 1854234595}
---- !u!114 &1349600329
+--- !u!114 &1349600329 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11472188, guid: afb2adcab02d0b243a6e3259bc4bfe84,
     type: 2}
@@ -13139,7 +13137,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e106a352aa0613f44ad5c13b810d8872, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1671965997
+--- !u!1 &1671965997 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 144136, guid: ac174f14725f5244e914a55be3485c69, type: 2}
   m_PrefabInternal: {fileID: 1990630932}
@@ -14182,7 +14180,7 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300026, guid: 61e81fc0ed94fae4cb4bc0413ebe9dd4, type: 3}
---- !u!1 &1799493256
+--- !u!1 &1799493256 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 134170, guid: e74ed81bed68ac74a967a6f05f4bfa8d, type: 2}
   m_PrefabInternal: {fileID: 519314298}
@@ -15207,7 +15205,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1901671280}
   m_Mesh: {fileID: 4300026, guid: a890c4c841545f74baa880e0af6cf461, type: 3}
---- !u!4 &1906717488
+--- !u!4 &1906717488 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: edc07615b977f214f9cbe3f9b608ef8b, type: 3}
   m_PrefabInternal: {fileID: 595250342}

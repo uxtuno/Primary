@@ -62,7 +62,7 @@ public class Pauser : MonoBehaviour
 	/// </summary>
 	void OnPause()
 	{
-		if (pauseBehaviours.Count > 0)
+		if (pauseBehaviours != null || pauseBehaviours.Count > 0)
 		{
 			return;
 		}
