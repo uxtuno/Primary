@@ -13,6 +13,8 @@ public class Player : MyMonoBehaviour
 	private Animator anim = null;
 	[SerializeField]
 	private float speed = 3.0f; // 移動速度
+	[SerializeField]
+	private float dashSpeed = 6.0f; // ダッシュ時の速度
 	private int hashSpeed;
 	private CharacterController characterController = null;
 	private EraseLaser eraseLaser = null;
@@ -409,10 +411,16 @@ public class Player : MyMonoBehaviour
 		}
 
 		moveVec.y += jumpVY;
+		float moveSpeed = speed;
+		if (Input.GetKey(KeyCode.LeftShift) ||
+			Input.GetKey(KeyCode.RightShift))
+		{
+			moveSpeed = dashSpeed;
+		}
 
 		if (moveVec != Vector3.zero)
 		{
-			characterController.Move(moveVec * speed * Time.deltaTime);
+			characterController.Move(moveVec * moveSpeed * Time.deltaTime);
 		}
 	}
 
