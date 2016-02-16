@@ -6,7 +6,7 @@ using System;
 /// フィールドに固定されているレイガン
 /// </summary>
 [ExecuteInEditMode]
-public class FixedRaygun : EventObject, ISwitchEvent
+public class FixedRaygun : Gimmick, ISwitchEvent
 {
 	[SerializeField]
 	private GameObject lookTarget = null; // 向きたいターゲット。実行時は無効
@@ -93,5 +93,10 @@ public class FixedRaygun : EventObject, ISwitchEvent
 	public void Switch()
 	{
 		isIrradiation = !isIrradiation;
+		// オンになった時のみアイコンを出す
+		if(isIrradiation)
+		{
+			ShowPickIcon();
+		}
 	}
 }

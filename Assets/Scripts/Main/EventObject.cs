@@ -29,7 +29,7 @@ public interface ICheckEvent
 public interface ISwitchEvent
 {
     void Switch();
-    bool switchState
+	bool switchState
     {
         get;
     }
