@@ -557,6 +557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -808,7 +809,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &407092322
 Light:
   m_ObjectHideFlags: 0
@@ -1111,6 +1112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   targets: []
 --- !u!1001 &524486218
 Prefab:
@@ -1489,6 +1491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -1797,6 +1800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 1
     _alpha: 1
@@ -1865,6 +1869,14 @@ Prefab:
       propertyPath: keyItem
       value: 
       objectReference: {fileID: 2094113307}
+    - target: {fileID: 13567602, guid: ac174f14725f5244e914a55be3485c69, type: 2}
+      propertyPath: m_Radius
+      value: 1.66999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 13567602, guid: ac174f14725f5244e914a55be3485c69, type: 2}
+      propertyPath: m_Center.y
+      value: .629999995
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac174f14725f5244e914a55be3485c69, type: 2}
   m_IsPrefabParent: 0
@@ -1915,6 +1927,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -1980,6 +1993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -2613,6 +2627,10 @@ Prefab:
     - target: {fileID: 138260, guid: afb2adcab02d0b243a6e3259bc4bfe84, type: 2}
       propertyPath: m_Name
       value: CardKey
+      objectReference: {fileID: 0}
+    - target: {fileID: 13550710, guid: afb2adcab02d0b243a6e3259bc4bfe84, type: 2}
+      propertyPath: m_Radius
+      value: .800000012
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 13504200, guid: afb2adcab02d0b243a6e3259bc4bfe84, type: 2}
