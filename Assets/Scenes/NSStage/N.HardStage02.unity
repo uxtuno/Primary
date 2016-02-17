@@ -1332,10 +1332,6 @@ Prefab:
     - {fileID: 11480344, guid: 2f200b5100015934d927d0cc451e6b9b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 2f200b5100015934d927d0cc451e6b9b, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &47822217 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 136166, guid: 67b63ff97000aa34f98de06527575d6b, type: 2}
-  m_PrefabInternal: {fileID: 1899371421}
 --- !u!4 &47822218 stripped
 Transform:
   m_PrefabParentObject: {fileID: 470040, guid: 67b63ff97000aa34f98de06527575d6b, type: 2}
@@ -7234,7 +7230,7 @@ Prefab:
     - target: {fileID: 11403370, guid: 67b63ff97000aa34f98de06527575d6b, type: 2}
       propertyPath: destinationObject
       value: 
-      objectReference: {fileID: 47822217}
+      objectReference: {fileID: 164251462}
     - target: {fileID: 136166, guid: 67b63ff97000aa34f98de06527575d6b, type: 2}
       propertyPath: m_Name
       value: WarpZone 1
@@ -9668,6 +9664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 1
   controlPoints:
@@ -14021,6 +14018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 7
     _alpha: 1
@@ -14074,6 +14072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 1
   controlPoints:
@@ -17146,6 +17145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 4
     _alpha: 1
