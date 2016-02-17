@@ -7,7 +7,7 @@ using System.Collections;
 public class Counter
 {
 	private readonly float targetTime_s; // 目標時間
-	private float count; // 目標時間までをカウント
+	private int count; // 目標時間までをカウント
 
 	public Counter(float targetTime_s)
 	{
@@ -16,24 +16,7 @@ public class Counter
 
 	public bool isCounting
 	{
-		get { return Mathf.Abs(count) >= float.Epsilon; }
-	}
-
-	/// <summary>
-	/// StartCoroutineで呼び出すことでカウント開始
-	/// </summary>
-	/// <param name="targetTime_s">カウント時間</param>
-	/// <returns></returns>
-	public IEnumerator StartCounter(float targetTime_s)
-	{
-		count = 0.0f;
-		while(count < targetTime_s)
-		{
-			count += Time.deltaTime;
-			yield return null;
-		}
-
-		count = 0.0f;
+		get { return count > 0; }
 	}
 
 	/// <summary>
@@ -42,13 +25,20 @@ public class Counter
 	/// <returns></returns>
 	public IEnumerator StartCounter()
 	{
-		count = 0.0f;
-		while (count < targetTime_s)
-		{
-			count += Time.deltaTime;
-			yield return null;
-		}
+		count = 0;
 
-		count = 0.0f;
+		AddCount();
+		while (count * 0.001f < targetTime_s)
+		{
+			yield return new WaitForFixedUpdate();
+			AddCount();
+		}
+		count = 0;
+	}
+
+	private void AddCount()
+	{
+		// 浮動小数点の誤差軽減のためintに変換して計算
+		count += (int)(Time.deltaTime * 1000 + 0.5f);
 	}
 }

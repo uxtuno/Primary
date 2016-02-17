@@ -60,13 +60,14 @@ public class MenuManager : MyMonoBehaviour
 	/// <returns></returns>
 	bool OnPrimaryMenuSelected(string itemName)
 	{
+		Debug.Log(itemName);
 		switch (itemName)
 		{
 			case "NewGame":
 				SceneChangeSingleton.instance.LoadLevel(Scenes.TutorialStage01.name);
 				break;
 
-			case "SelectStage":
+			case "StageSelect":
 				secondaryMenu = Instantiate(secondaryMenuPrefab).GetComponent<MenuParentScript>();
 				if (secondaryMenu != null)
 				{

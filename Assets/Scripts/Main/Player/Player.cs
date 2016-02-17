@@ -432,7 +432,7 @@ public class Player : MyMonoBehaviour
 			currentLaserIndex = laserIndex;
 			ApplyRayGunCoreMaterial();
 
-			StartCoroutine(laserChangeCount.StartCounter(0.2f));
+			StartCoroutine(laserChangeCount.StartCounter());
 
 			SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[SoundCollector.SoundName.LensReplacement]);
 		}
@@ -556,5 +556,10 @@ public class Player : MyMonoBehaviour
 	public void ShowMiniMap(bool flag)
 	{
 		GameObject.FindGameObjectWithTag(Tags.MiniMapCamera).GetComponent<Camera>().enabled = flag;
+	}
+
+	private void DebugBeep()
+	{
+		SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[SoundCollector.SoundName.Jump]);
 	}
 }
