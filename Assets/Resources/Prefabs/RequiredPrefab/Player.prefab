@@ -7551,13 +7551,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 152408, guid: 98c93c3abda6ea44f8557fd22a88e817, type: 2}
   speed: 4
+  dashSpeed: 6
   isRedLaser: 1
   isGreenLaser: 1
   isBlueLaser: 1
   redLightPrefab: {fileID: 105064, guid: 14447b7330c54c64490b2cf6351590c1, type: 2}
   examine: {fileID: 11458278}
   raygun: {fileID: 130488}
-  rayGunIconPrefab: {fileID: 111260, guid: bc974ad430d4287469d76a8ed4b8753c, type: 2}
+  rayGunIconPrefab: {fileID: 0}
   rayGunCoreCylinder: {fileID: 134520}
   rayGunLight: {fileID: 10898704}
 --- !u!114 &11411274
