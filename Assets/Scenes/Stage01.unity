@@ -809,7 +809,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &407092322
 Light:
   m_ObjectHideFlags: 0
@@ -820,7 +820,7 @@ Light:
   serializedVersion: 6
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -838,7 +838,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Lightmapping: 4
-  m_BounceIntensity: 1
+  m_BounceIntensity: .449999988
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
@@ -1875,7 +1875,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 13567602, guid: ac174f14725f5244e914a55be3485c69, type: 2}
       propertyPath: m_Center.y
-      value: .629999995
+      value: 1.27999997
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac174f14725f5244e914a55be3485c69, type: 2}
@@ -2598,11 +2598,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 444654, guid: afb2adcab02d0b243a6e3259bc4bfe84, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.72000027
+      value: 2.01999998
       objectReference: {fileID: 0}
     - target: {fileID: 444654, guid: afb2adcab02d0b243a6e3259bc4bfe84, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -11.4900007
+      value: -13.8999996
       objectReference: {fileID: 0}
     - target: {fileID: 444654, guid: afb2adcab02d0b243a6e3259bc4bfe84, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2630,7 +2630,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 13550710, guid: afb2adcab02d0b243a6e3259bc4bfe84, type: 2}
       propertyPath: m_Radius
-      value: .800000012
+      value: .460000008
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 13504200, guid: afb2adcab02d0b243a6e3259bc4bfe84, type: 2}

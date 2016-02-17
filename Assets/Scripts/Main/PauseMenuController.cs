@@ -43,17 +43,11 @@ public class PauseMenuController : MyMonoBehaviour
 	protected override void Awake()
 	{
 		base.Awake();
-		isInitialized = false;
 		OnLevelWasLoaded(Application.loadedLevel);
 	}
 
 	private void Initialize()
 	{
-		if (Application.loadedLevelName == Scenes.Menu.name || !player.ContainsItem(Items.Tablet) || AdvancedWriteMessageSingleton.instance.isWrite)
-		{
-			return;
-		}
-
 		canvas = GameObject.Find("Canvas");
 		isPause = false;
 		pauseState = PauseState.None;
@@ -72,7 +66,12 @@ public class PauseMenuController : MyMonoBehaviour
 
 	protected override void Update()
 	{
-		if (Application.loadedLevelName == Scenes.Menu.name || !player.ContainsItem(Items.Tablet) || AdvancedWriteMessageSingleton.instance.isWrite)
+		if (Application.loadedLevelName == Scenes.Menu.name || AdvancedWriteMessageSingleton.instance.isWrite)
+		{
+			return;
+		}
+
+		if(!player.ContainsItem(Items.Tablet))
 		{
 			return;
 		}
@@ -226,7 +225,12 @@ public class PauseMenuController : MyMonoBehaviour
 	void OnLevelWasLoaded(int level)
 	{
 		Pauser.SceneChangeInitialize();
-		if (Application.loadedLevelName == Scenes.Menu.name || !player.ContainsItem(Items.Tablet) || AdvancedWriteMessageSingleton.instance.isWrite)
+		isInitialized = false;
+		if (Application.loadedLevelName == Scenes.Menu.name || AdvancedWriteMessageSingleton.instance.isWrite)
+		{
+			return;
+		}
+		if(!player.ContainsItem(Items.Tablet))
 		{
 			return;
 		}
