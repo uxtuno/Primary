@@ -62,10 +62,11 @@ public class Pauser : MonoBehaviour
 	/// </summary>
 	void OnPause()
 	{
-		if (pauseBehaviours != null || pauseBehaviours.Count > 0)
+		if (pauseBehaviours == null || pauseBehaviours.Count > 0)
 		{
 			return;
 		}
+
 		// 有効なBehaviourをポーズさせる
 		pauseBehaviours.AddRange(Array.FindAll(GetComponentsInChildren<Behaviour>(), (obj) => { return obj.enabled; }));
 		foreach (Behaviour behaviour in pauseBehaviours)
