@@ -6316,6 +6316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 2
     _alpha: 1
@@ -6563,6 +6564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 2
     _alpha: 1
@@ -8212,6 +8214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 2
     _alpha: 1
@@ -8312,6 +8315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 1
   playOnAwake: 1
   controlPoints:
@@ -8525,6 +8529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 7
     _alpha: 1
@@ -10118,6 +10123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 1
   playOnAwake: 1
   controlPoints:
@@ -13338,6 +13344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 2
     _alpha: 1
@@ -19293,6 +19300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 2
     _alpha: 1
@@ -22178,6 +22186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 1
   playOnAwake: 1
   controlPoints:
@@ -22301,6 +22310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 1
   playOnAwake: 1
   controlPoints:
@@ -22707,6 +22717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   warpEffectPrefab: {fileID: 181176, guid: 7ba00cf3d5c6d2247880db912a0019bc, type: 2}
   destinationObject: {fileID: 918302579}
 --- !u!1 &815357351
@@ -23043,6 +23054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 1
     _alpha: 1
@@ -24720,6 +24732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 1
     _alpha: 1
@@ -25909,6 +25922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 1
     _alpha: 1
@@ -28757,6 +28771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 7
     _alpha: 1
@@ -32379,6 +32394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 1
   playOnAwake: 1
   controlPoints:
@@ -35817,6 +35833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 7
     _alpha: 1
@@ -43251,6 +43268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 1
     _alpha: 1
@@ -47390,6 +47408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 1
     _alpha: 1
@@ -52950,6 +52969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 1
   playOnAwake: 1
   controlPoints:
@@ -58160,6 +58180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 1
   playOnAwake: 1
   controlPoints:
@@ -60970,6 +60991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 7
     _alpha: 1
@@ -61071,6 +61093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 7
     _alpha: 1
