@@ -1130,6 +1130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -2074,6 +2075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 1
   playOnAwake: 1
   controlPoints:
@@ -2750,6 +2752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -4392,6 +4395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 2
     _alpha: 1
@@ -7977,6 +7981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 1
     _alpha: 1
@@ -9118,6 +9123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 1
   playOnAwake: 1
   controlPoints:
@@ -9970,6 +9976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 1
   playOnAwake: 1
   controlPoints:
@@ -15669,6 +15676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 1
   playOnAwake: 1
   controlPoints:
@@ -16770,6 +16778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 1
     _alpha: 1
@@ -16945,6 +16954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -17127,6 +17137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:

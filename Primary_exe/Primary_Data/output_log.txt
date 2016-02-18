@@ -1,4 +1,4 @@
-Initialize engine version: 5.0.0f4 (5b98b70ebeb9)
+Initialize engine version: 5.2.1f1 (44735ea161b3)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
@@ -6,15 +6,20 @@ Direct3D:
     Vendor:   Intel
     VRAM:     128 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\uxtuno\Desktop\提出用 - コピー\Primary\Primary_exe\Primary_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\uxtuno\Desktop\提出用 - コピー\Primary\Primary_exe\Primary_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\uxtuno\Desktop\提出用 - コピー\Primary\Primary_exe\Primary_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
-Loading C:\Users\uxtuno\Desktop\提出用 - コピー\Primary\Primary_exe\Primary_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
-Platform assembly: C:\Users\uxtuno\Desktop\提出用 - コピー\Primary\Primary_exe\Primary_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\uxtuno\Desktop\提出用 - コピー\Primary\Primary_exe\Primary_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\uxtuno\Desktop\提出用 - コピー\Primary\Primary_exe\Primary_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\uxtuno\Desktop\提出用 - コピー\Primary\Primary_exe\Primary_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.471 seconds
+Platform assembly: C:\Users\uxtuno\Desktop\unity\MyProject\PrimaryProject\Primary_exe\Primary_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\uxtuno\Desktop\unity\MyProject\PrimaryProject\Primary_exe\Primary_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\uxtuno\Desktop\unity\MyProject\PrimaryProject\Primary_exe\Primary_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\uxtuno\Desktop\unity\MyProject\PrimaryProject\Primary_exe\Primary_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\uxtuno\Desktop\unity\MyProject\PrimaryProject\Primary_exe\Primary_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\uxtuno\Desktop\unity\MyProject\PrimaryProject\Primary_exe\Primary_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\uxtuno\Desktop\unity\MyProject\PrimaryProject\Primary_exe\Primary_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\uxtuno\Desktop\unity\MyProject\PrimaryProject\Primary_exe\Primary_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\uxtuno\Desktop\unity\MyProject\PrimaryProject\Primary_exe\Primary_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\uxtuno\Desktop\unity\MyProject\PrimaryProject\Primary_exe\Primary_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\uxtuno\Desktop\unity\MyProject\PrimaryProject\Primary_exe\Primary_Data\Managed\Debug.dll (this message is harmless)
+Loading C:\Users\uxtuno\Desktop\unity\MyProject\PrimaryProject\Primary_exe\Primary_Data\Managed\Debug.dll into Unity Child Domain
+Platform assembly: C:\Users\uxtuno\Desktop\unity\MyProject\PrimaryProject\Primary_exe\Primary_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.072 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI.Hid> Failed to create device file:
@@ -23,265 +28,121 @@ desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
  
 (Filename:  Line: 54)
 
-<RI.Hid> Failed to create device file:
- 2 指定されたファイルが見つかりません。
-
- 
-(Filename:  Line: 54)
-
-<RI.Hid> Failed to create device file:
- 2 指定されたファイルが見つかりません。
-
- 
-(Filename:  Line: 54)
-
 <RI> Input initialized.
 <RI> Initialized touch support.
-Platform assembly: C:\Users\uxtuno\Desktop\提出用 - コピー\Primary\Primary_exe\Primary_Data\Managed\System.Core.dll (this message is harmless)
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1560)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1713)
-
-respawnPointがです。
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Null
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
+Platform assembly: C:\Users\uxtuno\Desktop\unity\MyProject\PrimaryProject\Primary_exe\Primary_Data\Managed\System.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 5c98 -> priority: 1 
 NullReferenceException: Object reference not set to an instance of an object
-  at GameManager.OnLevelWasLoaded (Int32 level) [0x00000] in <filename unknown>:0 
-  at GameManager.Awake () [0x00000] in <filename unknown>:0 
+  at MiniMapIconBillboard.Start () [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
 
-Platform assembly: C:\Users\uxtuno\Desktop\提出用 - コピー\Primary\Primary_exe\Primary_Data\Managed\System.dll (this message is harmless)
-Move
+StageSelect
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-StageData (StageData)
+ExtraStage
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 45e4 -> priority: 1 
-Stop
+NewGame
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.880268 ms
-
-Unloading 207 unused Assets to reduce memory usage. Loaded Objects now: 3848.
-Total: 1.076058 ms (FindLiveObjects: 0.203685 ms CreateObjectMapping: 0.123553 ms MarkObjects: 0.515923 ms  DeleteObjects: 0.231711 ms)
-
-StageData (StageData)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 478 -> priority: 1 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 7.197277 ms
-Player (Player)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+UnloadTime: 27.066446 ms
 
-Player (Player)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+Unloading 222 unused Assets to reduce memory usage. Loaded Objects now: 3846.
+Total: 44.439293 ms (FindLiveObjects: 0.215922 ms CreateObjectMapping: 0.126316 ms MarkObjects: 43.877583 ms  DeleteObjects: 0.217895 ms)
 
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.816870 ms
 
-Unloading 266 unused Assets to reduce memory usage. Loaded Objects now: 2888.
-Total: 1.995406 ms (FindLiveObjects: 0.238422 ms CreateObjectMapping: 0.229343 ms MarkObjects: 1.081585 ms  DeleteObjects: 0.445265 ms)
-
-StageData (StageData)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+Unloading 266 unused Assets to reduce memory usage. Loaded Objects now: 2837.
+Total: 1.315664 ms (FindLiveObjects: 0.134605 ms CreateObjectMapping: 0.093158 ms MarkObjects: 0.652108 ms  DeleteObjects: 0.435396 ms)
 
 Setting up 3 worker threads for Enlighten.
-  Thread -> id: 2884 -> priority: 1 
-  Thread -> id: 3910 -> priority: 1 
-  Thread -> id: 1ff8 -> priority: 1 
-Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.099365 ms
-respawnPointがです。
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+  Thread -> id: 6ce0 -> priority: 1 
+  Thread -> id: 39dc -> priority: 1 
+  Thread -> id: 6060 -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.150142 ms
 
-Move
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Move
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Move
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Move
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Player (Player)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Player (Player)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-
-Unloading 12201 unused Assets to reduce memory usage. Loaded Objects now: 2782.
-Total: 24.401190 ms (FindLiveObjects: 1.192112 ms CreateObjectMapping: 2.353039 ms MarkObjects: 1.120664 ms  DeleteObjects: 19.734190 ms)
-
-StageData (StageData)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+Unloading 144 unused Assets to reduce memory usage. Loaded Objects now: 1945.
+Total: 0.938688 ms (FindLiveObjects: 0.080131 ms CreateObjectMapping: 0.063552 ms MarkObjects: 0.500528 ms  DeleteObjects: 0.293685 ms)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 179c -> priority: 1 
-Stop
+  Thread -> id: 6ea4 -> priority: 1 
+NullReferenceException: Object reference not set to an instance of an object
+  at MiniMapIconBillboard.Start () [0x00000] in <filename unknown>:0 
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+(Filename:  Line: -1)
 
-Stop
+ExtraStage
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Stop
+Unloading 8 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.717635 ms
+Textが存在しません
+WriteMessageを終了します。
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
-Collided
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+Unloading 205 unused Assets to reduce memory usage. Loaded Objects now: 3106.
+Total: 1.162110 ms (FindLiveObjects: 0.177237 ms CreateObjectMapping: 0.091184 ms MarkObjects: 0.775661 ms  DeleteObjects: 0.116842 ms)
 
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.532770 ms
 
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+Unloading 1825 unused Assets to reduce memory usage. Loaded Objects now: 1958.
+Total: 1.250532 ms (FindLiveObjects: 0.162237 ms CreateObjectMapping: 0.156316 ms MarkObjects: 0.476449 ms  DeleteObjects: 0.454739 ms)
 
-Stop
+NullReferenceException: Object reference not set to an instance of an object
+  at MiniMapIconBillboard.Start () [0x00000] in <filename unknown>:0 
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+(Filename:  Line: -1)
 
-Move
+ExtraStage
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Move
+Unloading 8 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.783161 ms
+Textが存在しません
+WriteMessageを終了します。
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+Unloading 204 unused Assets to reduce memory usage. Loaded Objects now: 3117.
+Total: 0.984873 ms (FindLiveObjects: 0.134605 ms CreateObjectMapping: 0.093553 ms MarkObjects: 0.610660 ms  DeleteObjects: 0.145263 ms)
 
-Collided
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.050273 ms
 
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+Unloading 1477 unused Assets to reduce memory usage. Loaded Objects now: 1969.
+Total: 1.151452 ms (FindLiveObjects: 0.148027 ms CreateObjectMapping: 0.138158 ms MarkObjects: 0.467370 ms  DeleteObjects: 0.397107 ms)
 
-Stop
+NullReferenceException: Object reference not set to an instance of an object
+  at MiniMapIconBillboard.Start () [0x00000] in <filename unknown>:0 
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+(Filename:  Line: -1)
 
-Stop
+ExtraStage
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Collided
+Unloading 10 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.787109 ms
+Textが存在しません
+WriteMessageを終了します。
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
 
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
 
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Collided
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
-
-Stop
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebug.gen.cpp Line: 56)
+Unloading 201 unused Assets to reduce memory usage. Loaded Objects now: 2768.
+Total: 1.117110 ms (FindLiveObjects: 0.123947 ms CreateObjectMapping: 0.092763 ms MarkObjects: 0.766582 ms  DeleteObjects: 0.132632 ms)
 
