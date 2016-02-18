@@ -62,49 +62,68 @@ public class Pauser : MonoBehaviour
 	/// </summary>
 	void OnPause()
 	{
-		if (pauseBehaviours == null || pauseBehaviours.Count > 0)
+		if (pauseBehaviours != null && pauseBehaviours.Count <= 0)
 		{
-			return;
-		}
-
-		// 有効なBehaviourをポーズさせる
-		pauseBehaviours.AddRange(Array.FindAll(GetComponentsInChildren<Behaviour>(), (obj) => { return obj.enabled; }));
-		foreach (Behaviour behaviour in pauseBehaviours)
-		{
-			if((behaviour is Pauser) || (behaviour is SetMiniMapMaterial))
+			// 有効なBehaviourをポーズさせる
+			pauseBehaviours.AddRange(Array.FindAll(GetComponentsInChildren<Behaviour>(), (obj) => { return obj.enabled; }));
+			foreach (Behaviour behaviour in pauseBehaviours)
 			{
-				continue;
-			}
+				if (behaviour)
+				{
+					if ((behaviour is Pauser) || (behaviour is SetMiniMapMaterial))
+					{
+						continue;
+					}
 
-			if (!behaviour.GetComponent<Camera>() && !behaviour.GetComponent<Light>())
+					if (!behaviour.GetComponent<Camera>() && !behaviour.GetComponent<Light>())
+					{
+						behaviour.enabled = false;
+					}
+				}
+			}
+		}
+
+		if (rigidbodies != null && rigidbodies.Count <= 0)
+		{
+			// 有効なRigidbodyをポーズさせ、ポーズ直前の速度と角速度を記憶する
+			rigidbodies.AddRange(Array.FindAll(GetComponentsInChildren<Rigidbody>(), (obj) => { return !obj.IsSleeping(); }));
+			foreach (Rigidbody rigidbody in rigidbodies)
 			{
-				behaviour.enabled = false;
+				if (rigidbody)
+				{
+					rigidbodyVelocities.Add(rigidbody.velocity);
+					rigidbodyAngularVelocities.Add(rigidbody.angularVelocity);
+					rigidbody.Sleep();
+				}
 			}
 		}
 
-		// 有効なRigidbodyをポーズさせ、ポーズ直前の速度と角速度を記憶する
-		rigidbodies.AddRange(Array.FindAll(GetComponentsInChildren<Rigidbody>(), (obj) => { return !obj.IsSleeping(); }));
-		for (int i = 0; i < rigidbodies.Count; ++i)
+		if (rigidbody2Ds != null && rigidbody2Ds.Count <= 0)
 		{
-			rigidbodyVelocities.Add(rigidbodies[i].velocity);
-			rigidbodyAngularVelocities.Add(rigidbodies[i].angularVelocity);
-			rigidbodies[i].Sleep();
+			// 上記のRigidbody2D版
+			rigidbody2Ds.AddRange(Array.FindAll(GetComponentsInChildren<Rigidbody2D>(), (obj) => { return !obj.IsSleeping(); }));
+			foreach (Rigidbody2D rigidbody2D in rigidbody2Ds)
+			{
+				if (rigidbody2D)
+				{
+					rigidbody2DVelocities.Add(rigidbody2D.velocity);
+					rigidbody2DAngularVelocities.Add(rigidbody2D.angularVelocity);
+					rigidbody2D.Sleep();
+				}
+			}
 		}
 
-		// 上記のRigidbody2D版
-		rigidbody2Ds.AddRange(Array.FindAll(GetComponentsInChildren<Rigidbody2D>(), (obj) => { return !obj.IsSleeping(); }));
-		for (int i = 0; i < rigidbody2Ds.Count; ++i)
+		if (particleSystems != null && particleSystems.Count <= 0)
 		{
-			rigidbody2DVelocities[i] = rigidbody2Ds[i].velocity;
-			rigidbody2DAngularVelocities[i] = rigidbody2Ds[i].angularVelocity;
-			rigidbody2Ds[i].Sleep();
-		}
-
-		// 有効なParticleSystemをポーズさせる
-		particleSystems.AddRange(Array.FindAll(GetComponentsInChildren<ParticleSystem>(), (obj) => { return !obj.isPaused && !obj.isStopped; }));
-		foreach (ParticleSystem particleSystem in particleSystems)
-		{
-			particleSystem.Pause();
+			// 有効なParticleSystemをポーズさせる
+			particleSystems.AddRange(Array.FindAll(GetComponentsInChildren<ParticleSystem>(), (obj) => { return !obj.isPaused && !obj.isStopped; }));
+			foreach (ParticleSystem particleSystem in particleSystems)
+			{
+				if (particleSystem)
+				{
+					particleSystem.Pause();
+				}
+			}
 		}
 
 		isPause = true;
@@ -115,34 +134,69 @@ public class Pauser : MonoBehaviour
 	/// </summary>
 	void OnResume()
 	{
-		if (pauseBehaviours.Count <= 0)
-		{
-			return;
-		}
-
 		// ポーズ前の状態に各コンポーネントの有効状態を復元する
-		foreach (Behaviour behaviour in pauseBehaviours)
+		// Behaviour
+		if (pauseBehaviours != null && pauseBehaviours.Count > 0)
 		{
-			behaviour.enabled = true;
+			foreach (Behaviour behaviour in pauseBehaviours)
+			{
+				if (behaviour)
+				{
+					behaviour.enabled = true;
+				}
+			}
 		}
 
-		for (int i = 0; i < rigidbodies.Count; ++i)
+		// Rigidbody
+		if (rigidbodies != null && rigidbodies.Count > 0)
 		{
-			rigidbodies[i].WakeUp();
-			rigidbodies[i].velocity = rigidbodyVelocities[i];
-			rigidbodies[i].angularVelocity = rigidbodyAngularVelocities[i];
+			bool velCheck = rigidbodyVelocities != null && rigidbodyVelocities.Count == rigidbodies.Count;
+			bool angVelCheck = rigidbodyAngularVelocities != null && rigidbodyAngularVelocities.Count == rigidbodies.Count;
+
+			if (velCheck && angVelCheck)
+			{
+				for (int i = 0; i < rigidbodies.Count; ++i)
+				{
+					if (rigidbodies[i])
+					{
+						rigidbodies[i].WakeUp();
+						rigidbodies[i].velocity = rigidbodyVelocities[i];
+						rigidbodies[i].angularVelocity = rigidbodyAngularVelocities[i];
+					}
+				}
+			}
 		}
 
-		for (int i = 0; i < rigidbody2Ds.Count; ++i)
+		// Rigidbody2D
+		if (rigidbody2Ds != null && rigidbody2Ds.Count > 0)
 		{
-			rigidbody2Ds[i].WakeUp();
-			rigidbody2Ds[i].velocity = rigidbody2DVelocities[i];
-			rigidbody2Ds[i].angularVelocity = rigidbody2DAngularVelocities[i];
+			bool velCheck = rigidbody2DVelocities != null && rigidbody2DVelocities.Count == rigidbody2Ds.Count;
+			bool angVelCheck = rigidbody2DAngularVelocities != null && rigidbody2DAngularVelocities.Count == rigidbody2Ds.Count;
+
+			if (velCheck && angVelCheck)
+			{
+				for (int i = 0; i < rigidbody2Ds.Count; ++i)
+				{
+					if (rigidbody2Ds[i])
+					{
+						rigidbody2Ds[i].WakeUp();
+						rigidbody2Ds[i].velocity = rigidbody2DVelocities[i];
+						rigidbody2Ds[i].angularVelocity = rigidbody2DAngularVelocities[i];
+					}
+				}
+			}
 		}
 
-		foreach (ParticleSystem particleSystem in particleSystems)
+		// ParticleSystem
+		if (particleSystems != null && particleSystems.Count > 0)
 		{
-			particleSystem.Play();
+			foreach (ParticleSystem particleSystem in particleSystems)
+			{
+				if (particleSystem)
+				{
+					particleSystem.Play();
+				}
+			}
 		}
 
 		Initialize();
