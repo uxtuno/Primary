@@ -475,6 +475,52 @@ Transform:
   - {fileID: 1833496801}
   m_Father: {fileID: 1294810104}
   m_RootOrder: 1
+--- !u!1001 &60800287
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 64457728}
+    m_Modifications:
+    - target: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -26.7930431
+      objectReference: {fileID: 0}
+    - target: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -.500000119
+      objectReference: {fileID: 0}
+    - target: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .49999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 105584, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_Name
+      value: WallLight1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &61740127
 Prefab:
   m_ObjectHideFlags: 0
@@ -904,7 +950,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 64457728}
   m_Layer: 0
-  m_Name: AtomicLights
+  m_Name: Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -926,6 +972,8 @@ Transform:
   - {fileID: 1844748453}
   - {fileID: 1132803525}
   - {fileID: 726504472}
+  - {fileID: 966238174}
+  - {fileID: 1376024647}
   m_Father: {fileID: 366150697}
   m_RootOrder: 12
 --- !u!4 &72226783 stripped
@@ -2548,6 +2596,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 427108384}
   m_RootOrder: 1
+--- !u!1001 &308432870
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 64457728}
+    m_Modifications:
+    - target: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 14.1400003
+      objectReference: {fileID: 0}
+    - target: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -.500000119
+      objectReference: {fileID: 0}
+    - target: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .49999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 105584, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+      propertyPath: m_Name
+      value: WallLight2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &318940973
 GameObject:
   m_ObjectHideFlags: 0
@@ -5114,7 +5208,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 449612, guid: 84f87f0119faffd42ba089513b622ecf, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: .75
       objectReference: {fileID: 0}
     - target: {fileID: 449612, guid: 84f87f0119faffd42ba089513b622ecf, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7782,7 +7876,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 449612, guid: 84f87f0119faffd42ba089513b622ecf, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: .75
       objectReference: {fileID: 0}
     - target: {fileID: 449612, guid: 84f87f0119faffd42ba089513b622ecf, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7949,6 +8043,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 952182022}
   m_Mesh: {fileID: 4300002, guid: c84ec27c862230147859b8c05a82202c, type: 3}
+--- !u!4 &966238174 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+  m_PrefabInternal: {fileID: 308432870}
 --- !u!1 &966649701
 GameObject:
   m_ObjectHideFlags: 0
@@ -11144,6 +11242,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1372626143}
   m_Mesh: {fileID: 4300014, guid: 891bf23ec251ad242b5f42d77d64452f, type: 3}
+--- !u!4 &1376024647 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 457220, guid: 1d496b41f36720d46ad2570d4a89ff1a, type: 2}
+  m_PrefabInternal: {fileID: 60800287}
 --- !u!198 &1381524999 stripped
 ParticleSystem:
   m_PrefabParentObject: {fileID: 19803544, guid: 869927097e3150c48b6f078f02eedd8b,

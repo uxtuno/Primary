@@ -413,6 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -15115,6 +15116,34 @@ Prefab:
     - target: {fileID: 134290, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19835708, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: startDelay
+      value: 2.5999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 19835708, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: ShapeModule.type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19835708, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: ShapeModule.radius
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 19843534, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 19843534, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: .0112500004
+      objectReference: {fileID: 0}
+    - target: {fileID: 19843534, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19843534, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: ShapeModule.type
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6512068, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
