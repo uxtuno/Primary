@@ -137,6 +137,7 @@ public class Player : MyMonoBehaviour
 	private Material rayGunCoreRedMaterial;
 	private Material rayGunCoreGreenMaterial;
 	private Material rayGunCoreBlueMaterial;
+	private bool isDash = false; // ダッシュモード
 
 	protected override void Awake()
 	{
@@ -210,6 +211,12 @@ public class Player : MyMonoBehaviour
 			Instantiate(explosionPrefab, hit.point, Quaternion.identity);
 		}
 #endif
+
+		// ダッシュ状態に切り替え
+		if(Input.GetButtonDown("Dash"))
+		{
+			isDash = !isDash;
+		}
 
 		// レイガンを照射
 		if (Input.GetMouseButton(0) && isLaserPossible && !AdvancedWriteMessageSingleton.instance.isWrite && lasers[0].isPossible)
@@ -385,8 +392,7 @@ public class Player : MyMonoBehaviour
 
 		moveVec.y += jumpVY;
 		float moveSpeed = speed;
-		if (Input.GetKey(KeyCode.LeftShift) ||
-			Input.GetKey(KeyCode.RightShift))
+		if (isDash)
 		{
 			moveSpeed = dashSpeed;
 		}
