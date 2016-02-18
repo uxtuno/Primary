@@ -127,9 +127,6 @@ public class Player : MyMonoBehaviour
 	private Scaffolds _rideScaffolds; // 現在乗っている足場
 	private bool _isRide = false;
 
-	[SerializeField]
-	private GameObject rayGunIconPrefab = null; // 現在のレイガンの色を表すアイコン
-	private MovableObjectController[] rayGunIconControllers = null; // 現在のレイガンの色を表すアイコンを制御する
 	private int rollCount = 0; // レイガンの色アイコンを回転させる回数
 
 	[SerializeField, Tooltip("レイガンのコア(マテリアルを変更する部分)")]
@@ -164,10 +161,6 @@ public class Player : MyMonoBehaviour
 		{
 			raygun.SetActive(false);
 		}
-		else
-		{
-			rayGunIconControllers = (Instantiate(rayGunIconPrefab) as GameObject).GetComponentsInChildren<MovableObjectController>();
-		}
 
 		rayGunCoreRedMaterial = Resources.Load<Material>("3DModels/Materials/RayGunCoreRed");
 		rayGunCoreGreenMaterial = Resources.Load<Material>("3DModels/Materials/RayGunCoreGreen");
@@ -189,6 +182,8 @@ public class Player : MyMonoBehaviour
 		//defaultCameraDirection = cameraTransform.forward;
 	}
 
+	Counter a = new Counter(1.0f);
+	Counter b = new Counter(0.5f);
 	protected override void Update()
 	{
 		if (FadeManager.instance.IsFading)
@@ -281,28 +276,6 @@ public class Player : MyMonoBehaviour
 			if (eraseLaser != null)
 			{
 				eraseLaser.color = lasers[currentLaserIndex].color;
-			}
-		}
-
-		if (rayGunIconControllers == null)
-		{
-			return;
-		}
-
-		foreach (MovableObjectController movableObjectController in rayGunIconControllers)
-		{
-			if (movableObjectController.currentState == MovableObjectController.State.Move)
-			{
-				return;
-			}
-		}
-
-		if (rollCount > 0)
-		{
-			rollCount--;
-			foreach (MovableObjectController movableObjectController in rayGunIconControllers)
-			{
-				movableObjectController.Action();
 			}
 		}
 	}
@@ -424,25 +397,18 @@ public class Player : MyMonoBehaviour
 		}
 	}
 
+	Counter laserChangeCount = new Counter(0.2f); // レーザー切り替え用カウンター
 
 	/// <summary>
 	/// 使用するレーザーを変更する
 	/// </summary>
 	private void ChangeLaser()
 	{
-		if (rayGunIconControllers == null)
+		bool isLaserChanged = true;
+
+		if (laserChangeCount.isCounting)
 		{
 			return;
-		}
-
-		bool isLaserChanged = true;
-		foreach (MovableObjectController movableObjectController in rayGunIconControllers)
-		{
-			if (movableObjectController.currentState == MovableObjectController.State.Move)
-			{
-				isLaserChanged = false;
-				return;
-			}
 		}
 
 		int laserIndex = currentLaserIndex;
@@ -465,6 +431,8 @@ public class Player : MyMonoBehaviour
 		{
 			currentLaserIndex = laserIndex;
 			ApplyRayGunCoreMaterial();
+
+			StartCoroutine(laserChangeCount.StartCounter());
 
 			SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[SoundCollector.SoundName.LensReplacement]);
 		}
@@ -518,11 +486,6 @@ public class Player : MyMonoBehaviour
 			case Items.GreenRaygun:
 			case Items.BlueRaygun:
 				raygun.SetActive(true);
-				if (rayGunIconControllers == null)
-				{
-					rayGunIconControllers = (Instantiate(rayGunIconPrefab) as GameObject).GetComponentsInChildren<MovableObjectController>();
-				}
-				ShowIcon(true);
 				break;
 		}
 
@@ -588,18 +551,15 @@ public class Player : MyMonoBehaviour
 	}
 
 	/// <summary>
-	/// カラーアイコンの標示状態を切り替え
-	/// </summary>
-	public void ShowIcon(bool flag)
-	{
-		rayGunIconControllers[0].transform.parent.gameObject.SetActive(flag);
-	}
-
-	/// <summary>
 	/// minimappu標示状態を切り替え
 	/// </summary>
 	public void ShowMiniMap(bool flag)
 	{
 		GameObject.FindGameObjectWithTag(Tags.MiniMapCamera).GetComponent<Camera>().enabled = flag;
+	}
+
+	private void DebugBeep()
+	{
+		SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[SoundCollector.SoundName.Jump]);
 	}
 }
