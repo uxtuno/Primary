@@ -338,8 +338,8 @@ public class MenuParentScript : MyMonoBehaviour
 
 	public string NextSceneName = "";
 
-	[ContextMenu("SetAutoIndex")]
-	void SetAutoIndex()
+	[ContextMenu("SetAutoTransition")]
+	void SetAutoTransition()
 	{
 		int i = 0;
 		MenuItemScript[] items = GetComponentsInChildren<MenuItemScript>();
@@ -351,6 +351,24 @@ public class MenuParentScript : MyMonoBehaviour
 
 		foreach (MenuItemScript item in items)
 		{
+			//// 移動先が見つかった時だけ設定
+			//int temp = FindTargetItem(item, items, Direction.Up);
+			//if (temp >= 0)
+			//	item.UpItemIndex = temp;
+
+			//temp = FindTargetItem(item, items, Direction.Down);
+			//if (temp >= 0)
+			//	item.DownItemIndex = temp;
+
+			//temp = FindTargetItem(item, items, Direction.Left);
+			//if (temp >= 0)
+			//	item.LeftItemIndex = temp;
+
+			//temp = FindTargetItem(item, items, Direction.Right);
+			//if (temp >= 0)
+			//	item.RightItemIndex = temp;
+
+			// カーソルの移動先を設定
 			item.UpItemIndex = FindTargetItem(item, items, Direction.Up);
 			item.DownItemIndex = FindTargetItem(item, items, Direction.Down);
 			item.LeftItemIndex = FindTargetItem(item, items, Direction.Left);

@@ -19,6 +19,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &158322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 425332}
+  - 23: {fileID: 2301928}
+  - 102: {fileID: 10269074}
+  - 114: {fileID: 11439342}
+  - 65: {fileID: 6508908}
+  m_Layer: 11
+  m_Name: Quit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &163200
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,8 +145,21 @@ Transform:
   - {fileID: 459218}
   - {fileID: 479910}
   - {fileID: 461882}
+  - {fileID: 425332}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &425332
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158322}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 55, y: -35.2000008, z: 0}
+  m_LocalScale: {x: .660000026, y: .660000026, z: 1}
+  m_Children: []
+  m_Father: {fileID: 417662}
+  m_RootOrder: 5
 --- !u!4 &431428
 Transform:
   m_ObjectHideFlags: 1
@@ -188,6 +220,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 417662}
   m_RootOrder: 0
+--- !u!23 &2301928
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158322}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!23 &2353744
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -308,6 +364,18 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!65 &6508908
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158322}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 47.4000015, y: 17.2485352, z: 0}
+  m_Center: {x: 23.7000008, y: -8.62426758, z: 100}
 --- !u!65 &6532726
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -452,6 +520,27 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!102 &10269074
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158322}
+  m_Text: Quit
+  m_OffsetZ: 100
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 150
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
 --- !u!102 &10273946
 TextMesh:
   serializedVersion: 3
@@ -500,10 +589,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   itemName: 0
-  upItemIndex: 1
+  upItemIndex: -1
   downItemIndex: 1
-  leftItemIndex: 12
-  rightItemIndex: 2
+  leftItemIndex: -1
+  rightItemIndex: 5
   ChildMenuPrefab: {fileID: 0}
 --- !u!114 &11433072
 MonoBehaviour:
@@ -519,9 +608,9 @@ MonoBehaviour:
   index: 4
   itemName: 4
   upItemIndex: 3
-  downItemIndex: 0
+  downItemIndex: 5
   leftItemIndex: -1
-  rightItemIndex: -1
+  rightItemIndex: 5
   ChildMenuPrefab: {fileID: 0}
 --- !u!114 &11436060
 MonoBehaviour:
@@ -539,6 +628,24 @@ MonoBehaviour:
   upItemIndex: 2
   downItemIndex: 4
   leftItemIndex: -1
+  rightItemIndex: 5
+  ChildMenuPrefab: {fileID: 0}
+--- !u!114 &11439342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0412e9948ae194940b36cf5a6d837ff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 5
+  itemName: Quit
+  upItemIndex: 4
+  downItemIndex: 0
+  leftItemIndex: 4
   rightItemIndex: -1
   ChildMenuPrefab: {fileID: 0}
 --- !u!114 &11454764
@@ -557,7 +664,7 @@ MonoBehaviour:
   upItemIndex: 1
   downItemIndex: 3
   leftItemIndex: -1
-  rightItemIndex: -1
+  rightItemIndex: 5
   ChildMenuPrefab: {fileID: 0}
 --- !u!114 &11490010
 MonoBehaviour:
@@ -575,7 +682,7 @@ MonoBehaviour:
   upItemIndex: 0
   downItemIndex: 2
   leftItemIndex: -1
-  rightItemIndex: -1
+  rightItemIndex: 5
   ChildMenuPrefab: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:

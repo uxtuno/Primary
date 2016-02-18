@@ -133,6 +133,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &147772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 476190}
+  - 23: {fileID: 2399764}
+  - 102: {fileID: 10239356}
+  - 114: {fileID: 11465956}
+  - 65: {fileID: 6521782}
+  m_Layer: 11
+  m_Name: Stage04Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &150892
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +276,7 @@ GameObject:
   - 114: {fileID: 11497802}
   - 65: {fileID: 6578282}
   m_Layer: 11
-  m_Name: Stage04Text
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,7 +304,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.10000002, y: 1.10000002, z: 1}
   m_Children:
-  - {fileID: 480152}
+  - {fileID: 476190}
   - {fileID: 456296}
   - {fileID: 444048}
   - {fileID: 434598}
@@ -298,6 +317,7 @@ Transform:
   - {fileID: 495024}
   - {fileID: 474004}
   - {fileID: 445436}
+  - {fileID: 480152}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &429450
@@ -396,6 +416,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 417662}
   m_RootOrder: 11
+--- !u!4 &476190
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147772}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -55, y: 24, z: 0}
+  m_LocalScale: {x: .600000024, y: .600000024, z: 1}
+  m_Children: []
+  m_Father: {fileID: 417662}
+  m_RootOrder: 0
 --- !u!4 &479310
 Transform:
   m_ObjectHideFlags: 1
@@ -415,11 +447,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -55, y: 24, z: 0}
+  m_LocalPosition: {x: 50, y: -32, z: 0}
   m_LocalScale: {x: .600000024, y: .600000024, z: 1}
   m_Children: []
   m_Father: {fileID: 417662}
-  m_RootOrder: 0
+  m_RootOrder: 13
 --- !u!4 &480332
 Transform:
   m_ObjectHideFlags: 1
@@ -756,6 +788,30 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!23 &2399764
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147772}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!65 &6510500
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -810,6 +866,18 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169136}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 47.4000015, y: 17.2485352, z: 0}
+  m_Center: {x: 23.7000008, y: -8.62426758, z: 100}
+--- !u!65 &6521782
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147772}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -1024,7 +1092,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192914}
-  m_Text: Stage15
+  m_Text: Stage16
   m_OffsetZ: 100
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1046,6 +1114,27 @@ TextMesh:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103854}
   m_Text: Stage15
+  m_OffsetZ: 100
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 150
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!102 &10239356
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147772}
+  m_Text: Stage4
   m_OffsetZ: 100
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1087,7 +1176,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199230}
-  m_Text: Stage4
+  m_Text: Quit
   m_OffsetZ: 100
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -1215,7 +1304,7 @@ MonoBehaviour:
   upItemIndex: 7
   downItemIndex: 9
   leftItemIndex: 3
-  rightItemIndex: 12
+  rightItemIndex: 13
   ChildMenuPrefab: {fileID: 0}
 --- !u!114 &11422724
 MonoBehaviour:
@@ -1233,7 +1322,7 @@ MonoBehaviour:
   upItemIndex: 10
   downItemIndex: 12
   leftItemIndex: 6
-  rightItemIndex: -1
+  rightItemIndex: 1
   ChildMenuPrefab: {fileID: 0}
 --- !u!114 &11435662
 MonoBehaviour:
@@ -1249,9 +1338,9 @@ MonoBehaviour:
   index: 9
   itemName: 15
   upItemIndex: 8
-  downItemIndex: -1
+  downItemIndex: 5
   leftItemIndex: 4
-  rightItemIndex: 12
+  rightItemIndex: 13
   ChildMenuPrefab: {fileID: 0}
 --- !u!114 &11437362
 MonoBehaviour:
@@ -1268,7 +1357,7 @@ MonoBehaviour:
   itemName: 8
   upItemIndex: 1
   downItemIndex: 3
-  leftItemIndex: -1
+  leftItemIndex: 12
   rightItemIndex: 7
   ChildMenuPrefab: {fileID: 0}
 --- !u!114 &11447702
@@ -1286,7 +1375,7 @@ MonoBehaviour:
   itemName: 7
   upItemIndex: 0
   downItemIndex: 2
-  leftItemIndex: -1
+  leftItemIndex: 11
   rightItemIndex: 6
   ChildMenuPrefab: {fileID: 0}
 --- !u!114 &11453948
@@ -1302,10 +1391,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 5
   itemName: 11
-  upItemIndex: -1
+  upItemIndex: 9
   downItemIndex: 6
   leftItemIndex: 0
   rightItemIndex: 10
+  ChildMenuPrefab: {fileID: 0}
+--- !u!114 &11465956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0412e9948ae194940b36cf5a6d837ff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
+  itemName: 6
+  upItemIndex: 4
+  downItemIndex: 1
+  leftItemIndex: 10
+  rightItemIndex: 5
   ChildMenuPrefab: {fileID: 0}
 --- !u!114 &11467130
 MonoBehaviour:
@@ -1321,8 +1428,8 @@ MonoBehaviour:
   index: 4
   itemName: 10
   upItemIndex: 3
-  downItemIndex: -1
-  leftItemIndex: -1
+  downItemIndex: 0
+  leftItemIndex: 13
   rightItemIndex: 9
   ChildMenuPrefab: {fileID: 0}
 --- !u!114 &11467264
@@ -1339,9 +1446,9 @@ MonoBehaviour:
   index: 12
   itemName: 18
   upItemIndex: 11
-  downItemIndex: 8
+  downItemIndex: 13
   leftItemIndex: 7
-  rightItemIndex: -1
+  rightItemIndex: 2
   ChildMenuPrefab: {fileID: 0}
 --- !u!114 &11469474
 MonoBehaviour:
@@ -1358,7 +1465,7 @@ MonoBehaviour:
   itemName: 9
   upItemIndex: 2
   downItemIndex: 4
-  leftItemIndex: -1
+  leftItemIndex: 13
   rightItemIndex: 8
   ChildMenuPrefab: {fileID: 0}
 --- !u!114 &11471228
@@ -1374,10 +1481,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 10
   itemName: 16
-  upItemIndex: -1
+  upItemIndex: 13
   downItemIndex: 11
   leftItemIndex: 5
-  rightItemIndex: -1
+  rightItemIndex: 0
   ChildMenuPrefab: {fileID: 0}
 --- !u!114 &11491902
 MonoBehaviour:
@@ -1408,12 +1515,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0412e9948ae194940b36cf5a6d837ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 0
-  itemName: 6
-  upItemIndex: -1
-  downItemIndex: 1
-  leftItemIndex: -1
-  rightItemIndex: 5
+  index: 13
+  itemName: Quit
+  upItemIndex: 12
+  downItemIndex: 10
+  leftItemIndex: 9
+  rightItemIndex: 4
   ChildMenuPrefab: {fileID: 0}
 --- !u!114 &11497908
 MonoBehaviour:
@@ -1443,6 +1550,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: itemName
       value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Text
+      value: Stage16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
