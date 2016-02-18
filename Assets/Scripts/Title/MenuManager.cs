@@ -63,7 +63,6 @@ public class MenuManager : MyMonoBehaviour
 	/// <returns></returns>
 	bool OnPrimaryMenuSelected(string itemName)
 	{
-		Debug.Log(itemName);
 		switch (itemName)
 		{
 			case "NewGame":
@@ -107,6 +106,7 @@ public class MenuManager : MyMonoBehaviour
 	{
 		switch (itemName)
 		{
+			case "Quit":
 			case MenuParentScript.CanselMessage:
 				PopPrimaryMenu();
 				break;

@@ -320,7 +320,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4282684927
 --- !u!102 &10229696
 TextMesh:
   serializedVersion: 3
@@ -341,7 +341,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4292275711
 --- !u!102 &10236020
 TextMesh:
   serializedVersion: 3
@@ -362,7 +362,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4292275711
 --- !u!102 &10270986
 TextMesh:
   serializedVersion: 3
@@ -383,7 +383,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4292275711
 --- !u!114 &11411668
 MonoBehaviour:
   m_ObjectHideFlags: 1
