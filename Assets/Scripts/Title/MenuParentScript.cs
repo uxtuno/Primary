@@ -337,4 +337,149 @@ public class MenuParentScript : MyMonoBehaviour
 	private Color BackColor = new Color(0.5f, 0.5f, 0.5f); // 後ろに隠れたメニュー用
 
 	public string NextSceneName = "";
+
+	[ContextMenu("SetAutoIndex")]
+	void SetAutoIndex()
+	{
+		int i = 0;
+		MenuItemScript[] items = GetComponentsInChildren<MenuItemScript>();
+		foreach (MenuItemScript item in items)
+		{
+			item.Index = i;
+			++i;
+		}
+
+		foreach (MenuItemScript item in items)
+		{
+			item.UpItemIndex = FindTargetItem(item, items, Direction.Up);
+			item.DownItemIndex = FindTargetItem(item, items, Direction.Down);
+			item.LeftItemIndex = FindTargetItem(item, items, Direction.Left);
+			item.RightItemIndex = FindTargetItem(item, items, Direction.Right);
+		}
+	}
+
+	/// <summary>
+	/// 指定の方向の移動先項目IDを調べる
+	/// </summary>
+	/// <param name="origin">現在の項目</param>
+	/// <param name="items">対象項目群</param>
+	/// <param name="direction">方向</param>
+	/// <returns></returns>
+	private int FindTargetItem(MenuItemScript origin, MenuItemScript[] items, Direction direction)
+	{
+		int index = FindMinDistanceMenuItem(origin, items, direction);
+		return index;
+	}
+
+	/// <summary>
+	/// 反対方向を表すDirectionを返す
+	/// </summary>
+	/// <param name="direction">方向</param>
+	/// <returns></returns>
+	private Direction InverseDirection(Direction direction)
+	{
+		switch (direction)
+		{
+			case Direction.Up:
+				return Direction.Down;
+			case Direction.Down:
+				return Direction.Up;
+			case Direction.Left:
+				return Direction.Right;
+			case Direction.Right:
+				return Direction.Left;
+		}
+		return Direction.None;
+	}
+
+	/// <summary>
+	/// 指定した方向を見たときに一番近い項目IDを得る
+	/// </summary>
+	/// <param name="origin">現在の項目</param>
+	/// <param name="items">対象項目群</param>
+	/// <param name="direction">方向</param>
+	/// <returns></returns>
+	private int FindMinDistanceMenuItem(MenuItemScript origin, MenuItemScript[] items, Direction direction)
+	{
+		int index = -1;
+		float minDistance = float.PositiveInfinity;
+		foreach (var item in items)
+		{
+			Vector3 position = item.transform.position;
+			Vector3 diff = position - origin.transform.position;
+			switch (direction)
+			{
+				case Direction.Up:
+					if (diff.y <= 0.0f)
+						continue;
+					break;
+				case Direction.Down:
+					if (diff.y >= 0.0f)
+						continue;
+					break;
+				case Direction.Left:
+					if (diff.x >= 0.0f)
+						continue;
+					break;
+				case Direction.Right:
+					if (diff.x <= 0.0f)
+						continue;
+					break;
+			}
+
+			float distance = diff.magnitude;
+			if (distance < minDistance)
+			{
+				minDistance = distance;
+				index = item.Index;
+			}
+		}
+		return index;
+	}
+
+	///// <summary>
+	///// 指定した方向を見たときに一番遠い項目IDを得る
+	///// </summary>
+	///// <param name="origin">現在の項目</param>
+	///// <param name="items">対象項目群</param>
+	///// <param name="direction">方向</param>
+	///// <returns></returns>
+	//private int FindMaxDistanceMenuItem(MenuItemScript origin, MenuItemScript[] items, Direction direction)
+	//{
+	//	int index = -1;
+	//	float maxDistance = float.NegativeInfinity;
+	//	foreach (var item in items)
+	//	{
+	//		Vector3 position = item.transform.position;
+	//		Vector3 diff = position - origin.transform.position;
+	//		switch (direction)
+	//		{
+	//			case Direction.Up:
+	//				if (diff.y <= 0.0f)
+	//					continue;
+	//				break;
+	//			case Direction.Down:
+	//				if (diff.y >= 0.0f)
+	//					continue;
+	//				break;
+	//			case Direction.Left:
+	//				if (diff.x >= 0.0f)
+	//					continue;
+	//				break;
+	//			case Direction.Right:
+	//				if (diff.x <= 0.0f)
+	//					continue;
+	//				break;
+	//		}
+
+	//		float distance = diff.magnitude;
+	//		if (distance > maxDistance)
+	//		{
+	//			maxDistance = distance;
+	//			index = item.Index;
+	//		}
+	//	}
+
+	//	return index;
+	//}
 }
