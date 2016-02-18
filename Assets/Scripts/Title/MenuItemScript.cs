@@ -7,6 +7,7 @@ public class MenuItemScript : MonoBehaviour
     public int Index
     {
         get { return this.index; }
+		set { this.index = value; }
     }
 
     public string Name
@@ -19,24 +20,28 @@ public class MenuItemScript : MonoBehaviour
     public int UpItemIndex
     {
         get { return upItemIndex; }
-    }
+		set { upItemIndex = value; }
+	}
 
-    public int DownItemIndex
+	public int DownItemIndex
     {
         get { return downItemIndex; }
-    }
+		set { downItemIndex = value; }
+	}
 
-    public int LeftItemIndex
+	public int LeftItemIndex
     {
         get { return leftItemIndex; }
-    }
+		set { leftItemIndex = value; }
+	}
 
-    public int RightItemIndex
+	public int RightItemIndex
     {
         get { return rightItemIndex; }
-    }
+		set { rightItemIndex = value; }
+	}
 
-    [SerializeField]
+	[SerializeField]
     private int index = 0; // 項目ID
     [SerializeField]
     private string itemName = ""; // 項目名

@@ -19,6 +19,9 @@ public class MenuManager : MyMonoBehaviour
 	private GameObject secondaryMenuPrefab = null;
 	private MenuParentScript secondaryMenu = null;
 	[SerializeField]
+	private GameObject extraMenuPrefab = null;
+	private MenuParentScript extraMenu = null;
+	[SerializeField]
 	private MovableObjectController titleController = null;
 
 	private State currentState = State.None;
@@ -72,6 +75,15 @@ public class MenuManager : MyMonoBehaviour
 				if (secondaryMenu != null)
 				{
 					secondaryMenu.MenuSelected += new MenuSelectEventHandrer(OnSecondaryMenuSelected);
+				}
+				break;
+
+			case "ExtraStage":
+				extraMenu = Instantiate(extraMenuPrefab).GetComponent<MenuParentScript>();
+				if (extraMenu != null)
+				{
+					// 通常のｽﾃｰｼﾞｾﾚｸﾄの処理を使いまわし(ステージ番号を連番でつける)
+					extraMenu.MenuSelected += new MenuSelectEventHandrer(OnSecondaryMenuSelected);
 				}
 				break;
 
