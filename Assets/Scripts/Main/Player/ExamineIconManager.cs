@@ -96,4 +96,16 @@ public static class ExamineIconManager
 			currentIconType = IconType.None;
 		}
 	}
+
+	/// <summary>
+	/// アイコンの表示状態を変更
+	/// </summary>
+	/// <param name="visible">表示フラグ</param>
+	static public void SetVisible(bool visible)
+	{
+		if (centerIcon != null)
+		{
+			centerIcon.GetComponentInChildren<GUITexture>().enabled = visible;
+		}
+	}
 }
