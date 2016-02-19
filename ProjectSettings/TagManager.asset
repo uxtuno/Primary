@@ -27,7 +27,7 @@ TagManager:
   - Wall
   - NoCamera
   - NoLight
-  - 
+  - FadeOver
   - 
   - 
   - 
@@ -47,4 +47,10 @@ TagManager:
     locked: 0
   - name: Effect
     uniqueID: 834552601
+    locked: 0
+  - name: FadeOver
+    uniqueID: 2702092993
+    locked: 0
+  - name: Top
+    uniqueID: 470944195
     locked: 0

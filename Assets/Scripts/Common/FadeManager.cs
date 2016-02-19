@@ -1,8 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public class FadeManager : MonoBehaviour {
+public class FadeManager : MonoBehaviour
+{
+	private static GameObject fadeCanvasPrefab = Resources.Load<GameObject>("Prefabs/UI/FadeCanvas");
+	private static Canvas fadeCanvas;
+	private static Image fadeImage;
+	private static readonly int defaultSortOrder = 5;
+
 	/// <summary>
 	/// フェード中に実行させる処理
 	/// </summary>
@@ -18,6 +25,8 @@ public class FadeManager : MonoBehaviour {
 			{
 				GameObject SceneChangeSingleton = new GameObject("FadeManager");
 				_instance = SceneChangeSingleton.AddComponent<FadeManager>();
+				fadeCanvas = Instantiate(fadeCanvasPrefab).GetComponent<Canvas>();
+				fadeImage = fadeCanvas.GetComponentInChildren<Image>();
 				DontDestroyOnLoad(SceneChangeSingleton.gameObject);
 			}
 
@@ -26,7 +35,7 @@ public class FadeManager : MonoBehaviour {
 	}
 
 	List<string> scenePaths { get; set; }   // 読み込み可能なシーンのパス
-	private readonly int Layer = 0; // 全てのオブジェクトを覆い隠せるようにレイヤーを最前面に
+	private readonly int Layer = 5000; // 全てのオブジェクトを覆い隠せるようにレイヤーを最前面に
 	private Texture2D overTexture;
 	private float FadeAlpha = 0.0f; // フェード中の透明度
 	private bool isFading = false; // フェード中かどうか
@@ -70,24 +79,44 @@ public class FadeManager : MonoBehaviour {
 			return;
 		}
 
-		StartCoroutine(TransScene(scene, interval, processing));
+		StartCoroutine(TransScene(scene, interval, defaultSortOrder, processing));
 	}
 
+	/// <summary>
+	/// フェードイン、フェードアウトでシーンを切り替える
+	/// </summary>
+	/// <param name='scene'>シーン名</param>
+	/// <param name='interval'>暗転にかかる時間(秒)</param>
+	public void Fade(string scene, float interval = 0.5f, int sortOrder = 0, Processing processing = null)
+	{
+		if (IsFading)
+		{
+			Debug.Log("フェード中です。");
+			return;
+		}
+
+		StartCoroutine(TransScene(scene, interval, sortOrder, processing));
+	}
+
+
 	// シーン遷移用コルーチン
-	IEnumerator TransScene(string scene, float interval, Processing processing)
+	IEnumerator TransScene(string scene, float interval, int sortOrder, Processing processing)
 	{
 		//だんだん暗く
 		this.isFading = true;
 		float time = 0;
 		while (time <= interval)
 		{
-			this.FadeAlpha = Mathf.Lerp(0f, 1f, time / interval);
+			//this.FadeAlpha = Mathf.Lerp(0f, 1f, time / interval);
+			Color c = fadeImage.color;
+			c.a = Mathf.Lerp(0f, 1f, time / interval);
+			fadeImage.color = c;
 			time += Time.deltaTime;
 			yield return 0;
 		}
 
 		// フェード中に実行する処理
-		if(processing != null)
+		if (processing != null)
 		{
 			processing();
 		}
@@ -96,7 +125,11 @@ public class FadeManager : MonoBehaviour {
 		time = 0;
 		while (time <= interval)
 		{
-			this.FadeAlpha = Mathf.Lerp(1.0f, 0.0f, time / interval);
+			//this.FadeAlpha = Mathf.Lerp(1.0f, 0.0f, time / interval);
+			Color c = fadeImage.color;
+			c.a = Mathf.Lerp(1.0f, 0.0f, time / interval);
+			fadeImage.color = c;
+
 			time += Time.deltaTime;
 			yield return 0;
 		}
