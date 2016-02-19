@@ -1364,6 +1364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -2638,6 +2639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   targets:
   - {fileID: 0}
 --- !u!95 &1203905436
@@ -2691,6 +2693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   targets: []
 --- !u!54 &1233553263
 Rigidbody:
@@ -2722,6 +2725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   targets:
   - {fileID: 296260683}
   - {fileID: 1249711599}
@@ -2782,6 +2786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -2843,6 +2848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 3
   playOnAwake: 0
   controlPoints:
@@ -4194,6 +4200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -4398,8 +4405,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 2094029965}
   - 33: {fileID: 2094029968}
-  - 64: {fileID: 2094029967}
   - 23: {fileID: 2094029966}
+  - 65: {fileID: 2094029967}
   m_Layer: 9
   m_Name: Plane 1
   m_TagString: Untagged
@@ -4443,8 +4450,8 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &2094029967
-MeshCollider:
+--- !u!65 &2094029967
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4453,8 +4460,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 9.99999809, y: 2.38393497e-07, z: 9.99999905}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &2094029968
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4471,9 +4478,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 2095823231}
   - 33: {fileID: 2095823234}
-  - 64: {fileID: 2095823233}
   - 23: {fileID: 2095823232}
   - 114: {fileID: 2095823235}
+  - 65: {fileID: 2095823233}
   m_Layer: 9
   m_Name: Plane
   m_TagString: Untagged
@@ -4517,8 +4524,8 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!64 &2095823233
-MeshCollider:
+--- !u!65 &2095823233
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -4527,8 +4534,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Size: {x: 9.99999809, y: 2.38277096e-07, z: 9.99999905}
+  m_Center: {x: 0, y: -1.1920929e-07, z: 0}
 --- !u!33 &2095823234
 MeshFilter:
   m_ObjectHideFlags: 0
