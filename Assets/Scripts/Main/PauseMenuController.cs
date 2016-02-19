@@ -143,6 +143,7 @@ public class PauseMenuController : MyMonoBehaviour
 
 			StartCoroutine(TabletMovement(tabletPCAxis, targetEulerAngles, true));
 			player.ShowMiniMap(false);
+			ExamineIconManager.SetVisible(false);
 		}
 
 		if (tabletMoveState == TabletMoveState.after)
@@ -208,6 +209,7 @@ public class PauseMenuController : MyMonoBehaviour
 			Pauser.Resume();
 			isPause = false;
 			player.ShowMiniMap(true);
+			ExamineIconManager.SetVisible(true);
 		}
 	}
 

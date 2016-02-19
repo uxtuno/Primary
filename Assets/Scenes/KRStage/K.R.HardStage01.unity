@@ -55,7 +55,7 @@ LightmapSettings:
   m_LightmapEditorSettings:
     serializedVersion: 3
     m_Resolution: 2
-    m_BakeResolution: 40
+    m_BakeResolution: 20
     m_TextureWidth: 1024
     m_TextureHeight: 1024
     m_AOMaxDistance: 1
@@ -2165,6 +2165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -2505,6 +2506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -6689,7 +6691,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 670349499}
   m_LocalRotation: {x: -1, y: 0, z: 0, w: 3.57627869e-07}
-  m_LocalPosition: {x: 30.0939465, y: 29.7711296, z: 13.7919083}
+  m_LocalPosition: {x: 30.1000004, y: 29.8999996, z: 13.7919083}
   m_LocalScale: {x: 2.00410676, y: 1, z: 1.5225147}
   m_Children: []
   m_Father: {fileID: 238470668}
@@ -6767,6 +6769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -8014,6 +8017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 1
   controlPoints:
@@ -9087,6 +9091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -10872,6 +10877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!114 &1170481454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16424,6 +16430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 1
   controlPoints:
@@ -18324,6 +18331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
