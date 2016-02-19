@@ -4,15 +4,20 @@ using System.Collections;
 /// <summary>
 /// ミニマップのアイコンを常にミニマップ用カメラの方向を向くようにする
 /// </summary>
-public class MiniMapIconBillboard : MonoBehaviour {
+public class MiniMapIconBillboard : MonoBehaviour
+{
 	private Camera targetCamera;
 	private Quaternion defaultRotation;
 	Vector3 toCamera;
 
 	void Start()
 	{
-		targetCamera = GameObject.FindGameObjectWithTag(Tags.MiniMapCamera).GetComponent<Camera>();
-		toCamera = targetCamera.transform.position - transform.position;
+		var cameraGo = GameObject.FindGameObjectWithTag(Tags.MiniMapCamera);
+		if (cameraGo)
+		{
+			targetCamera = cameraGo.GetComponent<Camera>();
+			toCamera = targetCamera.transform.position - transform.position;
+		}
 		defaultRotation = transform.rotation;
 	}
 
@@ -29,5 +34,5 @@ public class MiniMapIconBillboard : MonoBehaviour {
 		Vector3 angles = transform.eulerAngles;
 		angles.y = targetCamera.transform.eulerAngles.y + 180.0f;
 		transform.eulerAngles = angles;
-    }
+	}
 }
