@@ -7,6 +7,7 @@ TagManager:
   - StageManager
   - RideOn
   - MiniMapCamera
+  - ProductionCamera
   layers:
   - Default
   - TransparentFX
@@ -24,8 +25,8 @@ TagManager:
   - NoShadow
   - MiniMapIcon
   - Wall
-  - 
-  - 
+  - NoCamera
+  - NoLight
   - 
   - 
   - 
