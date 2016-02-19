@@ -11,6 +11,13 @@ public class StageDigest : MonoBehaviour
 	IEnumerator Start()
 	{
 		GameObject go = null;
+		// 名前で探しちゃう
+		var backGround = GameObject.Find("BackGround");
+		if (backGround)
+		{
+			Destroy(go);
+		}
+
 		while (true)
 		{
 			int[] stageOrder = Enumerable.Repeat(-1, stagePrefabs.Length).ToArray();

@@ -132,7 +132,6 @@ public class SceneName
 	public const string @KRSpecialStage01 = "K.R.SpecialStage01";
 
 	/// <summary>
-<<<<<<< HEAD
 	/// return "NormalClear"
  	/// </summary>
 	public const string @NormalClear = "NormalClear";
@@ -143,8 +142,6 @@ public class SceneName
 	public const string @ExtraClear = "ExtraClear";
 
 	/// <summary>
-=======
->>>>>>> feature/test2
 	/// <para>0. "Menu"</para>
 	/// <para>1. "TutorialStage01"</para>
 	/// <para>2. "Stage02"</para>
@@ -171,13 +168,8 @@ public class SceneName
 	/// <para>23. "EndScene"</para>
 	/// <para>24. "N.HardStage02"</para>
 	/// <para>25. "K.R.SpecialStage01"</para>
-<<<<<<< HEAD
 	/// <para>26. "NormalClear"</para>
 	/// <para>27. "ExtraClear"</para>
 	/// </summary>
 	public static readonly string[] names = new string[]{"Menu","TutorialStage01","Stage02","TutorialStage02","UXStage01","UXStage02","Stage01","Stage03","Stage05","Stage04","UXTestScene","K.R.EasyStage01","K.R.EasyStage02","K.R.EasyStage03","K.R.EasyStage05","K.R.MiddleStage01","K.R.MiddleStage02","K.R.MiddleStage03","K.R.HardStage01","N.EasyStage01","N.EasyStage02","N.EasyStage03","N.HardStage01","EndScene","N.HardStage02","K.R.SpecialStage01","NormalClear","ExtraClear"};
-=======
-	/// </summary>
-	public static readonly string[] names = new string[]{"Menu","TutorialStage01","Stage02","TutorialStage02","UXStage01","UXStage02","Stage01","Stage03","Stage05","Stage04","UXTestScene","K.R.EasyStage01","K.R.EasyStage02","K.R.EasyStage03","K.R.EasyStage05","K.R.MiddleStage01","K.R.MiddleStage02","K.R.MiddleStage03","K.R.HardStage01","N.EasyStage01","N.EasyStage02","N.EasyStage03","N.HardStage01","EndScene","N.HardStage02","K.R.SpecialStage01"};
->>>>>>> feature/test2
 }

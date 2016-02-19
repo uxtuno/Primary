@@ -8,27 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9afde30ecfccd594aa547d1d81203ea5, type: 3}
+  m_Script: {fileID: 11500000, guid: 69e9b33bc7d53844b82bb1be2df6aa3e, type: 3}
   m_Name: StageData
   m_EditorClassIdentifier: 
-  param:
-  - Name: TutorialStage01
-  - Name: TutorialStage02
-  - Name: Stage01
-  - Name: N.HardStage02
-  - Name: K.R.MiddleStage03
-  - Name: NormalClear
-  - Name: UXStage02
-  - Name: K.R.EasyStage01
-  - Name: K.R.MiddleStage02
-  - Name: N.EasyStage01
-  - Name: K.R.EasyStage02
-  - Name: Stage03
-  - Name: K.R.EasyStage03
-  - Name: K.R.MiddleStage01
-  - Name: K.R.EasyStage05
-  - Name: K.R.SpecialStage01
-  - Name: UXStage01
-  - Name: Stage02
-  - Name: K.R.HardStage01
-  - Name: ExtraClear
+  param: []
