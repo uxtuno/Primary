@@ -52,6 +52,11 @@ public class TagName
 	public const string @MiniMapCamera = "MiniMapCamera";
 
 	/// <summary>
+	/// return "ProductionCamera"
+ 	/// </summary>
+	public const string @ProductionCamera = "ProductionCamera";
+
+	/// <summary>
 	/// <para>0. "Untagged"</para>
 	/// <para>1. "Respawn"</para>
 	/// <para>2. "Finish"</para>
@@ -62,6 +67,7 @@ public class TagName
 	/// <para>7. "StageManager"</para>
 	/// <para>8. "RideOn"</para>
 	/// <para>9. "MiniMapCamera"</para>
+	/// <para>10. "ProductionCamera"</para>
 	/// </summary>
-	public static readonly string[] names = new string[]{"Untagged","Respawn","Finish","EditorOnly","MainCamera","Player","GameController","StageManager","RideOn","MiniMapCamera"};
+	public static readonly string[] names = new string[]{"Untagged","Respawn","Finish","EditorOnly","MainCamera","Player","GameController","StageManager","RideOn","MiniMapCamera","ProductionCamera"};
 }
