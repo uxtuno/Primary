@@ -45,6 +45,11 @@ public class MenuParentScript : MyMonoBehaviour
 			Selecter.transform.parent = IndexToItem(CurrentCursorIndex).transform;
 			Selecter.transform.localPosition = Vector3.zero;
 		}
+
+		if(!menuCamera)
+		{
+			menuCamera = GameObject.Find("MenuCamera").GetComponent<Camera>();
+		}
 	}
 
 	protected override void Update()
