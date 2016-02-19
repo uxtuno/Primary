@@ -25,8 +25,6 @@ public class FadeManager : MonoBehaviour
 			{
 				GameObject SceneChangeSingleton = new GameObject("FadeManager");
 				_instance = SceneChangeSingleton.AddComponent<FadeManager>();
-				fadeCanvas = Instantiate(fadeCanvasPrefab).GetComponent<Canvas>();
-				fadeImage = fadeCanvas.GetComponentInChildren<Image>();
 				DontDestroyOnLoad(SceneChangeSingleton.gameObject);
 			}
 
@@ -102,6 +100,10 @@ public class FadeManager : MonoBehaviour
 	// シーン遷移用コルーチン
 	IEnumerator TransScene(string scene, float interval, int sortOrder, Processing processing)
 	{
+		fadeCanvas = Instantiate(fadeCanvasPrefab).GetComponent<Canvas>();
+		DontDestroyOnLoad(fadeCanvas.gameObject);
+		fadeImage = fadeCanvas.GetComponentInChildren<Image>();
+
 		//だんだん暗く
 		this.isFading = true;
 		float time = 0;
@@ -134,6 +136,7 @@ public class FadeManager : MonoBehaviour
 			yield return 0;
 		}
 
+		Destroy(fadeCanvas.gameObject);
 		this.isFading = false;
 	}
 }
