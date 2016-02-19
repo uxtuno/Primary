@@ -126,6 +126,8 @@ public class Pauser : MonoBehaviour
 			}
 		}
 
+		//if()
+
 		isPause = true;
 	}
 

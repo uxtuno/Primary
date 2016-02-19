@@ -501,6 +501,7 @@ Transform:
   - {fileID: 1782205637}
   - {fileID: 70170311}
   - {fileID: 125206494}
+  - {fileID: 857837128}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!114 &142684889
@@ -514,6 +515,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e549cd581a0db454a816be17d81316ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &152483805
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 142684888}
+    m_Modifications:
+    - target: {fileID: 439922, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.87797952
+      objectReference: {fileID: 0}
+    - target: {fileID: 439922, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.48675299
+      objectReference: {fileID: 0}
+    - target: {fileID: 439922, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -9.35249615
+      objectReference: {fileID: 0}
+    - target: {fileID: 439922, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 439922, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 439922, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 439922, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 439922, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: m_RootOrder
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 134290, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: m_Name
+      value: RedWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 439922, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 439922, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472158, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465440, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465440, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465440, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 107176, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11472158, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &172458489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,6 +1462,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: b0f9ebf789c753b47a6226d047b9fdff, type: 2}
+--- !u!4 &857837128 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 439922, guid: bd1cc02229309774991e79cdf2efb57e, type: 2}
+  m_PrefabInternal: {fileID: 152483805}
 --- !u!1 &871748081 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 134170, guid: e74ed81bed68ac74a967a6f05f4bfa8d, type: 2}
@@ -1731,7 +1811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1403462151
 MeshRenderer:
   m_ObjectHideFlags: 0
