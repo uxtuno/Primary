@@ -7233,7 +7233,23 @@ Prefab:
       objectReference: {fileID: 164251462}
     - target: {fileID: 136166, guid: 67b63ff97000aa34f98de06527575d6b, type: 2}
       propertyPath: m_Name
-      value: WarpZone 1
+      value: WarpedZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403370, guid: 67b63ff97000aa34f98de06527575d6b, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 193822, guid: 67b63ff97000aa34f98de06527575d6b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 120366, guid: 67b63ff97000aa34f98de06527575d6b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 116984, guid: 67b63ff97000aa34f98de06527575d6b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 67b63ff97000aa34f98de06527575d6b, type: 2}

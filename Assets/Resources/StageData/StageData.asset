@@ -17,7 +17,7 @@ MonoBehaviour:
   - Name: Stage01
   - Name: N.HardStage02
   - Name: K.R.MiddleStage03
-  - Name: EndScene
+  - Name: NormalClear
   - Name: UXStage02
   - Name: K.R.EasyStage01
   - Name: K.R.MiddleStage02
@@ -31,4 +31,4 @@ MonoBehaviour:
   - Name: UXStage01
   - Name: Stage02
   - Name: K.R.HardStage01
-  - Name: EndScene
+  - Name: ExtraClear

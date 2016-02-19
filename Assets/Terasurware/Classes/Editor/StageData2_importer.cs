@@ -27,10 +27,10 @@ public class StageData2_importer : AssetPostprocessor
                     var exportPath = "Assets/Resources/StageData/" + sheetName + ".asset";
                     
                     // check scriptable object
-                    var data = (StageData)AssetDatabase.LoadAssetAtPath(exportPath, typeof(StageData));
+                    var data = (NormalClear)AssetDatabase.LoadAssetAtPath(exportPath, typeof(NormalClear));
                     if (data == null)
                     {
-                        data = ScriptableObject.CreateInstance<StageData>();
+                        data = ScriptableObject.CreateInstance<NormalClear>();
                         AssetDatabase.CreateAsset((ScriptableObject)data, exportPath);
                         data.hideFlags = HideFlags.NotEditable;
                     }
@@ -50,7 +50,7 @@ public class StageData2_importer : AssetPostprocessor
                         IRow row = sheet.GetRow(i);
                         ICell cell = null;
                         
-                        var p = new StageData.Param();
+                        var p = new NormalClear.Param();
 						
 			
 					cell = row.GetCell(0); p.Name = (cell == null ? "" : cell.StringCellValue);
