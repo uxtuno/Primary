@@ -27,11 +27,8 @@ public class LayerName
 	public static Para NoShadow = new Para(13, 8192, "NoShadow");
 	public static Para MiniMapIcon = new Para(14, 16384, "MiniMapIcon");
 	public static Para Wall = new Para(15, 32768, "Wall");
-<<<<<<< HEAD
-=======
 	public static Para NoCamera = new Para(16, 65536, "NoCamera");
 	public static Para NoLight = new Para(17, 131072, "NoLight");
->>>>>>> feature/test2
 
 	/// <summary>
 	/// <para>0. "Default"</para>
@@ -50,13 +47,8 @@ public class LayerName
 	/// <para>13. "NoShadow"</para>
 	/// <para>14. "MiniMapIcon"</para>
 	/// <para>15. "Wall"</para>
-<<<<<<< HEAD
-	/// <para>16. ""</para>
-	/// <para>17. ""</para>
-=======
 	/// <para>16. "NoCamera"</para>
 	/// <para>17. "NoLight"</para>
->>>>>>> feature/test2
 	/// <para>18. ""</para>
 	/// <para>19. ""</para>
 	/// <para>20. ""</para>
@@ -72,9 +64,5 @@ public class LayerName
 	/// <para>30. ""</para>
 	/// <para>31. ""</para>
 	/// </summary>
-<<<<<<< HEAD
-	public static readonly string[] names = new string[]{"Default","TransparentFX","Ignore Raycast","","Water","UI","","","Laser","Gound","Title","Menu","SelectStage","NoShadow","MiniMapIcon","Wall","","","","","","","","","","","","","","","",""};
-=======
 	public static readonly string[] names = new string[]{"Default","TransparentFX","Ignore Raycast","","Water","UI","","","Laser","Gound","Title","Menu","SelectStage","NoShadow","MiniMapIcon","Wall","NoCamera","NoLight","","","","","","","","","","","","","",""};
->>>>>>> feature/test2
 }

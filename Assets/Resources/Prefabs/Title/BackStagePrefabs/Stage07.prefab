@@ -4702,7 +4702,6 @@ GameObject:
   - 20: {fileID: 2018650}
   - 92: {fileID: 9233886}
   - 124: {fileID: 12493716}
-  - 81: {fileID: 8191628}
   - 114: {fileID: 11400944}
   m_Layer: 0
   m_Name: Main Camera
@@ -8573,7 +8572,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967263
+    m_Bits: 4294882271
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -12659,13 +12658,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!81 &8191628
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 198348}
-  m_Enabled: 1
 --- !u!92 &9233886
 Behaviour:
   m_ObjectHideFlags: 1
