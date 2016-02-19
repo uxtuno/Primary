@@ -4132,6 +4132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   _objectColor:
     _state: 6
     _alpha: 1
@@ -30338,6 +30339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   color:
     _state: 4
     _alpha: 1
