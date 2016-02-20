@@ -69,7 +69,7 @@ public class WarpZone : Gimmick, ISwitchEvent
 			else
 			{
 				// プレイヤーが入ったとき。フェードアウトの演出が入る
-				FadeManager.instance.Fade("", 0.5f,
+				FadeManager.instance.Fade(0.5f,
 					delegate ()
 					{
 						Instantiate(warpEffectPrefab, other.transform.parent.position, Quaternion.identity);
