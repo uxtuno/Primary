@@ -6,16 +6,16 @@ public class StageDigest : MonoBehaviour
 {
 	[SerializeField]
 	private GameObject[] stagePrefabs;
+	GameObject stage = null;
 
 	// Use this for initialization
 	IEnumerator Start()
 	{
-		GameObject go = null;
 		// 名前で探しちゃう
 		var backGround = GameObject.Find("BackGround");
 		if (backGround)
 		{
-			Destroy(go);
+			Destroy(stage);
 		}
 
 		while (true)
@@ -38,12 +38,19 @@ public class StageDigest : MonoBehaviour
 				FadeManager.instance.Fade("", 1.5f,
 					() =>
 					{
-						if (go)
-							Destroy(go);
-						go = Instantiate(stagePrefabs[stageIndex]);
+						if (stage)
+							Destroy(stage);
+						stage = Instantiate(stagePrefabs[stageIndex]);
 					});
 				yield return new WaitForSeconds(8.0f);
 			}
 		}
+	}
+
+	void OnDestroy()
+	{
+		FadeManager.instance.FadeStop();
+		if (stage)
+			Destroy(stage);
 	}
 }
