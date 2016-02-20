@@ -183,8 +183,6 @@ public class Player : MyMonoBehaviour
 		//defaultCameraDirection = cameraTransform.forward;
 	}
 
-	Counter a = new Counter(1.0f);
-	Counter b = new Counter(0.5f);
 	protected override void Update()
 	{
 		if (FadeManager.instance.IsFading)

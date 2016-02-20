@@ -7,8 +7,7 @@ using System.Collections;
 public class MiniMapIconBillboard : MonoBehaviour
 {
 	private Camera targetCamera;
-	private Quaternion defaultRotation;
-	Vector3 toCamera;
+	//Vector3 toCamera;
 
 	void Start()
 	{
@@ -16,9 +15,8 @@ public class MiniMapIconBillboard : MonoBehaviour
 		if (cameraGo)
 		{
 			targetCamera = cameraGo.GetComponent<Camera>();
-			toCamera = targetCamera.transform.position - transform.position;
+			//toCamera = targetCamera.transform.position - transform.position;
 		}
-		defaultRotation = transform.rotation;
 	}
 
 	void Update()
