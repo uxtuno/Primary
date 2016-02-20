@@ -87,8 +87,8 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 	//private float waitCounter;      // 待ち時間のカウント用
 	//private bool isReturn; // 折り返し移動中
 	//private bool isCurrentBezier = false; // 現在の制御点がベジェ曲線モードか
-	private static readonly int n = 50;
-	private Bezier bezier = new Bezier(n); // ベジェ曲線制御用
+	//private static readonly int n = 50;
+	//private Bezier bezier = new Bezier(n); // ベジェ曲線制御用
 
 	//private static readonly float allowableDistance = 0.5f; // 足場を離れたと判断するための距離
 
@@ -292,7 +292,7 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 	protected override void Awake()
 	{
 		base.Awake();
-		Quaternion initRotation = transform.GetChild(0).rotation;
+		//Quaternion initRotation = transform.GetChild(0).rotation;
 		scaffoldsTransform = transform.GetChild(0);
 		scaffoldsTransform.gameObject.AddComponent<MovableObject>();
 		movableObject = BaseMoveType.Create(scaffoldsTransform, moveType, controlPoints);
@@ -332,7 +332,10 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 
 	void FixedUpdate()
 	{
-		MovableObject.Update();
+		if(MovableObject != null)
+		{
+			MovableObject.Update();
+		}
 	}
 
 	/// <summary>

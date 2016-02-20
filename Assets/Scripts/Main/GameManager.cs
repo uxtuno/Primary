@@ -17,7 +17,7 @@ public class GameManager : MyMonoBehaviour
 	[SerializeField]
 	private GameObject grabIconPrefab = null; // 調べるアイコン
 	private GameObject icon; // 調べるアイコン
-	private List<Items> playerItemList; // プレイヤーのアイテム。シーン切り替え時の引継ぎ用
+	//private List<Items> playerItemList; // プレイヤーのアイテム。シーン切り替え時の引継ぎ用
 
 	/// <summary>
 	/// 現在のステージ進行を管理するオブジェクト
@@ -84,7 +84,6 @@ public class GameManager : MyMonoBehaviour
 
 		if (playerGameObject == null)
 		{
-			Debug.Log(Application.loadedLevelName);
 			if (Application.loadedLevelName != SceneName.NormalClear &&
 				Application.loadedLevelName != SceneName.ExtraClear &&
 				Application.loadedLevelName != SceneName.Menu)
@@ -136,7 +135,7 @@ public class GameManager : MyMonoBehaviour
 	/// </summary>
 	public void StageChange(string name)
 	{
-		playerItemList = new List<Items>(player.GetItemList());
+		//playerItemList = new List<Items>(player.GetItemList());
 		SceneChangeSingleton.instance.LoadLevel(name);
 	}
 }

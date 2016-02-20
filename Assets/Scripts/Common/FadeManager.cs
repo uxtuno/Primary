@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class FadeManager : MonoBehaviour
 {
-	private static GameObject fadeCanvasPrefab = Resources.Load<GameObject>("Prefabs/UI/FadeCanvas");
+	private static GameObject fadeCanvasPrefab;
 	private static Canvas fadeCanvas;
 	private static Image fadeImage;
 	private static readonly int defaultSortOrder = 5;
@@ -25,7 +25,8 @@ public class FadeManager : MonoBehaviour
 			{
 				GameObject SceneChangeSingleton = new GameObject("FadeManager");
 				_instance = SceneChangeSingleton.AddComponent<FadeManager>();
-				DontDestroyOnLoad(SceneChangeSingleton.gameObject);
+				fadeCanvasPrefab = Resources.Load<GameObject>("Prefabs/UI/FadeCanvas");
+                DontDestroyOnLoad(SceneChangeSingleton.gameObject);
 			}
 
 			return _instance;
@@ -33,9 +34,8 @@ public class FadeManager : MonoBehaviour
 	}
 
 	List<string> scenePaths { get; set; }   // 読み込み可能なシーンのパス
-	private readonly int Layer = 5000; // 全てのオブジェクトを覆い隠せるようにレイヤーを最前面に
 	private Texture2D overTexture;
-	private float FadeAlpha = 0.0f; // フェード中の透明度
+	//private float FadeAlpha = 0.0f; // フェード中の透明度
 	private bool isFading = false; // フェード中かどうか
 	public bool IsFading
 	{
@@ -50,18 +50,6 @@ public class FadeManager : MonoBehaviour
 		//ここでテクスチャ作る
 		overTexture = Texture2D.whiteTexture;
 		overTexture.Apply();
-	}
-
-	public void OnGUI()
-	{
-		if (!this.IsFading)
-			return;
-
-		GUI.depth = Layer;
-
-		//透明度を更新してテクスチャを描画
-		GUI.color = new Color(1.0f, 1.0f, 1.0f, FadeAlpha);
-		GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), overTexture);
 	}
 
 	Coroutine fadeCoroutine;
@@ -79,7 +67,7 @@ public class FadeManager : MonoBehaviour
 			return;
 		}
 
-		fadeCoroutine = StartCoroutine(TransScene(scene, interval, defaultSortOrder, processing));
+		fadeCoroutine = StartCoroutine(TransScene(scene, interval, defaultSortOrder, Color.white, processing));
 	}
 
 	/// <summary>
@@ -95,16 +83,43 @@ public class FadeManager : MonoBehaviour
 			return;
 		}
 
-		fadeCoroutine = StartCoroutine(TransScene(scene, interval, sortOrder, processing));
+		fadeCoroutine = StartCoroutine(TransScene(scene, interval, sortOrder, Color.white, processing));
+	}
+
+	/// <summary>
+	/// フェードイン、フェードアウトでシーンを切り替える
+	/// </summary>
+	/// <param name='scene'>シーン名</param>
+	/// <param name='interval'>暗転にかかる時間(秒)</param>
+	public void Fade(string scene, Color startColor, float interval = 0.5f, Processing processing = null)
+	{
+		Fade(scene, startColor, interval, defaultSortOrder, processing);
+	}
+
+	/// <summary>
+	/// フェードイン、フェードアウトでシーンを切り替える
+	/// </summary>
+	/// <param name='scene'>シーン名</param>
+	/// <param name='interval'>暗転にかかる時間(秒)</param>
+	public void Fade(string scene, Color startColor, float interval = 0.5f, int sortOrder = 5, Processing processing = null)
+	{
+		if (IsFading)
+		{
+			Debug.Log("フェード中です。");
+			return;
+		}
+
+		fadeCoroutine = StartCoroutine(TransScene(scene, interval, sortOrder, startColor, processing));
 	}
 
 
 	// シーン遷移用コルーチン
-	IEnumerator TransScene(string scene, float interval, int sortOrder, Processing processing)
+	IEnumerator TransScene(string scene, float interval, int sortOrder, Color startColor, Processing processing)
 	{
 		fadeCanvas = Instantiate(fadeCanvasPrefab).GetComponent<Canvas>();
 		DontDestroyOnLoad(fadeCanvas.gameObject);
 		fadeImage = fadeCanvas.GetComponentInChildren<Image>();
+		fadeImage.color = startColor;
 
 		//だんだん暗く
 		this.isFading = true;

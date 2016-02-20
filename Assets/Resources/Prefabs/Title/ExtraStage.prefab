@@ -1000,7 +1000,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4283415039
+    rgba: 4292993505
 --- !u!102 &10208872
 TextMesh:
   serializedVersion: 3
@@ -1021,7 +1021,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4283415039
+    rgba: 4292993505
 --- !u!102 &10211984
 TextMesh:
   serializedVersion: 3
@@ -1042,7 +1042,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4283415039
+    rgba: 4292993505
 --- !u!102 &10214434
 TextMesh:
   serializedVersion: 3
@@ -1063,7 +1063,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4283415039
+    rgba: 4292993505
 --- !u!102 &10216482
 TextMesh:
   serializedVersion: 3
@@ -1084,7 +1084,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4283415039
+    rgba: 4292993505
 --- !u!102 &10219554
 TextMesh:
   serializedVersion: 3
@@ -1105,7 +1105,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4283415039
+    rgba: 4292993505
 --- !u!102 &10239232
 TextMesh:
   serializedVersion: 3
@@ -1126,7 +1126,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4283415039
+    rgba: 4292993505
 --- !u!102 &10239356
 TextMesh:
   serializedVersion: 3
@@ -1147,7 +1147,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4283415039
+    rgba: 4292993505
 --- !u!102 &10241158
 TextMesh:
   serializedVersion: 3
@@ -1168,7 +1168,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4283415039
+    rgba: 4292993505
 --- !u!102 &10262826
 TextMesh:
   serializedVersion: 3
@@ -1210,7 +1210,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4283415039
+    rgba: 4292993505
 --- !u!102 &10267984
 TextMesh:
   serializedVersion: 3
@@ -1231,7 +1231,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4283415039
+    rgba: 4292993505
 --- !u!102 &10270988
 TextMesh:
   serializedVersion: 3
@@ -1252,7 +1252,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4283415039
+    rgba: 4292993505
 --- !u!102 &10272424
 TextMesh:
   serializedVersion: 3
@@ -1273,7 +1273,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4283415039
+    rgba: 4292993505
 --- !u!114 &11403436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1557,7 +1557,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.rgba
-      value: 4283415039
+      value: 4292993505
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -13,7 +13,11 @@ public class SetMiniMapMaterial : MyMonoBehaviour
 	{
 		thisRenderer = GetComponent<Renderer>();
 		defaultMaterials = thisRenderer.materials;
-		miniMapCamera = GameObject.FindGameObjectWithTag(Tags.MiniMapCamera).GetComponent<Camera>();
+		var go = GameObject.FindGameObjectWithTag(Tags.MiniMapCamera);
+		if(go)
+		{
+			miniMapCamera = go.GetComponent<Camera>();
+		}
 	}
 
 	void OnWillRenderObject()

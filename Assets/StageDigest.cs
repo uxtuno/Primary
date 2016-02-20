@@ -35,7 +35,7 @@ public class StageDigest : MonoBehaviour
 			for (int i = 0; i < stagePrefabs.Length; ++i)
 			{
 				int stageIndex = stageOrder[i];
-				FadeManager.instance.Fade("", 1.5f,
+				FadeManager.instance.Fade("", new Color(0.0f, 0.0f, 0.0f), 1.5f,
 					() =>
 					{
 						if (stage)

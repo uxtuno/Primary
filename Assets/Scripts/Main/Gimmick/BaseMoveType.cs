@@ -320,7 +320,6 @@ public class PingPongMoveType : BaseMoveType, ISwitchEvent
 
 	public override void ConputeNextControlPoint()
 	{
-		int returnIndex = nextControlPointIndex; // 戻り値用
 		currentControlPointIndex = nextControlPointIndex;
 
 		int increasingDirection; // 制御点の増加方向(プラスか、マイナスか)
@@ -374,7 +373,6 @@ public class CirculatingMoveType : BaseMoveType
 
 	public override void ConputeNextControlPoint()
 	{
-		int returnIndex = nextControlPointIndex; // 戻り値用
 		currentControlPointIndex = nextControlPointIndex;
 
 		int increasingDirection; // 制御点の増加方向(プラスか、マイナスか)
@@ -422,7 +420,6 @@ public class SwitchingMoveType : BaseMoveType
 
 	public override void ConputeNextControlPoint()
 	{
-		int returnIndex = nextControlPointIndex; // 戻り値用
 		currentControlPointIndex = nextControlPointIndex;
 
 		int increasingDirection; // 制御点の増加方向(プラスか、マイナスか)
@@ -511,7 +508,6 @@ public class OneStepMoveType : BaseMoveType, IActionEvent
 
 	public override void ConputeNextControlPoint()
 	{
-		int returnIndex = nextControlPointIndex; // 戻り値用
 		currentControlPointIndex = nextControlPointIndex;
 
 		int increasingDirection; // 制御点の増加方向(プラスか、マイナスか)

@@ -4013,7 +4013,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 451632, guid: 576a4123f875b744796522c3cc62b20b, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: -.707106829
       objectReference: {fileID: 0}
     - target: {fileID: 451632, guid: 576a4123f875b744796522c3cc62b20b, type: 2}
       propertyPath: m_LocalRotation.z
@@ -4021,11 +4021,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 451632, guid: 576a4123f875b744796522c3cc62b20b, type: 2}
       propertyPath: m_LocalRotation.w
-      value: -1.62920685e-07
+      value: .707106709
       objectReference: {fileID: 0}
     - target: {fileID: 451632, guid: 576a4123f875b744796522c3cc62b20b, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11404378, guid: 576a4123f875b744796522c3cc62b20b, type: 2}
       propertyPath: isRedLaser
