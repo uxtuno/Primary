@@ -188,7 +188,6 @@ GameObject:
   - 33: {fileID: 40825672}
   - 64: {fileID: 40825671}
   - 23: {fileID: 40825670}
-  - 114: {fileID: 40825673}
   m_Layer: 0
   m_Name: WWall
   m_TagString: Untagged
@@ -254,30 +253,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 40825668}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &40825673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 40825668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71801ff45ccaf4b4d849cf3de8d1b128, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useSounds: 
-  _flag: 0
-  pickIconPrefab: {fileID: 0}
-  _objectColor:
-    _state: 7
-    _alpha: 1
-  isUseParticle: 0
-  duringDisappearance: {fileID: 0}
-  completeDisappearance: {fileID: 0}
-  regeneration: {fileID: 0}
-  burst: {fileID: 0}
-  irradiation: {fileID: 0}
-  isDisappearanceStart: 0
 --- !u!1001 &97595177
 Prefab:
   m_ObjectHideFlags: 0
@@ -1636,7 +1611,6 @@ GameObject:
   - 33: {fileID: 1168004102}
   - 64: {fileID: 1168004101}
   - 23: {fileID: 1168004100}
-  - 114: {fileID: 1168004104}
   m_Layer: 0
   m_Name: EWall
   m_TagString: Untagged
@@ -1702,30 +1676,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1168004098}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1168004104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1168004098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71801ff45ccaf4b4d849cf3de8d1b128, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useSounds: 
-  _flag: 0
-  pickIconPrefab: {fileID: 0}
-  _objectColor:
-    _state: 7
-    _alpha: 1
-  isUseParticle: 0
-  duringDisappearance: {fileID: 0}
-  completeDisappearance: {fileID: 0}
-  regeneration: {fileID: 0}
-  burst: {fileID: 0}
-  irradiation: {fileID: 0}
-  isDisappearanceStart: 0
 --- !u!198 &1169044824 stripped
 ParticleSystem:
   m_PrefabParentObject: {fileID: 19809596, guid: 869927097e3150c48b6f078f02eedd8b,
@@ -2084,7 +2034,6 @@ GameObject:
   - 33: {fileID: 1359440410}
   - 64: {fileID: 1359440409}
   - 23: {fileID: 1359440408}
-  - 114: {fileID: 1359440412}
   m_Layer: 0
   m_Name: SWall
   m_TagString: Untagged
@@ -2150,30 +2099,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1359440406}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1359440412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1359440406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71801ff45ccaf4b4d849cf3de8d1b128, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useSounds: 
-  _flag: 0
-  pickIconPrefab: {fileID: 0}
-  _objectColor:
-    _state: 7
-    _alpha: 1
-  isUseParticle: 0
-  duringDisappearance: {fileID: 0}
-  completeDisappearance: {fileID: 0}
-  regeneration: {fileID: 0}
-  burst: {fileID: 0}
-  irradiation: {fileID: 0}
-  isDisappearanceStart: 0
 --- !u!1001 &1360489930
 Prefab:
   m_ObjectHideFlags: 0
@@ -2586,7 +2511,6 @@ GameObject:
   - 33: {fileID: 1567105135}
   - 64: {fileID: 1567105134}
   - 23: {fileID: 1567105133}
-  - 114: {fileID: 1567105136}
   m_Layer: 0
   m_Name: NWall
   m_TagString: Untagged
@@ -2652,30 +2576,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1567105131}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1567105136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1567105131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71801ff45ccaf4b4d849cf3de8d1b128, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useSounds: 
-  _flag: 0
-  pickIconPrefab: {fileID: 0}
-  _objectColor:
-    _state: 7
-    _alpha: 1
-  isUseParticle: 0
-  duringDisappearance: {fileID: 0}
-  completeDisappearance: {fileID: 0}
-  regeneration: {fileID: 0}
-  burst: {fileID: 0}
-  irradiation: {fileID: 0}
-  isDisappearanceStart: 0
 --- !u!1 &1574047630
 GameObject:
   m_ObjectHideFlags: 0
@@ -3155,7 +3055,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11404378, guid: 576a4123f875b744796522c3cc62b20b, type: 2}
       propertyPath: isBlueLaser
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 576a4123f875b744796522c3cc62b20b, type: 2}

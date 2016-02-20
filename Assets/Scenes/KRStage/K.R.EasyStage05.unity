@@ -1877,6 +1877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
