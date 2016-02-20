@@ -59,7 +59,7 @@ public class FadeManager : MonoBehaviour
 	/// </summary>
 	/// <param name='scene'>シーン名</param>
 	/// <param name='interval'>暗転にかかる時間(秒)</param>
-	public void Fade(string scene, float interval = 0.5f, Processing processing = null)
+	public void Fade(float interval = 0.5f, Processing processing = null)
 	{
 		if (IsFading)
 		{
@@ -67,7 +67,7 @@ public class FadeManager : MonoBehaviour
 			return;
 		}
 
-		fadeCoroutine = StartCoroutine(TransScene(scene, interval, defaultSortOrder, Color.white, processing));
+		fadeCoroutine = StartCoroutine(TransScene(interval, defaultSortOrder, Color.white, processing));
 	}
 
 	/// <summary>
@@ -75,7 +75,7 @@ public class FadeManager : MonoBehaviour
 	/// </summary>
 	/// <param name='scene'>シーン名</param>
 	/// <param name='interval'>暗転にかかる時間(秒)</param>
-	public void Fade(string scene, float interval = 0.5f, int sortOrder = 5, Processing processing = null)
+	public void Fade(float interval = 0.5f, int sortOrder = 5, Processing processing = null)
 	{
 		if (IsFading)
 		{
@@ -83,7 +83,7 @@ public class FadeManager : MonoBehaviour
 			return;
 		}
 
-		fadeCoroutine = StartCoroutine(TransScene(scene, interval, sortOrder, Color.white, processing));
+		fadeCoroutine = StartCoroutine(TransScene(interval, sortOrder, Color.white, processing));
 	}
 
 	/// <summary>
@@ -91,9 +91,9 @@ public class FadeManager : MonoBehaviour
 	/// </summary>
 	/// <param name='scene'>シーン名</param>
 	/// <param name='interval'>暗転にかかる時間(秒)</param>
-	public void Fade(string scene, Color startColor, float interval = 0.5f, Processing processing = null)
+	public void Fade(Color startColor, float interval = 0.5f, Processing processing = null)
 	{
-		Fade(scene, startColor, interval, defaultSortOrder, processing);
+		Fade(startColor, interval, defaultSortOrder, processing);
 	}
 
 	/// <summary>
@@ -101,7 +101,7 @@ public class FadeManager : MonoBehaviour
 	/// </summary>
 	/// <param name='scene'>シーン名</param>
 	/// <param name='interval'>暗転にかかる時間(秒)</param>
-	public void Fade(string scene, Color startColor, float interval = 0.5f, int sortOrder = 5, Processing processing = null)
+	public void Fade(Color startColor, float interval = 0.5f, int sortOrder = 5, Processing processing = null)
 	{
 		if (IsFading)
 		{
@@ -109,12 +109,12 @@ public class FadeManager : MonoBehaviour
 			return;
 		}
 
-		fadeCoroutine = StartCoroutine(TransScene(scene, interval, sortOrder, startColor, processing));
+		fadeCoroutine = StartCoroutine(TransScene(interval, sortOrder, startColor, processing));
 	}
 
 
 	// シーン遷移用コルーチン
-	IEnumerator TransScene(string scene, float interval, int sortOrder, Color startColor, Processing processing)
+	IEnumerator TransScene(float interval, int sortOrder, Color startColor, Processing processing)
 	{
 		fadeCanvas = Instantiate(fadeCanvasPrefab).GetComponent<Canvas>();
 		DontDestroyOnLoad(fadeCanvas.gameObject);
