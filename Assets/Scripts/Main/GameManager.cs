@@ -86,7 +86,8 @@ public class GameManager : MyMonoBehaviour
 		{
 			Debug.Log(Application.loadedLevelName);
 			if (Application.loadedLevelName != SceneName.NormalClear &&
-				Application.loadedLevelName != SceneName.ExtraClear)
+				Application.loadedLevelName != SceneName.ExtraClear &&
+				Application.loadedLevelName != SceneName.Menu)
 			{
 				player = ((GameObject)Instantiate(playerPrefab, respawnPosition, respawnRotation)).GetComponent<Player>();
 			}

@@ -31339,7 +31339,7 @@ GameObject:
   - 33: {fileID: 1291997229}
   - 64: {fileID: 1291997228}
   - 23: {fileID: 1291997227}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: TextureAdjust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51689,6 +51689,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 163084, guid: ab52eca7bc34185449af437ad1cb487e, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab52eca7bc34185449af437ad1cb487e, type: 2}
   m_IsPrefabParent: 0
@@ -61902,7 +61906,7 @@ Transform:
   - {fileID: 469754655}
   - {fileID: 502348462}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
 --- !u!114 &2130566367
 MonoBehaviour:
   m_ObjectHideFlags: 0

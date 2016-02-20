@@ -64,6 +64,8 @@ public class FadeManager : MonoBehaviour
 		GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), overTexture);
 	}
 
+	Coroutine fadeCoroutine;
+
 	/// <summary>
 	/// フェードイン、フェードアウトでシーンを切り替える
 	/// </summary>
@@ -77,7 +79,7 @@ public class FadeManager : MonoBehaviour
 			return;
 		}
 
-		StartCoroutine(TransScene(scene, interval, defaultSortOrder, processing));
+		fadeCoroutine = StartCoroutine(TransScene(scene, interval, defaultSortOrder, processing));
 	}
 
 	/// <summary>
@@ -85,7 +87,7 @@ public class FadeManager : MonoBehaviour
 	/// </summary>
 	/// <param name='scene'>シーン名</param>
 	/// <param name='interval'>暗転にかかる時間(秒)</param>
-	public void Fade(string scene, float interval = 0.5f, int sortOrder = 0, Processing processing = null)
+	public void Fade(string scene, float interval = 0.5f, int sortOrder = 5, Processing processing = null)
 	{
 		if (IsFading)
 		{
@@ -93,7 +95,7 @@ public class FadeManager : MonoBehaviour
 			return;
 		}
 
-		StartCoroutine(TransScene(scene, interval, sortOrder, processing));
+		fadeCoroutine = StartCoroutine(TransScene(scene, interval, sortOrder, processing));
 	}
 
 
@@ -138,5 +140,12 @@ public class FadeManager : MonoBehaviour
 
 		Destroy(fadeCanvas.gameObject);
 		this.isFading = false;
+	}
+
+	public void FadeStop()
+	{
+		Destroy(fadeCanvas.gameObject);
+		StopCoroutine(fadeCoroutine);
+		isFading = false;
 	}
 }
