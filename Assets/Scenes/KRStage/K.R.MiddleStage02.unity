@@ -3104,7 +3104,7 @@ Transform:
   - {fileID: 1937620295}
   - {fileID: 1453545269}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!114 &366150698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14465,7 +14465,7 @@ Transform:
   m_LocalScale: {x: 7.92352343, y: 7.92352057, z: 7.92352057}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &1708276887
 GameObject:
   m_ObjectHideFlags: 0
@@ -15626,7 +15626,7 @@ Transform:
   - {fileID: 1904362310}
   - {fileID: 255130479}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!4 &1844748453 stripped
 Transform:
   m_PrefabParentObject: {fileID: 432440, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
