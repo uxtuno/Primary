@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 5
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -66,7 +66,8 @@ LightmapSettings:
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightmapSnapshot: {fileID: 0}
+  m_LightmapSnapshot: {fileID: 112000001, guid: 5270902f27622c441b055153be4a76dd,
+    type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
 NavMeshSettings:
@@ -818,6 +819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!114 &181440221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,6 +954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!114 &196563033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,6 +1130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!114 &227246479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1382,6 +1386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!54 &299498989
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1440,6 +1445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -1622,6 +1628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!114 &466380601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2188,6 +2195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!54 &589118578
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2248,6 +2256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!54 &605400631
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2336,6 +2345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!54 &622988003
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2686,6 +2696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!114 &696928477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2939,6 +2950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!54 &758240892
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3130,6 +3142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!54 &787287050
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3210,6 +3223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!114 &823255232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3378,6 +3392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!54 &858598196
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4437,6 +4452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!54 &1148666754
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4533,6 +4549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!54 &1232495136
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4649,6 +4666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!114 &1282357503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4697,6 +4715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!114 &1288176231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4939,6 +4958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!54 &1340717741
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4975,6 +4995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!114 &1384556530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6130,6 +6151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!54 &1601788299
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6414,6 +6436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!54 &1690252106
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6462,6 +6485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!54 &1704347078
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7284,6 +7308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!114 &1824956309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7336,6 +7361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
 --- !u!54 &1826111363
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7545,6 +7571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useSounds: 
   _flag: 0
+  pickIconPrefab: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:

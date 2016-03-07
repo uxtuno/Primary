@@ -66,6 +66,8 @@ public class MenuManager : MyMonoBehaviour
 		switch (itemName)
 		{
 			case "NewGame":
+				var stageDigest = FindObjectOfType<StageDigest>();
+				stageDigest.Stop();
 				SceneChangeSingleton.instance.LoadLevel(Scenes.TutorialStage01.name);
 				break;
 
@@ -114,6 +116,8 @@ public class MenuManager : MyMonoBehaviour
 			default:
 				// データからステージ名を読み込んでくる
 				StageData stageData = Resources.Load<StageData>("StageData/StageData");
+				var stageDigest = FindObjectOfType<StageDigest>();
+				stageDigest.Stop();
 				SceneChangeSingleton.instance.LoadLevel(stageData.param[int.Parse(itemName)].Name);
 				break;
 		}
