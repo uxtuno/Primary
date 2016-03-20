@@ -159,7 +159,11 @@ public class FadeManager : MonoBehaviour
 
 	public void FadeStop()
 	{
-		Destroy(fadeCanvas.gameObject);
+
+		if(fadeCanvas != null)
+		{
+			Destroy(fadeCanvas.gameObject);
+		}
 		StopCoroutine(fadeCoroutine);
 		isFading = false;
 	}
