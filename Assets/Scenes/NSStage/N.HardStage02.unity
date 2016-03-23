@@ -47,7 +47,7 @@ LightmapSettings:
     serializedVersion: 2
     m_BounceScale: 1
     m_IndirectOutputScale: 1
-    m_AlbedoBoost: 2.79999995
+    m_AlbedoBoost: 1
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
@@ -60,13 +60,13 @@ LightmapSettings:
     m_TextureHeight: 1024
     m_AOMaxDistance: 1
     m_Padding: 2
-    m_CompAOExponent: 0
+    m_CompAOExponent: 1
     m_LightmapParameters: {fileID: 0}
-    m_TextureCompression: 0
-    m_FinalGather: 0
-    m_FinalGatherRayCount: 1024
+    m_TextureCompression: 1
+    m_FinalGather: 1
+    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-  m_LightmapSnapshot: {fileID: 112000026, guid: cf2a1d2673242214b8d701d927ee393b,
+  m_LightmapSnapshot: {fileID: 112000025, guid: cf2a1d2673242214b8d701d927ee393b,
     type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -1243,6 +1243,34 @@ Prefab:
       propertyPath: m_Name
       value: AtomicLight 7
       objectReference: {fileID: 0}
+    - target: {fileID: 124504, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10816712, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12209862, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
   m_IsPrefabParent: 0
@@ -1404,7 +1432,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4771a05879265714ab707a008dce741f, type: 2}
+  - {fileID: 2100000, guid: a3d12812ec885ed46bad5396f7010891, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1554,6 +1582,34 @@ Prefab:
       propertyPath: m_Name
       value: AtomicLight 2
       objectReference: {fileID: 0}
+    - target: {fileID: 124504, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10816712, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12209862, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
   m_IsPrefabParent: 0
@@ -1599,6 +1655,34 @@ Prefab:
     - target: {fileID: 155140, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
       propertyPath: m_Name
       value: AtomicLight 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 124504, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10816712, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12209862, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
@@ -4629,6 +4713,114 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: b671b995815a47c4281d96ca04588a9b, type: 2}
+--- !u!1 &377107852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 377107854}
+  - 220: {fileID: 377107853}
+  m_Layer: 0
+  m_Name: Light Probe Group1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!220 &377107853
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 377107852}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: 1, y: 4.30305576, z: 21.7739792}
+  - {x: 1, y: 4.30305576, z: 19.7739792}
+  - {x: 1, y: 2.30305576, z: 21.7739792}
+  - {x: 1, y: 2.30305576, z: 19.7739792}
+  - {x: -1, y: 4.30305576, z: 21.7739792}
+  - {x: -1, y: 4.30305576, z: 19.7739792}
+  - {x: -1, y: 2.30305576, z: 21.7739792}
+  - {x: -1, y: 2.30305576, z: 19.7739792}
+  - {x: 2.41818142, y: 2.40582943, z: 21.8479214}
+  - {x: 2.41818142, y: 2.86769533, z: 19.7451324}
+  - {x: 2.3140502, y: 4.40177059, z: 21.836874}
+  - {x: 2.3140502, y: 4.40177059, z: 19.8376102}
+  - {x: 1, y: 3.41117764, z: 13.5417109}
+  - {x: 1, y: 3.41117764, z: 11.5417109}
+  - {x: 1, y: 1.41117764, z: 13.5417109}
+  - {x: 1, y: 1.41117764, z: 11.5417109}
+  - {x: -1, y: 3.41117764, z: 13.5417109}
+  - {x: -1, y: 3.41117764, z: 11.5417109}
+  - {x: -1, y: 1.41117764, z: 13.5417109}
+  - {x: -1, y: 1.41117764, z: 11.5417109}
+  - {x: 2.41818142, y: 1.5139513, z: 13.6156521}
+  - {x: 2.41818142, y: 1.9758172, z: 11.5128632}
+  - {x: 2.3140502, y: 3.5098927, z: 13.6046047}
+  - {x: 2.3140502, y: 3.5098927, z: 11.6053419}
+  - {x: 1, y: 3.41117764, z: 17.7010231}
+  - {x: 1, y: 3.41117764, z: 15.7010241}
+  - {x: 1, y: 1.41117764, z: 17.7010231}
+  - {x: 1, y: 1.41117764, z: 15.7010241}
+  - {x: -1, y: 3.41117764, z: 17.7010231}
+  - {x: -1, y: 3.41117764, z: 15.7010241}
+  - {x: -1, y: 1.41117764, z: 17.7010231}
+  - {x: -1, y: 1.41117764, z: 15.7010241}
+  - {x: 2.41818142, y: 1.5139513, z: 17.7749653}
+  - {x: 2.41818142, y: 1.9758172, z: 15.6721764}
+  - {x: 2.3140502, y: 3.5098927, z: 17.7639179}
+  - {x: 2.3140502, y: 3.5098927, z: 15.7646551}
+  - {x: 1, y: 1.89187813, z: 9.23226833}
+  - {x: 1, y: 1.89187813, z: 7.23226833}
+  - {x: 1, y: -.108121872, z: 9.23226833}
+  - {x: 1, y: -.108121872, z: 7.23226833}
+  - {x: -1, y: 1.89187813, z: 9.23226833}
+  - {x: -1, y: 1.89187813, z: 7.23226833}
+  - {x: -1, y: -.108121872, z: 9.23226833}
+  - {x: -1, y: -.108121872, z: 7.23226833}
+  - {x: 2.41818142, y: -.00534820557, z: 9.30620956}
+  - {x: 2.41818142, y: .456517696, z: 7.20342064}
+  - {x: 2.3140502, y: 1.99059296, z: 9.2951622}
+  - {x: 2.3140502, y: 1.99059296, z: 7.29589939}
+  - {x: 1, y: 1, z: 1}
+  - {x: 1, y: 1, z: -1}
+  - {x: 1, y: -1, z: 1}
+  - {x: 1, y: -1, z: -1}
+  - {x: -1, y: 1, z: 1}
+  - {x: -1, y: 1, z: -1}
+  - {x: -1, y: -1, z: 1}
+  - {x: -1, y: -1, z: -1}
+  - {x: 2.41818142, y: -.897226334, z: 1.07394147}
+  - {x: 2.41818142, y: -.435360432, z: -1.02884746}
+  - {x: 2.3140502, y: 1.09871507, z: 1.06289387}
+  - {x: 2.3140502, y: 1.09871507, z: -.936368942}
+  - {x: 1, y: 1, z: 5.1593132}
+  - {x: 1, y: 1, z: 3.1593132}
+  - {x: 1, y: -1, z: 5.1593132}
+  - {x: 1, y: -1, z: 3.1593132}
+  - {x: -1, y: 1, z: 5.1593132}
+  - {x: -1, y: 1, z: 3.1593132}
+  - {x: -1, y: -1, z: 5.1593132}
+  - {x: -1, y: -1, z: 3.1593132}
+  - {x: 2.41818142, y: -.897226334, z: 5.23325443}
+  - {x: 2.41818142, y: -.435360432, z: 3.13046575}
+  - {x: 2.3140502, y: 1.09871507, z: 5.22220707}
+  - {x: 2.3140502, y: 1.09871507, z: 3.22294426}
+--- !u!4 &377107854
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 377107852}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.08999991, y: 3.52306461, z: -5.71999979}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 1070557829}
+  m_RootOrder: 0
 --- !u!4 &380928950 stripped
 Transform:
   m_PrefabParentObject: {fileID: 492630, guid: 73fe1141c0ff1fe4d98106ee5cd5abdf, type: 2}
@@ -4814,6 +5006,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2095502, guid: 576a4123f875b744796522c3cc62b20b, type: 2}
+      propertyPath: m_HDR
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 576a4123f875b744796522c3cc62b20b, type: 2}
   m_IsPrefabParent: 0
@@ -4915,7 +5111,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 31c28ebdd7970ef4f96c73e60db644bf, type: 2}
+  - {fileID: 2100000, guid: a3d12812ec885ed46bad5396f7010891, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -5144,6 +5340,34 @@ Prefab:
     - target: {fileID: 432440, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
       propertyPath: m_RootOrder
       value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 124504, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10816712, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12209862, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
@@ -5535,7 +5759,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 81ede0ab41fb2de4e9acefc344390954, type: 2}
+  - {fileID: 2100000, guid: a3d12812ec885ed46bad5396f7010891, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -5672,7 +5896,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4771a05879265714ab707a008dce741f, type: 2}
+  - {fileID: 2100000, guid: a3d12812ec885ed46bad5396f7010891, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -7177,6 +7401,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 3f4f714d55b61e24292ab9f1da11e8b5, type: 2}
+--- !u!1 &698048481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 698048483}
+  - 220: {fileID: 698048482}
+  m_Layer: 0
+  m_Name: Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!220 &698048482
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 698048481}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: -5.49226999, y: 1, z: 7.25447845}
+  - {x: -5.49226999, y: 1, z: 5.25447845}
+  - {x: -5.49226999, y: -1, z: 7.25447845}
+  - {x: -5.49226999, y: -1, z: 5.25447845}
+  - {x: -7.49227095, y: 1, z: 7.25447845}
+  - {x: -7.49227095, y: 1, z: 5.25447845}
+  - {x: -7.49227095, y: -1, z: 7.25447845}
+  - {x: -7.49227095, y: -1, z: 5.25447845}
+  - {x: 1, y: 1, z: 1.539711}
+  - {x: 1, y: 1, z: -.460289001}
+  - {x: 1, y: -1, z: 1.539711}
+  - {x: 1, y: -1, z: -.460289001}
+  - {x: -1, y: 1, z: 1.539711}
+  - {x: -1, y: 1, z: -.460289001}
+  - {x: -1, y: -1, z: 1.539711}
+  - {x: -1, y: -1, z: -.460289001}
+  - {x: -5.49226999, y: 1, z: 1.539711}
+  - {x: -5.49226999, y: 1, z: -.460289001}
+  - {x: -5.49226999, y: -1, z: 1.539711}
+  - {x: -5.49226999, y: -1, z: -.460289001}
+  - {x: -7.49227095, y: 1, z: 1.539711}
+  - {x: -7.49227095, y: 1, z: -.460289001}
+  - {x: -7.49227095, y: -1, z: 1.539711}
+  - {x: -7.49227095, y: -1, z: -.460289001}
+  - {x: -5.49226999, y: 1, z: 1.539711}
+  - {x: -5.49226999, y: 1, z: -.460289001}
+  - {x: -5.49226999, y: -1, z: 1.539711}
+  - {x: -5.49226999, y: -1, z: -.460289001}
+  - {x: -7.49227095, y: 1, z: 1.539711}
+  - {x: -7.49227095, y: 1, z: -.460289001}
+  - {x: -7.49227095, y: -1, z: 1.539711}
+  - {x: -7.49227095, y: -1, z: -.460289001}
+--- !u!4 &698048483
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 698048481}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.15999985, y: 8.81000042, z: 55.8100014}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1070557829}
+  m_RootOrder: 1
 --- !u!1001 &702684672
 Prefab:
   m_ObjectHideFlags: 0
@@ -7459,7 +7751,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 81ede0ab41fb2de4e9acefc344390954, type: 2}
+  - {fileID: 2100000, guid: a3d12812ec885ed46bad5396f7010891, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -7664,7 +7956,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 58206fb98324f6249b253b54eb1f55a0, type: 2}
+  - {fileID: 2100000, guid: 768e0ab12674ce4418836879102549de, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -8862,6 +9154,34 @@ Prefab:
       propertyPath: m_Name
       value: AtomicLight 11
       objectReference: {fileID: 0}
+    - target: {fileID: 124504, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10816712, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12209862, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
   m_IsPrefabParent: 0
@@ -9150,6 +9470,34 @@ Prefab:
       propertyPath: m_Name
       value: AtomicLight 12
       objectReference: {fileID: 0}
+    - target: {fileID: 124504, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10816712, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12209862, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
   m_IsPrefabParent: 0
@@ -9199,6 +9547,34 @@ Prefab:
     - target: {fileID: 155140, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
       propertyPath: m_Name
       value: AtomicLight 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 124504, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10816712, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12209862, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
@@ -9961,7 +10337,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 81ede0ab41fb2de4e9acefc344390954, type: 2}
+  - {fileID: 2100000, guid: a3d12812ec885ed46bad5396f7010891, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -10006,6 +10382,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1072176334}
   m_RootOrder: 25
+--- !u!1 &1070557828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1070557829}
+  m_Layer: 0
+  m_Name: LightProbes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1070557829
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1070557828}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 377107854}
+  - {fileID: 698048483}
+  - {fileID: 2015589449}
+  - {fileID: 1666537087}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
 --- !u!1 &1072176333
 GameObject:
   m_ObjectHideFlags: 0
@@ -11464,6 +11871,34 @@ Prefab:
       propertyPath: m_Name
       value: AtomicLight 5
       objectReference: {fileID: 0}
+    - target: {fileID: 124504, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10816712, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12209862, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
   m_IsPrefabParent: 0
@@ -11499,7 +11934,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 31c28ebdd7970ef4f96c73e60db644bf, type: 2}
+  - {fileID: 2100000, guid: a3d12812ec885ed46bad5396f7010891, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -12834,6 +13269,34 @@ Prefab:
     - target: {fileID: 155140, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
       propertyPath: m_Name
       value: AtomicLight 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 124504, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10816712, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12209862, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
@@ -14623,7 +15086,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4771a05879265714ab707a008dce741f, type: 2}
+  - {fileID: 2100000, guid: a3d12812ec885ed46bad5396f7010891, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -14779,6 +15242,34 @@ Prefab:
     - target: {fileID: 155140, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
       propertyPath: m_Name
       value: AtomicLight 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 124504, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10816712, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12209862, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
@@ -16054,6 +16545,66 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!1 &1666537085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1666537087}
+  - 220: {fileID: 1666537086}
+  m_Layer: 0
+  m_Name: Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!220 &1666537086
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1666537085}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: 1, y: 1, z: 8.76371002}
+  - {x: 1, y: 1, z: 6.76371002}
+  - {x: 1, y: -1, z: 8.76371002}
+  - {x: 1, y: -1, z: 6.76371002}
+  - {x: -1, y: 1, z: 8.76371002}
+  - {x: -1, y: 1, z: 6.76371002}
+  - {x: -1, y: -1, z: 8.76371002}
+  - {x: -1, y: -1, z: 6.76371002}
+  - {x: 1, y: 1, z: 1}
+  - {x: 1, y: 1, z: -1}
+  - {x: 1, y: -1, z: 1}
+  - {x: 1, y: -1, z: -1}
+  - {x: -1, y: 1, z: 1}
+  - {x: -1, y: 1, z: -1}
+  - {x: -1, y: -1, z: 1}
+  - {x: -1, y: -1, z: -1}
+  - {x: 1, y: 1, z: 4.73194122}
+  - {x: 1, y: 1, z: 2.73194122}
+  - {x: 1, y: -1, z: 4.73194122}
+  - {x: 1, y: -1, z: 2.73194122}
+  - {x: -1, y: 1, z: 4.73194122}
+  - {x: -1, y: 1, z: 2.73194122}
+  - {x: -1, y: -1, z: 4.73194122}
+  - {x: -1, y: -1, z: 2.73194122}
+--- !u!4 &1666537087
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1666537085}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 14.4700003, z: 97.2399979}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1070557829}
+  m_RootOrder: 3
 --- !u!1001 &1667164344
 Prefab:
   m_ObjectHideFlags: 0
@@ -16096,6 +16647,34 @@ Prefab:
     - target: {fileID: 155140, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
       propertyPath: m_Name
       value: AtomicLight 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 124504, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10816712, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12209862, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
@@ -16142,6 +16721,34 @@ Prefab:
     - target: {fileID: 155140, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
       propertyPath: m_Name
       value: AtomicLight 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 124504, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10816712, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12209862, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
@@ -16552,6 +17159,34 @@ Prefab:
       propertyPath: m_Name
       value: AtomicLight 15
       objectReference: {fileID: 0}
+    - target: {fileID: 124504, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10816712, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12209862, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
   m_IsPrefabParent: 0
@@ -16908,6 +17543,34 @@ Prefab:
       propertyPath: m_Name
       value: AtomicLight 16
       objectReference: {fileID: 0}
+    - target: {fileID: 124504, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10816712, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12209862, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
   m_IsPrefabParent: 0
@@ -17129,7 +17792,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4771a05879265714ab707a008dce741f, type: 2}
+  - {fileID: 2100000, guid: a3d12812ec885ed46bad5396f7010891, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -17216,6 +17879,34 @@ Prefab:
     - target: {fileID: 155140, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
       propertyPath: m_Name
       value: AtomicLight 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 124504, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10816712, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12209862, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
@@ -17306,7 +17997,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: a5e8c5da9c57f9a46b9cc5cc56594b46, type: 2}
+  - {fileID: 2100000, guid: a3d12812ec885ed46bad5396f7010891, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -17393,6 +18084,34 @@ Prefab:
     - target: {fileID: 155140, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
       propertyPath: m_Name
       value: AtomicLight 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 124504, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10816712, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12209862, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
@@ -17714,6 +18433,138 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e106a352aa0613f44ad5c13b810d8872, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2015589447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2015589449}
+  - 220: {fileID: 2015589448}
+  m_Layer: 0
+  m_Name: Light Probe Group1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!220 &2015589448
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2015589447}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: .574082375, y: 1, z: 22.0225525}
+  - {x: .574082375, y: 1, z: 20.0225525}
+  - {x: .574082375, y: -1, z: 22.0225525}
+  - {x: .574082375, y: -1, z: 20.0225525}
+  - {x: -1.42591858, y: 1, z: 22.0225525}
+  - {x: -1.42591858, y: 1, z: 20.0225525}
+  - {x: -1.42591858, y: -1, z: 22.0225525}
+  - {x: -1.42591858, y: -1, z: 20.0225525}
+  - {x: 5.30023813, y: 1, z: 22.0225525}
+  - {x: 5.30023813, y: 1, z: 20.0225525}
+  - {x: 5.30023813, y: -1, z: 22.0225525}
+  - {x: 5.30023813, y: -1, z: 20.0225525}
+  - {x: 3.30023861, y: 1, z: 22.0225525}
+  - {x: 3.30023861, y: 1, z: 20.0225525}
+  - {x: 3.30023861, y: -1, z: 22.0225525}
+  - {x: 3.30023861, y: -1, z: 20.0225525}
+  - {x: -3.72615623, y: 1, z: 1}
+  - {x: -3.72615623, y: 1, z: -1}
+  - {x: -3.72615623, y: -1, z: 1}
+  - {x: -3.72615623, y: -1, z: -1}
+  - {x: -5.72615623, y: 1, z: 1}
+  - {x: -5.72615623, y: 1, z: -1}
+  - {x: -5.72615623, y: -1, z: 1}
+  - {x: -5.72615623, y: -1, z: -1}
+  - {x: 1, y: 1, z: 1}
+  - {x: 1, y: 1, z: -1}
+  - {x: 1, y: -1, z: 1}
+  - {x: 1, y: -1, z: -1}
+  - {x: -1, y: 1, z: 1}
+  - {x: -1, y: 1, z: -1}
+  - {x: -1, y: -1, z: 1}
+  - {x: -1, y: -1, z: -1}
+  - {x: -3.72615623, y: 1, z: 5.74467468}
+  - {x: -3.72615623, y: 1, z: 3.74467468}
+  - {x: -3.72615623, y: -1, z: 5.74467468}
+  - {x: -3.72615623, y: -1, z: 3.74467468}
+  - {x: -5.72615623, y: 1, z: 5.74467468}
+  - {x: -5.72615623, y: 1, z: 3.74467468}
+  - {x: -5.72615623, y: -1, z: 5.74467468}
+  - {x: -5.72615623, y: -1, z: 3.74467468}
+  - {x: 1, y: 1, z: 5.74467468}
+  - {x: 1, y: 1, z: 3.74467468}
+  - {x: 1, y: -1, z: 5.74467468}
+  - {x: 1, y: -1, z: 3.74467468}
+  - {x: -1, y: 1, z: 5.74467468}
+  - {x: -1, y: 1, z: 3.74467468}
+  - {x: -1, y: -1, z: 5.74467468}
+  - {x: -1, y: -1, z: 3.74467468}
+  - {x: 1.02060747, y: 1, z: 11.2454376}
+  - {x: 1.02060747, y: 1, z: 9.24543762}
+  - {x: 1.02060747, y: -1, z: 11.2454376}
+  - {x: 1.02060747, y: -1, z: 9.24543762}
+  - {x: -.979392767, y: 1, z: 11.2454376}
+  - {x: -.979392767, y: 1, z: 9.24543762}
+  - {x: -.979392767, y: -1, z: 11.2454376}
+  - {x: -.979392767, y: -1, z: 9.24543762}
+  - {x: 5.74676323, y: 1, z: 11.2454376}
+  - {x: 5.74676323, y: 1, z: 9.24543762}
+  - {x: 5.74676323, y: -1, z: 11.2454376}
+  - {x: 5.74676323, y: -1, z: 9.24543762}
+  - {x: 3.74676371, y: 1, z: 11.2454376}
+  - {x: 3.74676371, y: 1, z: 9.24543762}
+  - {x: 3.74676371, y: -1, z: 11.2454376}
+  - {x: 3.74676371, y: -1, z: 9.24543762}
+  - {x: -8.14229202, y: 1, z: 11.2454376}
+  - {x: -8.14229202, y: 1, z: 9.24543762}
+  - {x: -8.14229202, y: -1, z: 11.2454376}
+  - {x: -8.14229202, y: -1, z: 9.24543762}
+  - {x: -10.142292, y: 1, z: 11.2454376}
+  - {x: -10.142292, y: 1, z: 9.24543762}
+  - {x: -10.142292, y: -1, z: 11.2454376}
+  - {x: -10.142292, y: -1, z: 9.24543762}
+  - {x: -3.41613626, y: 1, z: 11.2454376}
+  - {x: -3.41613626, y: 1, z: 9.24543762}
+  - {x: -3.41613626, y: -1, z: 11.2454376}
+  - {x: -3.41613626, y: -1, z: 9.24543762}
+  - {x: -5.41613579, y: 1, z: 11.2454376}
+  - {x: -5.41613579, y: 1, z: 9.24543762}
+  - {x: -5.41613579, y: -1, z: 11.2454376}
+  - {x: -5.41613579, y: -1, z: 9.24543762}
+  - {x: -8.14229202, y: 1, z: 22.0225525}
+  - {x: -8.14229202, y: 1, z: 20.0225525}
+  - {x: -8.14229202, y: -1, z: 22.0225525}
+  - {x: -8.14229202, y: -1, z: 20.0225525}
+  - {x: -10.142292, y: 1, z: 22.0225525}
+  - {x: -10.142292, y: 1, z: 20.0225525}
+  - {x: -10.142292, y: -1, z: 22.0225525}
+  - {x: -10.142292, y: -1, z: 20.0225525}
+  - {x: -3.41613626, y: 1, z: 22.0225525}
+  - {x: -3.41613626, y: 1, z: 20.0225525}
+  - {x: -3.41613626, y: -1, z: 22.0225525}
+  - {x: -3.41613626, y: -1, z: 20.0225525}
+  - {x: -5.41613579, y: 1, z: 22.0225525}
+  - {x: -5.41613579, y: 1, z: 20.0225525}
+  - {x: -5.41613579, y: -1, z: 22.0225525}
+  - {x: -5.41613579, y: -1, z: 20.0225525}
+--- !u!4 &2015589449
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2015589447}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.98000002, y: 8.10000038, z: 70.1999969}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1070557829}
+  m_RootOrder: 2
 --- !u!4 &2015969971 stripped
 Transform:
   m_PrefabParentObject: {fileID: 432440, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
@@ -17788,6 +18639,34 @@ Prefab:
     - target: {fileID: 155140, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
       propertyPath: m_Name
       value: AtomicLight 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 124504, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10816712, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_UseLightProbes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397762, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_ReflectionProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12209862, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
+      propertyPath: m_Color.rgba
+      value: 4294967250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1bdb7977752501c4ba0bcbaff2ac27fb, type: 2}
@@ -18052,7 +18931,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4771a05879265714ab707a008dce741f, type: 2}
+  - {fileID: 2100000, guid: a3d12812ec885ed46bad5396f7010891, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

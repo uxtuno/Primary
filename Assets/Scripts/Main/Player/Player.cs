@@ -199,11 +199,11 @@ public class Player : MyMonoBehaviour
 
 		CameraMove(-mouseY, mouseX); // カメラの操作
 
-		Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f));
 
 #if UNITY_EDITOR
 		if (Input.GetKeyDown(KeyCode.B))
 		{
+			Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f));
 			RaycastHit hit;
 			Physics.Raycast(ray, out hit);
 			Instantiate(explosionPrefab, hit.point, Quaternion.identity);
@@ -211,7 +211,7 @@ public class Player : MyMonoBehaviour
 #endif
 
 		// ダッシュ状態に切り替え
-		if(Input.GetButtonDown("Dash"))
+		if (Input.GetButtonDown("Dash"))
 		{
 			isDash = !isDash;
 		}
@@ -233,6 +233,7 @@ public class Player : MyMonoBehaviour
 				//SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[SoundCollector.SoundName.LaserLow], true, true, 1f, 0.0f, true);
 			}
 
+			Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f));
 			eraseLaser.IrradiationToTarget(ray.direction * 100.0f + transform.position);
 		}
 
@@ -243,11 +244,13 @@ public class Player : MyMonoBehaviour
 		}
 
 		bool isLaserChange = false;
+		// 左クリックしながら右クリック
 		if (Input.GetMouseButton(0) && Input.GetMouseButtonDown(1))
 		{
 			isLaserChange = true;
 		}
 
+		// 右ダブルクリック判定
 		if (Input.GetMouseButtonDown(1) && !isRightClick)
 		{
 			isRightClick = true;
@@ -274,6 +277,7 @@ public class Player : MyMonoBehaviour
 			isLaserChange = true;
 		}
 
+		// レーザーを切り替え
 		if (isLaserChange)
 		{
 			ChangeLaser();
