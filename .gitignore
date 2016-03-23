@@ -7,6 +7,10 @@ ignoreAssets/
 Sounds/
 Primary/
 
+LightmapSnapshot.asset
+LightmapSnapshot.asset.meta
+*.exr
+*.exr.meta
 *.exe
 *.csproj
 *.unityproj
