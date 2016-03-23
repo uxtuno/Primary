@@ -29,6 +29,7 @@ public class LayerName
 	public static Para Wall = new Para(15, 32768, "Wall");
 	public static Para NoCamera = new Para(16, 65536, "NoCamera");
 	public static Para NoLight = new Para(17, 131072, "NoLight");
+	public static Para FadeOver = new Para(18, 262144, "FadeOver");
 
 	/// <summary>
 	/// <para>0. "Default"</para>
@@ -49,7 +50,7 @@ public class LayerName
 	/// <para>15. "Wall"</para>
 	/// <para>16. "NoCamera"</para>
 	/// <para>17. "NoLight"</para>
-	/// <para>18. ""</para>
+	/// <para>18. "FadeOver"</para>
 	/// <para>19. ""</para>
 	/// <para>20. ""</para>
 	/// <para>21. ""</para>
@@ -64,5 +65,5 @@ public class LayerName
 	/// <para>30. ""</para>
 	/// <para>31. ""</para>
 	/// </summary>
-	public static readonly string[] names = new string[]{"Default","TransparentFX","Ignore Raycast","","Water","UI","","","Laser","Gound","Title","Menu","SelectStage","NoShadow","MiniMapIcon","Wall","NoCamera","NoLight","","","","","","","","","","","","","",""};
+	public static readonly string[] names = new string[]{"Default","TransparentFX","Ignore Raycast","","Water","UI","","","Laser","Gound","Title","Menu","SelectStage","NoShadow","MiniMapIcon","Wall","NoCamera","NoLight","FadeOver","","","","","","","","","","","","",""};
 }

@@ -14,7 +14,6 @@
 			LOD 200
 
 			Pass{
-			ZWrite On
 			ColorMask 0
 		}
 
@@ -43,7 +42,7 @@
 				//o.Metallic = 0;
 				//o.Smoothness = 0;
 				o.Alpha = _Color.a;
-				//o.Emission  = _Color.rgb * ((_Color.r * _Color.g * _Color.b) == 1.0) * _Color.a * 0.2;
+				o.Emission  = _Color.rgb * _Color.a * 0.15;
 			}
 			ENDCG
 		}

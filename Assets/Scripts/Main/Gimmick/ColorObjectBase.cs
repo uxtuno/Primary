@@ -39,10 +39,12 @@ public abstract class ColorObjectBase : Gimmick
 	protected ObjectColor IrradiationColor = ColorState.NONE;   // 現在のフレームで照射されているレーザーの色
 	private float currentFrame; // 現在のフレーム
 	protected bool isPlayback = false;
-	protected float endurance = 1.0f; // 現在の耐久値
+	protected float endurance = 0.5f; // 現在の耐久値
 
 	protected List<Item> items = new List<Item>();
 
+	// todo : エフェクトを全て手作業で設定しなければならないので作業量的に問題がある
+	// ほぼ同じエフェクトを使うことになるのでプログラム上で読み込みたい
 	[SerializeField]
 	protected bool isUseParticle = false;
 	[SerializeField]
