@@ -184,6 +184,9 @@ public class ColorBlock : ColorObjectBase
 			rigidbody.WakeUp();
 		}
 
+		// タイトル画面では音がならないように
+		if (Application.loadedLevelName == SceneName.Menu)
+			return;
 		SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[useSounds[0]], false, true, 0.5f, 0.0f, true);
 	}
 

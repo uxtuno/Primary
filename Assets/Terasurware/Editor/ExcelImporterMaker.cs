@@ -100,8 +100,6 @@ public class ExcelImporterMaker : EditorWindow
     {
         foreach (Object obj in Selection.objects)
         {
-			
-		
             var window = ScriptableObject.CreateInstance<ExcelImporterMaker>();
             window.filePath = AssetDatabase.GetAssetPath(obj);
             window.fileName = Path.GetFileNameWithoutExtension(window.filePath);

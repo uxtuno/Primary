@@ -5,6 +5,7 @@
 [Tt]est/
 ignoreAssets/
 Sounds/
+Primary/
 
 *.exe
 *.csproj
