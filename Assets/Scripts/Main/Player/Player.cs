@@ -500,6 +500,10 @@ public class Player : MyMonoBehaviour
 		if (items.Count < itemPossessionMax)
 		{
 			items.Add(item);
+
+			if (soundCollector == null)
+				soundCollector = FindObjectOfType<SoundCollector>();
+
 			SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[SoundCollector.SoundName.ItemGet]);
 			return true;
 		}
