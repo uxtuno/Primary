@@ -56,17 +56,17 @@ LightmapSettings:
     serializedVersion: 3
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
+    m_TextureWidth: 128
     m_TextureHeight: 1024
     m_AOMaxDistance: 1
     m_Padding: 2
-    m_CompAOExponent: 0
+    m_CompAOExponent: 1
     m_LightmapParameters: {fileID: 0}
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherRayCount: 1024
+    m_FinalGather: 1
+    m_FinalGatherRayCount: 128
     m_ReflectionCompression: 2
-  m_LightmapSnapshot: {fileID: 112000001, guid: 5270902f27622c441b055153be4a76dd,
+  m_LightmapSnapshot: {fileID: 112000009, guid: fa2153d292ee9e44eb63b14f498c2c07,
     type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -864,7 +864,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 67
   m_IsActive: 1
 --- !u!23 &182050281
 MeshRenderer:
@@ -1538,7 +1538,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 67
   m_IsActive: 1
 --- !u!23 &398106736
 MeshRenderer:
@@ -2105,7 +2105,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 67
   m_IsActive: 1
 --- !u!23 &585980003
 MeshRenderer:
@@ -2478,7 +2478,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 67
   m_IsActive: 1
 --- !u!23 &690055680
 MeshRenderer:
@@ -3842,6 +3842,18 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2f43586215bc2df45bcda1a09a1b833f, type: 2}
+    - target: {fileID: 115110, guid: ca78795e5d4bdb5459f39752535ec6e2, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 67
+      objectReference: {fileID: 0}
+    - target: {fileID: 132662, guid: ca78795e5d4bdb5459f39752535ec6e2, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 67
+      objectReference: {fileID: 0}
+    - target: {fileID: 133592, guid: ca78795e5d4bdb5459f39752535ec6e2, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 67
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca78795e5d4bdb5459f39752535ec6e2, type: 2}
   m_IsPrefabParent: 0
@@ -5060,7 +5072,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 67
   m_IsActive: 1
 --- !u!23 &1416616222
 MeshRenderer:
@@ -5732,7 +5744,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 67
   m_IsActive: 1
 --- !u!23 &1543619656
 MeshRenderer:
@@ -7234,7 +7246,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 67
   m_IsActive: 1
 --- !u!23 &1810050627
 MeshRenderer:

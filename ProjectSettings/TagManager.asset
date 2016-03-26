@@ -29,7 +29,7 @@ TagManager:
   - NoLight
   - FadeOver
   - LightProbe
-  - 
+  - NoReflectionProbe
   - 
   - 
   - 

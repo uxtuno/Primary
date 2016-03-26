@@ -34,12 +34,12 @@ public abstract class ColorObjectBase : Gimmick
 		get { return _objectColor; }
 	}
 
-	protected static readonly float eraseTime = 2.0f;   // 消えるまでの時間(秒)
+	protected static readonly float eraseTime = 1.0f;   // 消えるまでの時間(秒)
 	protected float defaultAlpha = 0.0f;   // 透明度の初期値
 	protected ObjectColor IrradiationColor = ColorState.NONE;   // 現在のフレームで照射されているレーザーの色
 	private float currentFrame; // 現在のフレーム
 	protected bool isPlayback = false;
-	protected float endurance = 0.5f; // 現在の耐久値
+	protected float endurance = 1.0f; // 現在の耐久値。1～0に正規化された値
 
 	protected List<Item> items = new List<Item>();
 

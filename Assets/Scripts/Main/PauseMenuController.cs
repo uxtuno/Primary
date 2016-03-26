@@ -56,10 +56,20 @@ public class PauseMenuController : MyMonoBehaviour
 		{
 			tabletPCPrefab = Resources.Load<GameObject>("Prefabs/TabletPC");
 		}
+
 		tabletPC = GameObject.Find("TabletPCPoint") as GameObject;
-		tabletPCAxis = GameObject.Find("TabletPCAxis").transform as Transform;
+
+		var tabletPCAxisGo = GameObject.Find("TabletPCAxis");
+		if(tabletPCAxisGo)
+		{
+			tabletPCAxis = tabletPCAxisGo.transform as Transform;
+		}
 		initTabletPCAxis = tabletPCAxis;
-		tabletTransform = tabletPC.transform;
+
+		if(tabletPC != null)
+		{
+			tabletTransform = tabletPC.transform;
+		}
 		tabletMoveState = TabletMoveState.before;
 		isInitialized = true;
 	}

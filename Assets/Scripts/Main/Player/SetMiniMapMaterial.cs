@@ -12,7 +12,7 @@ public class SetMiniMapMaterial : MyMonoBehaviour
 	protected override void Awake()
 	{
 		thisRenderer = GetComponent<Renderer>();
-		defaultMaterials = thisRenderer.materials;
+		defaultMaterials = thisRenderer.sharedMaterials;
 		var go = GameObject.FindGameObjectWithTag(Tags.MiniMapCamera);
 		if(go)
 		{
@@ -24,15 +24,11 @@ public class SetMiniMapMaterial : MyMonoBehaviour
 	{
 		if (Camera.current == miniMapCamera)
 		{
-			for (int i = 0; i < thisRenderer.materials.Length; i++)
-			{
-				thisRenderer.materials[i] = material;
-			}
-			thisRenderer.material = material;
+			thisRenderer.sharedMaterial = material;
 		}
 		else
 		{
-			thisRenderer.materials = defaultMaterials;
+			thisRenderer.sharedMaterials = defaultMaterials;
 		}
 	}
 }
