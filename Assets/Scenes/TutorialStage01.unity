@@ -7352,6 +7352,8 @@ GameObject:
   - 4: {fileID: 687074125}
   - 33: {fileID: 687074127}
   - 23: {fileID: 687074126}
+  - 114: {fileID: 687074128}
+  - 65: {fileID: 687074129}
   m_Layer: 0
   m_Name: Protrusion
   m_TagString: Untagged
@@ -7404,6 +7406,35 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 687074124}
   m_Mesh: {fileID: 4300044, guid: 61e81fc0ed94fae4cb4bc0413ebe9dd4, type: 3}
+--- !u!114 &687074128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 687074124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3df336bd2579b40bf4ff1f33fd5d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useSounds: 
+  _flag: 0
+  messageIndex: 5
+  oneTime: 1
+  conditions: 1
+  sameTimeItem: {fileID: 0}
+--- !u!65 &687074129
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 687074124}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .673319995, y: .185606256, z: 2.06076646}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &711491808
 GameObject:
   m_ObjectHideFlags: 0
@@ -9795,12 +9826,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 915165846}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34382083ad114a07d000fbfb8d76c639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iterations: 0
+  iterations: -8
   blurSpread: 0
   blurShader: {fileID: 4800000, guid: 57e6deea7c2924e22a5138e2b70bb4dc, type: 3}
 --- !u!92 &915165848
@@ -9826,7 +9857,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: .941176474, g: .941176474, b: .941176474, a: .0196078438}
+  m_BackGroundColor: {r: .720588207, g: .720588207, b: .720588207, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -9876,7 +9907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monochrome: 1
-  grainIntensityMin: .100000001
+  grainIntensityMin: 1
   grainIntensityMax: 1
   grainSize: 1
   scratchIntensityMin: 1
@@ -11704,7 +11735,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4de9c86d1b0bb064eaa0b7d19509f7c4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .426470578, g: .426470578, b: .426470578, a: 1}
 --- !u!4 &1062674869
 Transform:
   m_ObjectHideFlags: 0
@@ -15401,6 +15432,7 @@ GameObject:
   - 33: {fileID: 1421687501}
   - 23: {fileID: 1421687500}
   - 64: {fileID: 1421687499}
+  - 114: {fileID: 1421687502}
   m_Layer: 0
   m_Name: Rubble
   m_TagString: Untagged
@@ -15431,7 +15463,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
+  m_Convex: 1
   m_Mesh: {fileID: 4300036, guid: 61e81fc0ed94fae4cb4bc0413ebe9dd4, type: 3}
 --- !u!23 &1421687500
 MeshRenderer:
@@ -15466,6 +15498,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1421687497}
   m_Mesh: {fileID: 4300036, guid: 61e81fc0ed94fae4cb4bc0413ebe9dd4, type: 3}
+--- !u!114 &1421687502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1421687497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3df336bd2579b40bf4ff1f33fd5d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useSounds: 
+  _flag: 0
+  messageIndex: 3
+  oneTime: 0
+  conditions: 1
+  sameTimeItem: {fileID: 0}
 --- !u!1 &1429992688
 GameObject:
   m_ObjectHideFlags: 0
@@ -18547,6 +18596,8 @@ GameObject:
   - 4: {fileID: 1740813137}
   - 33: {fileID: 1740813139}
   - 23: {fileID: 1740813138}
+  - 114: {fileID: 1740813140}
+  - 65: {fileID: 1740813141}
   m_Layer: 0
   m_Name: Protrusion
   m_TagString: Untagged
@@ -18599,6 +18650,35 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1740813136}
   m_Mesh: {fileID: 4300046, guid: 61e81fc0ed94fae4cb4bc0413ebe9dd4, type: 3}
+--- !u!114 &1740813140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1740813136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3df336bd2579b40bf4ff1f33fd5d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useSounds: 
+  _flag: 0
+  messageIndex: 5
+  oneTime: 1
+  conditions: 1
+  sameTimeItem: {fileID: 0}
+--- !u!65 &1740813141
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1740813136}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .673319995, y: .185606256, z: 2.06076646}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1759472557
 GameObject:
   m_ObjectHideFlags: 0
@@ -18921,6 +19001,7 @@ GameObject:
   - 33: {fileID: 1811981713}
   - 23: {fileID: 1811981712}
   - 65: {fileID: 1811981711}
+  - 114: {fileID: 1811981714}
   m_Layer: 0
   m_Name: Display
   m_TagString: Untagged
@@ -18988,6 +19069,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1811981709}
   m_Mesh: {fileID: 4300022, guid: 61e81fc0ed94fae4cb4bc0413ebe9dd4, type: 3}
+--- !u!114 &1811981714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1811981709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3df336bd2579b40bf4ff1f33fd5d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useSounds: 
+  _flag: 0
+  messageIndex: 4
+  oneTime: 0
+  conditions: 1
+  sameTimeItem: {fileID: 0}
 --- !u!4 &1820991481 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400182, guid: d3f9d7bcb66c8854e8107eae7bf955b9, type: 3}

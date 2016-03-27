@@ -2,6 +2,11 @@
 using System;
 using System.Collections.Generic;
 
+/// <summary>
+/// ポーズ対象の親にアタッチすることで
+/// 子に含まれるゲームオブジェクトの動作を停止させる
+/// 注意(ライトプローブを含めるとエラーになる)
+/// </summary>
 public class Pauser : MonoBehaviour
 {
 	/// <summary>
@@ -65,7 +70,16 @@ public class Pauser : MonoBehaviour
 		if (pauseBehaviours != null && pauseBehaviours.Count <= 0)
 		{
 			// 有効なBehaviourをポーズさせる
-			pauseBehaviours.AddRange(Array.FindAll(GetComponentsInChildren<Behaviour>(), (obj) => { return obj.enabled; }));
+			var behaviours = GetComponentsInChildren<Behaviour>();
+			if (behaviours != null)
+			{
+				var temp = Array.FindAll(behaviours, (obj) =>
+				{
+					return obj.isActiveAndEnabled;
+				});
+				pauseBehaviours.AddRange(temp);
+			}
+
 			foreach (Behaviour behaviour in pauseBehaviours)
 			{
 				if (behaviour)
@@ -86,7 +100,12 @@ public class Pauser : MonoBehaviour
 		if (rigidbodies != null && rigidbodies.Count <= 0)
 		{
 			// 有効なRigidbodyをポーズさせ、ポーズ直前の速度と角速度を記憶する
-			rigidbodies.AddRange(Array.FindAll(GetComponentsInChildren<Rigidbody>(), (obj) => { return !obj.IsSleeping(); }));
+			var rigidbodiesPickUp = GetComponentsInChildren<Rigidbody>();
+			if (rigidbodiesPickUp != null)
+			{
+				rigidbodies.AddRange(Array.FindAll(rigidbodiesPickUp, (obj) => { return !obj.IsSleeping(); }));
+			}
+
 			foreach (Rigidbody rigidbody in rigidbodies)
 			{
 				if (rigidbody)
@@ -101,7 +120,12 @@ public class Pauser : MonoBehaviour
 		if (rigidbody2Ds != null && rigidbody2Ds.Count <= 0)
 		{
 			// 上記のRigidbody2D版
-			rigidbody2Ds.AddRange(Array.FindAll(GetComponentsInChildren<Rigidbody2D>(), (obj) => { return !obj.IsSleeping(); }));
+			var rigidbody2DsPickUp = GetComponentsInChildren<Rigidbody2D>();
+			if (rigidbody2DsPickUp != null)
+			{
+				rigidbody2Ds.AddRange(Array.FindAll(rigidbody2DsPickUp, (obj) => { return !obj.IsSleeping(); }));
+			}
+
 			foreach (Rigidbody2D rigidbody2D in rigidbody2Ds)
 			{
 				if (rigidbody2D)
@@ -116,7 +140,12 @@ public class Pauser : MonoBehaviour
 		if (particleSystems != null && particleSystems.Count <= 0)
 		{
 			// 有効なParticleSystemをポーズさせる
-			particleSystems.AddRange(Array.FindAll(GetComponentsInChildren<ParticleSystem>(), (obj) => { return !obj.isPaused && !obj.isStopped; }));
+			var particleSystemsPickUp = GetComponentsInChildren<ParticleSystem>();
+			if (particleSystemsPickUp != null)
+			{
+				particleSystems.AddRange(Array.FindAll(particleSystemsPickUp, (obj) => { return !obj.isPaused && !obj.isStopped; }));
+			}
+
 			foreach (ParticleSystem particleSystem in particleSystems)
 			{
 				if (particleSystem)
