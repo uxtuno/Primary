@@ -64,11 +64,11 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_TextureCompression: 1
     m_FinalGather: 1
-    m_FinalGatherRayCount: 256
+    m_FinalGatherRayCount: 128
     m_ReflectionCompression: 2
-  m_LightmapSnapshot: {fileID: 112000025, guid: cf2a1d2673242214b8d701d927ee393b,
+  m_LightmapSnapshot: {fileID: 112000040, guid: 29b76d5d00e49f745b514e60e4c6b652,
     type: 2}
-  m_RuntimeCPUUsage: 25
+  m_RuntimeCPUUsage: 75
 --- !u!196 &5
 NavMeshSettings:
   serializedVersion: 2
@@ -5211,6 +5211,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2338316, guid: 594c2106ae946484c9e3c9fdd9596922, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: be9bdef0071c7a044b6a052a48d3ba80, type: 2}
     m_RemovedComponents:
     - {fileID: 11469416, guid: 594c2106ae946484c9e3c9fdd9596922, type: 2}
     - {fileID: 5404812, guid: 594c2106ae946484c9e3c9fdd9596922, type: 2}
@@ -5500,12 +5504,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441538, guid: ac174f14725f5244e914a55be3485c69, type: 2}
       propertyPath: m_RootOrder
-      value: 40
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11499368, guid: ac174f14725f5244e914a55be3485c69, type: 2}
       propertyPath: keyItem
       value: 
       objectReference: {fileID: 1692723379}
+    - target: {fileID: 479428, guid: ac174f14725f5244e914a55be3485c69, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac174f14725f5244e914a55be3485c69, type: 2}
   m_IsPrefabParent: 0
@@ -5564,6 +5572,10 @@ Prefab:
       propertyPath: m_Name
       value: WhiteBlock 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2338316, guid: 594c2106ae946484c9e3c9fdd9596922, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: be9bdef0071c7a044b6a052a48d3ba80, type: 2}
     m_RemovedComponents:
     - {fileID: 11469416, guid: 594c2106ae946484c9e3c9fdd9596922, type: 2}
     - {fileID: 5404812, guid: 594c2106ae946484c9e3c9fdd9596922, type: 2}
@@ -5855,6 +5867,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2338316, guid: 594c2106ae946484c9e3c9fdd9596922, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: be9bdef0071c7a044b6a052a48d3ba80, type: 2}
     m_RemovedComponents:
     - {fileID: 11469416, guid: 594c2106ae946484c9e3c9fdd9596922, type: 2}
     - {fileID: 5404812, guid: 594c2106ae946484c9e3c9fdd9596922, type: 2}
@@ -7300,15 +7316,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 19872322, guid: 39df4a9cd6d3a9c4a9c54edb876597a2, type: 2}
       propertyPath: EmissionModule.rate.scalar
-      value: 500
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 19872322, guid: 39df4a9cd6d3a9c4a9c54edb876597a2, type: 2}
       propertyPath: ShapeModule.radius
-      value: 1
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 141236, guid: 39df4a9cd6d3a9c4a9c54edb876597a2, type: 2}
       propertyPath: m_Name
       value: MagentaWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 19872322, guid: 39df4a9cd6d3a9c4a9c54edb876597a2, type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19967158, guid: 39df4a9cd6d3a9c4a9c54edb876597a2, type: 2}
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11416980, guid: 39df4a9cd6d3a9c4a9c54edb876597a2, type: 2}
@@ -10176,6 +10200,10 @@ Prefab:
       propertyPath: m_Name
       value: WhiteBlock 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2338316, guid: 594c2106ae946484c9e3c9fdd9596922, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: be9bdef0071c7a044b6a052a48d3ba80, type: 2}
     m_RemovedComponents:
     - {fileID: 11469416, guid: 594c2106ae946484c9e3c9fdd9596922, type: 2}
     - {fileID: 5404812, guid: 594c2106ae946484c9e3c9fdd9596922, type: 2}
@@ -12033,7 +12061,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 834552601
   m_SortingOrder: 0
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_MaxParticleSize: .5
   m_CameraVelocityScale: 0
   m_VelocityScale: .0500000007
@@ -12213,7 +12241,7 @@ ParticleSystem:
         rgba: 4278190335
       minMaxState: 0
     startSize:
-      scalar: 2
+      scalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -12299,7 +12327,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 100
+      scalar: 300
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -17263,11 +17291,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 19835806, guid: 73fe1141c0ff1fe4d98106ee5cd5abdf, type: 2}
       propertyPath: ShapeModule.radius
-      value: 1
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 19835806, guid: 73fe1141c0ff1fe4d98106ee5cd5abdf, type: 2}
       propertyPath: EmissionModule.rate.scalar
-      value: 500
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 19916096, guid: 73fe1141c0ff1fe4d98106ee5cd5abdf, type: 2}
       propertyPath: m_VelocityScale
@@ -17283,7 +17311,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 19835806, guid: 73fe1141c0ff1fe4d98106ee5cd5abdf, type: 2}
       propertyPath: RotationModule.curve.scalar
-      value: 628.318542
+      value: .52359879
       objectReference: {fileID: 0}
     - target: {fileID: 19835806, guid: 73fe1141c0ff1fe4d98106ee5cd5abdf, type: 2}
       propertyPath: RotationModule.enabled
@@ -17416,6 +17444,14 @@ Prefab:
     - target: {fileID: 19916096, guid: 73fe1141c0ff1fe4d98106ee5cd5abdf, type: 2}
       propertyPath: m_LengthScale
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 19916096, guid: 73fe1141c0ff1fe4d98106ee5cd5abdf, type: 2}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19835806, guid: 73fe1141c0ff1fe4d98106ee5cd5abdf, type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11402276, guid: 73fe1141c0ff1fe4d98106ee5cd5abdf, type: 2}
@@ -18884,15 +18920,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 19872322, guid: 39df4a9cd6d3a9c4a9c54edb876597a2, type: 2}
       propertyPath: EmissionModule.rate.scalar
-      value: 500
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 19872322, guid: 39df4a9cd6d3a9c4a9c54edb876597a2, type: 2}
       propertyPath: ShapeModule.radius
-      value: 1
+      value: .300000012
       objectReference: {fileID: 0}
     - target: {fileID: 141236, guid: 39df4a9cd6d3a9c4a9c54edb876597a2, type: 2}
       propertyPath: m_Name
       value: RedBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 19872322, guid: 39df4a9cd6d3a9c4a9c54edb876597a2, type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19967158, guid: 39df4a9cd6d3a9c4a9c54edb876597a2, type: 2}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19872322, guid: 39df4a9cd6d3a9c4a9c54edb876597a2, type: 2}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11416980, guid: 39df4a9cd6d3a9c4a9c54edb876597a2, type: 2}

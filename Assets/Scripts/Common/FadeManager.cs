@@ -26,7 +26,7 @@ public class FadeManager : MonoBehaviour
 				GameObject SceneChangeSingleton = new GameObject("FadeManager");
 				_instance = SceneChangeSingleton.AddComponent<FadeManager>();
 				fadeCanvasPrefab = Resources.Load<GameObject>("Prefabs/UI/FadeCanvas");
-                DontDestroyOnLoad(SceneChangeSingleton.gameObject);
+				DontDestroyOnLoad(SceneChangeSingleton.gameObject);
 			}
 
 			return _instance;
@@ -159,12 +159,14 @@ public class FadeManager : MonoBehaviour
 
 	public void FadeStop()
 	{
-
-		if(fadeCanvas != null)
+		if (fadeCanvas != null)
 		{
 			Destroy(fadeCanvas.gameObject);
 		}
-		StopCoroutine(fadeCoroutine);
+
+		if (fadeCoroutine != null)
+			StopCoroutine(fadeCoroutine);
+
 		isFading = false;
 	}
 }

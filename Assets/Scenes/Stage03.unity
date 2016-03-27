@@ -56,7 +56,7 @@ LightmapSettings:
     serializedVersion: 3
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
+    m_TextureWidth: 128
     m_TextureHeight: 1024
     m_AOMaxDistance: 1
     m_Padding: 2
@@ -66,7 +66,7 @@ LightmapSettings:
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightmapSnapshot: {fileID: 112000001, guid: fa63040ea279f2049b3ed0455a756aac,
+  m_LightmapSnapshot: {fileID: 112000011, guid: 2f58270647ecdc54f80635bdb5375c59,
     type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -194,7 +194,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &40825669
 Transform:
@@ -735,13 +735,12 @@ GameObject:
   - 33: {fileID: 429899998}
   - 65: {fileID: 429899997}
   - 23: {fileID: 429899996}
-  - 114: {fileID: 429900000}
   m_Layer: 9
   m_Name: Cube 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!23 &429899996
 MeshRenderer:
@@ -798,18 +797,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 782922529}
   m_RootOrder: 21
---- !u!114 &429900000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 429899995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 352fc316ef23ed74a80a96c676dbb0a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: b671b995815a47c4281d96ca04588a9b, type: 2}
 --- !u!198 &475163590 stripped
 ParticleSystem:
   m_PrefabParentObject: {fileID: 19815320, guid: 869927097e3150c48b6f078f02eedd8b,
@@ -1219,7 +1206,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &839072724
 Transform:
@@ -1617,7 +1604,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &1168004099
 Transform:
@@ -1693,13 +1680,12 @@ GameObject:
   - 33: {fileID: 1186564772}
   - 65: {fileID: 1186564771}
   - 23: {fileID: 1186564770}
-  - 114: {fileID: 1186564774}
   m_Layer: 9
   m_Name: Cube 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!23 &1186564770
 MeshRenderer:
@@ -1756,18 +1742,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 782922529}
   m_RootOrder: 13
---- !u!114 &1186564774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1186564769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 352fc316ef23ed74a80a96c676dbb0a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: b671b995815a47c4281d96ca04588a9b, type: 2}
 --- !u!4 &1196282209 stripped
 Transform:
   m_PrefabParentObject: {fileID: 493316, guid: 869927097e3150c48b6f078f02eedd8b, type: 2}
@@ -1863,7 +1837,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &1288461196
 Transform:
@@ -2040,7 +2014,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &1359440407
 Transform:
@@ -2276,7 +2250,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &1450722757
 Transform:
@@ -2517,7 +2491,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &1567105132
 Transform:
@@ -3114,13 +3088,12 @@ GameObject:
   - 33: {fileID: 1830317196}
   - 65: {fileID: 1830317195}
   - 23: {fileID: 1830317194}
-  - 114: {fileID: 1830317198}
   m_Layer: 9
   m_Name: Cube 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!23 &1830317194
 MeshRenderer:
@@ -3177,18 +3150,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 782922529}
   m_RootOrder: 22
---- !u!114 &1830317198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1830317193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 352fc316ef23ed74a80a96c676dbb0a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: b671b995815a47c4281d96ca04588a9b, type: 2}
 --- !u!1001 &1831934357
 Prefab:
   m_ObjectHideFlags: 0
@@ -3418,6 +3379,14 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .200000018
       objectReference: {fileID: 0}
+    - target: {fileID: 479428, guid: ac174f14725f5244e914a55be3485c69, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: .0900000036
+      objectReference: {fileID: 0}
+    - target: {fileID: 479428, guid: ac174f14725f5244e914a55be3485c69, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -.514999986
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac174f14725f5244e914a55be3485c69, type: 2}
   m_IsPrefabParent: 0
@@ -3521,7 +3490,6 @@ GameObject:
   - 33: {fileID: 2091853086}
   - 65: {fileID: 2091853085}
   - 23: {fileID: 2091853084}
-  - 114: {fileID: 2091853087}
   m_Layer: 9
   m_Name: Cube 1
   m_TagString: Untagged
@@ -3585,15 +3553,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2091853082}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2091853087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2091853082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 352fc316ef23ed74a80a96c676dbb0a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: b671b995815a47c4281d96ca04588a9b, type: 2}

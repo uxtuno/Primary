@@ -1,0 +1,35 @@
+ライトマップを焼くときの設定
+
+基本
+・Environment Lighting
+skybox : none
+sun : none
+ambient source : color
+ambient color : 黒
+reflection source : custom
+cubemap : none
+compression : auto
+Reflection intensity : 0
+Reflection Bounces : 1
+
+・Precomputed Realtime GI
+Realtime Resolution : 2
+CPU Usage : high
+
+・Baked GI
+Baked Resolution : 40
+Baked Padding : 2
+Compressed : 2
+Ambient Occlusion : 1
+Max Distance : 1
+Final Gather : true
+Ray Count : 128
+
+・Diretional GI
+Diretional Mode : Directional
+Indirect Intensity : 1
+Bounes Boost : 1
+Default Parameters : default
+Atlas Size : 128
+
+・Fog : false

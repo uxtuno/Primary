@@ -28,8 +28,8 @@ TagManager:
   - NoCamera
   - NoLight
   - FadeOver
-  - 
-  - 
+  - LightProbe
+  - NoReflectionProbe
   - 
   - 
   - 

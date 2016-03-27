@@ -46,8 +46,8 @@ LightmapSettings:
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
-    m_IndirectOutputScale: .230000004
-    m_AlbedoBoost: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1.5
     m_TemporalCoherenceThreshold: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
@@ -56,7 +56,7 @@ LightmapSettings:
     serializedVersion: 3
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
+    m_TextureWidth: 128
     m_TextureHeight: 1024
     m_AOMaxDistance: 1
     m_Padding: 2
@@ -66,9 +66,9 @@ LightmapSettings:
     m_FinalGather: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-  m_LightmapSnapshot: {fileID: 112000022, guid: 673fb3a335dbbf440ba0f6cef4c3c755,
+  m_LightmapSnapshot: {fileID: 112000023, guid: 66747ed27f3d440498b49127df9b2632,
     type: 2}
-  m_RuntimeCPUUsage: 100
+  m_RuntimeCPUUsage: 75
 --- !u!196 &5
 NavMeshSettings:
   serializedVersion: 2
@@ -562,7 +562,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &208628407
 Transform:
   m_ObjectHideFlags: 0
@@ -1146,7 +1146,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 69
   m_IsActive: 1
 --- !u!4 &636853508
 Transform:
@@ -1945,7 +1945,7 @@ ReflectionProbe:
   m_IntensityMultiplier: 2
   m_BlendDistance: 1
   m_HDR: 1
-  m_BoxProjection: 0
+  m_BoxProjection: 1
   m_RenderDynamicObjects: 0
   m_UseOcclusionCulling: 1
   m_CustomBakedTexture: {fileID: 0}
