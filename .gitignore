@@ -9,6 +9,7 @@ Primary/
 
 LightmapSnapshot.asset
 LightmapSnapshot.asset.meta
+*.7z
 *.exr
 *.exr.meta
 *.exe

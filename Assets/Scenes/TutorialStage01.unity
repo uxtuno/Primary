@@ -66,7 +66,7 @@ LightmapSettings:
     m_FinalGather: 1
     m_FinalGatherRayCount: 512
     m_ReflectionCompression: 2
-  m_LightmapSnapshot: {fileID: 112000027, guid: 0f4335c3cea3da64489c979e1f02e0ad,
+  m_LightmapSnapshot: {fileID: 112000028, guid: 0f4335c3cea3da64489c979e1f02e0ad,
     type: 2}
   m_RuntimeCPUUsage: 75
 --- !u!196 &5
@@ -9907,12 +9907,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monochrome: 1
-  grainIntensityMin: 1
-  grainIntensityMax: 1
-  grainSize: 1
-  scratchIntensityMin: 1
-  scratchIntensityMax: 2
-  scratchFPS: 10
+  grainIntensityMin: .5
+  grainIntensityMax: 3
+  grainSize: 1.5
+  scratchIntensityMin: 0
+  scratchIntensityMax: 1
+  scratchFPS: 1
   scratchJitter: 1
   grainTexture: {fileID: 2800000, guid: ffa9c02760c2b4e8eb9814ec06c4b05b, type: 3}
   scratchTexture: {fileID: 2800000, guid: 6205c27cc031f4e66b8ea90d1bfaa158, type: 3}
@@ -10610,7 +10610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34382083ad114a07d000fbfb8d76c639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iterations: 1
+  iterations: 0
   blurSpread: 1
   blurShader: {fileID: 4800000, guid: 57e6deea7c2924e22a5138e2b70bb4dc, type: 3}
 --- !u!92 &950500351
@@ -10687,12 +10687,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monochrome: 1
-  grainIntensityMin: .100000001
-  grainIntensityMax: 1
-  grainSize: 1
-  scratchIntensityMin: 1
-  scratchIntensityMax: 2
-  scratchFPS: 10
+  grainIntensityMin: .5
+  grainIntensityMax: 3
+  grainSize: 1.5
+  scratchIntensityMin: 0
+  scratchIntensityMax: 1
+  scratchFPS: 1
   scratchJitter: 1
   grainTexture: {fileID: 2800000, guid: ffa9c02760c2b4e8eb9814ec06c4b05b, type: 3}
   scratchTexture: {fileID: 2800000, guid: 6205c27cc031f4e66b8ea90d1bfaa158, type: 3}
@@ -11735,7 +11735,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4de9c86d1b0bb064eaa0b7d19509f7c4, type: 3}
-  m_Color: {r: .426470578, g: .426470578, b: .426470578, a: 1}
+  m_Color: {r: .79411763, g: .79411763, b: .79411763, a: 1}
 --- !u!4 &1062674869
 Transform:
   m_ObjectHideFlags: 0
