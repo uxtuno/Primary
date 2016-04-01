@@ -1977,7 +1977,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &127706224
 Transform:
@@ -2001,7 +2001,7 @@ ReflectionProbe:
   m_Enabled: 1
   serializedVersion: 2
   m_Type: 0
-  m_Mode: 0
+  m_Mode: 1
   m_RefreshMode: 0
   m_TimeSlicingMode: 0
   m_Resolution: 256
@@ -3491,7 +3491,7 @@ Transform:
   - {fileID: 978713688}
   - {fileID: 1612934730}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &282535051
 GameObject:
   m_ObjectHideFlags: 0
@@ -3650,8 +3650,9 @@ Transform:
   - {fileID: 127706224}
   - {fileID: 1551374926}
   - {fileID: 1287210346}
+  - {fileID: 1547115947}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &314943451
 GameObject:
   m_ObjectHideFlags: 0
@@ -15341,7 +15342,7 @@ Transform:
   - {fileID: 145215735}
   - {fileID: 2130662290}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!114 &1021867667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18008,7 +18009,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1287210346
 Transform:
@@ -21546,7 +21547,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1547115947
 Transform:
@@ -21555,11 +21556,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1547115946}
   m_LocalRotation: {x: .258818686, y: 0, z: 0, w: -.965925932}
-  m_LocalPosition: {x: .158833027, y: 2.08910656, z: 3.76131725}
+  m_LocalPosition: {x: -2.59116697, y: -.67373991, z: -9.33868313}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 309927955}
+  m_RootOrder: 3
 --- !u!215 &1547115948
 ReflectionProbe:
   m_ObjectHideFlags: 0
@@ -21570,7 +21571,7 @@ ReflectionProbe:
   m_Enabled: 1
   serializedVersion: 2
   m_Type: 0
-  m_Mode: 0
+  m_Mode: 1
   m_RefreshMode: 0
   m_TimeSlicingMode: 2
   m_Resolution: 256
