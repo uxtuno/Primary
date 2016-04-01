@@ -17529,6 +17529,22 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 1.08851719
       objectReference: {fileID: 0}
+    - target: {fileID: 2316806, guid: f8a9909a0c5d76842986d1519f53367c, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0d10a572774e98044b199fd46a07c3ac, type: 2}
+    - target: {fileID: 10815328, guid: f8a9909a0c5d76842986d1519f53367c, type: 2}
+      propertyPath: m_Color.r
+      value: .0344824754
+      objectReference: {fileID: 0}
+    - target: {fileID: 10815328, guid: f8a9909a0c5d76842986d1519f53367c, type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10815328, guid: f8a9909a0c5d76842986d1519f53367c, type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8a9909a0c5d76842986d1519f53367c, type: 2}
   m_IsPrefabParent: 0
@@ -18313,6 +18329,7 @@ GameObject:
   - 4: {fileID: 1961003639}
   - 135: {fileID: 1961003641}
   - 114: {fileID: 1961003640}
+  - 114: {fileID: 1961003642}
   m_Layer: 0
   m_Name: BlueRaygun
   m_TagString: Untagged
@@ -18360,6 +18377,23 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: .5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1961003642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1961003638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3df336bd2579b40bf4ff1f33fd5d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useSounds: 
+  _flag: 0
+  messageIndex: 0
+  oneTime: 1
+  conditions: 1
+  sameTimeItem: {fileID: 0}
 --- !u!1 &1970200353
 GameObject:
   m_ObjectHideFlags: 0
