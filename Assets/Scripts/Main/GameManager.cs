@@ -39,6 +39,7 @@ public class GameManager : MyMonoBehaviour
 	protected override void Awake()
 	{
 		base.Awake();
+		Time.captureFramerate = 30;
 
 		if (!isCreated)
 		{
