@@ -17,6 +17,11 @@ public class ColoredObject : ColorObjectBase
 			objectColor.alpha = 0.0f;
 			OnDisappearance();
 		}
+
+		if (useSounds.Count == 0)
+		{
+			useSounds.Add(SoundCollector.SoundName.Explosion);
+		}
 	}
 
 	protected override void Update()
@@ -133,6 +138,7 @@ public class ColoredObject : ColorObjectBase
 		}
 
 		renderer.enabled = false;
+		SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[useSounds[0]], false, true, 0.5f, 0.0f, true);
 	}
 
 	// 再生完了した瞬間

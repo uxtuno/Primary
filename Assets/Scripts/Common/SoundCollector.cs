@@ -43,7 +43,8 @@ public class SoundCollector : BaseSoundCollector<SoundCollector.SoundName>
 		StepMetal,          // 足音(金属の上歩行時)
 		Switch,             // スイッチの駆動音
 		WarpIn,             // ワープ開始音
-		WarpOut             // ワープ終了音
+		WarpOut,             // ワープ終了音
+		Explosion            // 物質消失
 	}
 
 	public override void Awake()
@@ -79,5 +80,6 @@ public class SoundCollector : BaseSoundCollector<SoundCollector.SoundName>
 		sounds.Add(SoundName.Switch, Resources.Load<AudioClip>("Sounds/Switch"));
 		sounds.Add(SoundName.WarpIn, Resources.Load<AudioClip>("Sounds/WarpIn"));
 		sounds.Add(SoundName.WarpOut, Resources.Load<AudioClip>("Sounds/WarpOut"));
+		sounds.Add(SoundName.Explosion, Resources.Load<AudioClip>("Sounds/Explosion"));
 	}
 }
