@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: 310713__cyberspace_p
+  m_Name: bandicam 2016-04-01 08-45-19-170
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION
   m_LightmapFlags: 1
@@ -20,9 +20,9 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
+          m_Texture: {fileID: 15200000, guid: 5f7a43efd6654dc4caf4afeea9d60872, type: 3}
+          m_Scale: {x: 1, y: .600000024}
+          m_Offset: {x: 0, y: .170000002}
       data:
         first:
           name: _BumpMap
@@ -62,9 +62,9 @@ Material:
         first:
           name: _EmissionMap
         second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
+          m_Texture: {fileID: 15200000, guid: 5f7a43efd6654dc4caf4afeea9d60872, type: 3}
+          m_Scale: {x: 1, y: .600000024}
+          m_Offset: {x: 0, y: .170000002}
       data:
         first:
           name: _DetailMask
@@ -103,11 +103,11 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: .213
+        second: .5
       data:
         first:
           name: _Metallic
-        second: .247999996
+        second: 0
       data:
         first:
           name: _BumpScale
@@ -132,8 +132,8 @@ Material:
       data:
         first:
           name: _EmissionColor
-        second: {r: .0522058867, g: .0822007954, b: .100000001, a: 1}
+        second: {r: .397058845, g: .397058845, b: .397058845, a: 1}
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: .0340000018}
+        second: {r: 1, g: 1, b: 1, a: .303000003}

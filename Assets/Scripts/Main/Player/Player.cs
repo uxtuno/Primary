@@ -138,6 +138,7 @@ public class Player : MyMonoBehaviour
 	private Material rayGunCoreGreenMaterial;
 	private Material rayGunCoreBlueMaterial;
 	private bool isDash = false; // ダッシュモード
+	private Quaternion initRotation = Quaternion.identity;
 
 	protected override void Awake()
 	{
@@ -180,6 +181,7 @@ public class Player : MyMonoBehaviour
 	{
 		cameraTransform = Camera.main.transform;
 		ApplyRayGunCoreMaterial();
+		initRotation = transform.rotation;
 		//defaultCameraDirection = cameraTransform.forward;
 	}
 
@@ -559,6 +561,7 @@ public class Player : MyMonoBehaviour
 
 	public void Respawn()
 	{
+		transform.rotation = initRotation;
 		examine.LetGo();
 	}
 
