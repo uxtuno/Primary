@@ -42,127 +42,94 @@ public class ColorBlock : ColorObjectBase
 		isPlayback = true;
 	}
 
-	protected override void LateUpdate()
-	{
-		// 半透明で判定が無い状態
-		if (collider.isTrigger)
-		{
-			if (IrradiationColor.state != objectColor.state && IrradiationColor.state != ColorState.NONE)
-			{
-				// 自分の色とは違う色が当たっているので再生させる
-				ReGeneration();
-			}
-			else if(endurance != 0.0f)
-			{
-				// 自分の色と同じ色が当たっているので消失させる
-				PlayParticle(duringDisappearance);
-				FadeAway();
-			}
-		}
-		else // 判定がある状態
-		{
-			// 同じ色の光線が当たっているので
-			if (IrradiationColor.state == objectColor.state)
-			{
-				FadeAway();
-			}
-			else
-			{
-                if (endurance < 1.0f)
-                {
-				    ReGeneration();
-                }
-			}
-		}
+	//protected override void LateUpdate()
+	//{
+	//	// 半透明で判定が無い状態
+	//	if (collider.isTrigger)
+	//	{
+	//		//if (IrradiationColor.state != objectColor.state && IrradiationColor.state != ColorState.NONE)
+	//		//{
+	//		//	// 自分の色とは違う色が当たっているので再生させる
+	//		//	ReGeneration();
+	//		//}
+	//		//else if(endurance != 0.0f)
+	//		//{
+	//		//	// 自分の色と同じ色が当たっているので消失させる
+	//		//	PlayParticle(duringDisappearance);
+	//		//	FadeAway();
+	//		//}
+	//	}
+	//	else // 判定がある状態
+	//	{
+	//		// 同じ色の光線が当たっているので
+	//		if (IrradiationColor.state == objectColor.state)
+	//		{
+	//			FadeAway();
+	//		}
+	//		else
+	//		{
+ //               if (endurance < 1.0f)
+ //               {
+	//			    ReGeneration();
+ //               }
+	//		}
+	//	}
 
-        if (IrradiationColor.state != ColorState.NONE)
-        {
-			// 白なら光を反射するので消えない
-			if (isUseParticle && objectColor.state != ColorState.WHITE)
-			{
-				irradiation.startColor = (Color)IrradiationColor;
-				irradiation.Stop();
-				irradiation.Play();
-			}
-        }
-        else
-        {
-			// 何も光線が当たっていないのでエフェクトを消す
-			if (isUseParticle)
-			{
-				irradiation.Stop();
-			}
-        }
+ //       if (IrradiationColor.state != ColorState.NONE)
+ //       {
+	//		// 白なら光を反射するので消えない
+	//		if (isUseParticle && objectColor.state != ColorState.WHITE)
+	//		{
+	//			irradiation.startColor = (Color)IrradiationColor;
+	//			irradiation.Stop();
+	//			irradiation.Play();
+	//		}
+ //       }
+ //       else
+ //       {
+	//		// 何も光線が当たっていないのでエフェクトを消す
+	//		if (isUseParticle)
+	//		{
+	//			irradiation.Stop();
+	//		}
+ //       }
 
-		if(IrradiationColor.state == objectColor.state)
-		{
-			if(endurance != 0)
-			{
-				// 消失中エフェクト
-				PlayParticle(duringDisappearance);
-			}
-		}
-		else if(IrradiationColor.state != ColorState.NONE)
-		{
-			if (endurance != 1.0f)
-			{
-				// 再生中エフェクト
-				PlayParticle(regeneration);
-			}
-			else
-			{
-				if (isUseParticle)
-				{
-					regeneration.Stop();
-				}
-			}
-		}
-		else
-		{
-			if (isUseParticle)
-			{
-				duringDisappearance.Stop();
-				regeneration.Stop();
-			}
-		}
-		renderer.material.color = objectColor.color;
+	//	if(IrradiationColor.state == objectColor.state)
+	//	{
+	//		if(endurance != 0)
+	//		{
+	//			// 消失中エフェクト
+	//			PlayParticle(duringDisappearance);
+	//		}
+	//	}
+	//	else if(IrradiationColor.state != ColorState.NONE)
+	//	{
+	//		if (endurance != 1.0f)
+	//		{
+	//			// 再生中エフェクト
+	//			PlayParticle(regeneration);
+	//		}
+	//		else
+	//		{
+	//			if (isUseParticle)
+	//			{
+	//				regeneration.Stop();
+	//			}
+	//		}
+	//	}
+	//	else
+	//	{
+	//		if (isUseParticle)
+	//		{
+	//			duringDisappearance.Stop();
+	//			regeneration.Stop();
+	//		}
+	//	}
+	//	renderer.material.color = objectColor.color;
 
-		// 毎フレーム照射されている色をリセット
-		IrradiationColor = ColorState.NONE;
-	}
-
-	// 消失させる
-	private void FadeAway()
-	{
-		endurance -= Time.deltaTime / eraseTime;
-
-		if (endurance < 0.0f)
-		{
-			endurance = 0.0f;
-			if(!isDisappearance)
-			{
-				OnDisappearance();
-			}
-			else
-			{
-				// 消失完了エフェクト
-				PlayParticle(completeDisappearance);
-			}
-		}
-        objectColor.alpha = defaultAlpha * endurance;
-    }
-
-	// 再生させる
-	private void ReGeneration()
-	{
-		endurance += Time.deltaTime;
-		if (endurance > 1.0f)
-		{
-			endurance = 1.0f;
-            OnPlayBack();
-		}
-		objectColor.alpha = defaultAlpha * endurance;
-	}
+	//	// 毎フレーム照射されている色をリセット
+	//	IrradiationColor = ColorState.NONE;
+	//}
 
 	// 消失完了時に呼ぶ
 	protected override void OnDisappearance()
@@ -193,7 +160,19 @@ public class ColorBlock : ColorObjectBase
 	// 再生完了時に呼ぶ
 	protected override void OnPlayBack()
 	{
-        base.OnPlayBack();
+		// 中のアイテムを入手できなくする
+		foreach (Item item in items)
+		{
+			item.isAcquisition = false;
+		}
+
+		isDisappearance = false;
+
+		// 持ち運び可能にする
+		if (GetComponent<GraspItem>() != null)
+		{
+			GetComponent<GraspItem>().enabled = true;
+		}
 
 		if (collider.GetComponent<MeshCollider>() != null)
 		{
@@ -211,5 +190,15 @@ public class ColorBlock : ColorObjectBase
 		}
 
 		SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[useSounds[1]], false, true, 0.25f, 0.0f, true);
+	}
+
+	protected override void OnUnirradiated()
+	{
+		base.OnUnirradiated();
+
+		if (isDisappearance)
+			FadeAway();
+		else
+			ReGeneration();
 	}
 }

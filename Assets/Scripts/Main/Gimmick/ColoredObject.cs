@@ -34,85 +34,6 @@ public class ColoredObject : ColorObjectBase
 		}
 	}
 
-	protected override void LateUpdate()
-	{
-		if (!collider.enabled)
-		{
-			return;
-		}
-
-		if (IrradiationColor.state == objectColor.state)
-		{
-			FadeAway();
-			if (isDisappearance)
-			{
-				return;
-			}
-		}
-		else
-		{
-			if (endurance < 1.0f)
-			{
-				ReGeneration();
-			}
-		}
-
-		if (IrradiationColor.state != ColorState.NONE)
-		{
-			if (isUseParticle)
-			{
-				irradiation.startColor = (Color)IrradiationColor;
-				irradiation.Play();
-				if (endurance != 1.0f && !isDisappearance)
-				{
-					PlayParticle(duringDisappearance);
-				}
-				else
-				{
-					regeneration.Stop();
-				}
-			}
-		}
-		else
-		{
-			if (isUseParticle)
-			{
-				irradiation.Stop();
-			}
-		}
-
-		//Debug.Log(endurance);
-		renderer.material.color = objectColor.color;
-		IrradiationColor = ColorState.NONE;
-	}
-
-	/// <summary>
-	/// 消失中
-	/// </summary>
-	private void FadeAway()
-	{
-		endurance -= Time.deltaTime / eraseTime;
-		objectColor.alpha = defaultAlpha * endurance;
-
-		if (endurance < 0.0f)
-		{
-			endurance = 0.0f;
-			OnDisappearance();
-		}
-	}
-
-	// 再生中
-	private void ReGeneration()
-	{
-		endurance += Time.deltaTime;
-		if (endurance > 1.0f)
-		{
-			endurance = 1.0f;
-			OnPlayBack();
-		}
-		objectColor.alpha = defaultAlpha * endurance;
-	}
-
 	/// <summary>
 	/// 完全に消失した瞬間
 	/// </summary>
@@ -139,6 +60,12 @@ public class ColoredObject : ColorObjectBase
 
 		renderer.enabled = false;
 		SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[useSounds[0]], false, true, 0.5f, 0.0f, true);
+	}
+
+	protected override void OnUnirradiated()
+	{
+		base.OnUnirradiated();
+		ReGeneration();
 	}
 
 	// 再生完了した瞬間
