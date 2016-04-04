@@ -7,6 +7,10 @@ public abstract class BaseMoveType : ISwitchEvent
 {
 	protected MovableObjectController.ControlPoint[] controlPoints; // 制御点
 	protected MovableObjectController.State _currentState; // 
+
+	/// <summary>
+	/// 現在の状態
+	/// </summary>
 	public MovableObjectController.State currentState
 	{
 		get { return _currentState; }
@@ -17,9 +21,9 @@ public abstract class BaseMoveType : ISwitchEvent
 	protected int nextControlPointIndex = 1;
 	protected bool isReverse = false; // 反対方向へ移動中
 	protected Transform transform; // 操作対象
-	protected float linePosition = 0.0f; // 移動線上の位置(0.0f <= x <= 1.0f)
-	protected float currentWaitTime; // 現在の制御点での待ち時間
-	protected float waitTimeCount; // 待ち時間カウント用
+	protected float normalPosition = 0.0f; // 現在位置を0~1に正規化した値
+	protected float currentWaitSeconds; // 現在の制御点での待ち時間
+	protected float waitCount; // 待ち時間カウント用
 	protected Bezier bezier; // ベジェ曲線移動用
 
 	private bool _switchState = false;
@@ -35,7 +39,13 @@ public abstract class BaseMoveType : ISwitchEvent
 		}
 	}
 
-	// 
+	/// <summary>
+	/// インスタンスを生成
+	/// </summary>
+	/// <param name="target">操作対象</param>
+	/// <param name="moveType">移動タイプによってインスタンスを生成するクラスを変更</param>
+	/// <param name="controlPoints">制御点の配列</param>
+	/// <returns></returns>
 	public static BaseMoveType Create(Transform target, MovableObjectController.MoveType moveType, MovableObjectController.ControlPoint[] controlPoints)
 	{
 		switch (moveType)
@@ -65,8 +75,8 @@ public abstract class BaseMoveType : ISwitchEvent
 		currentState = MovableObjectController.State.None;
 		isReverse = false;
 		this.transform = target;
-		currentWaitTime = 0.0f;
-		waitTimeCount = 0.0f;
+		currentWaitSeconds = 0.0f;
+		waitCount = 0.0f;
 		ToMove();
 		SetNextParams();
 		switchState = true;
@@ -76,9 +86,9 @@ public abstract class BaseMoveType : ISwitchEvent
 	public void SetReverse(bool isReverse)
 	{
 		this.isReverse = isReverse;
-		linePosition = 1.0f - linePosition;
+		normalPosition = 1.0f - normalPosition;
 		isReverse = !isReverse;
-		ConputeNextControlPoint();
+		NextControlPoint();
 	}
 
 	/// <summary>
@@ -113,7 +123,7 @@ public abstract class BaseMoveType : ISwitchEvent
 	}
 
 	// 各状態へ切り替える際の動作
-	// 派生クラス側でオーバーライドして定義
+	// 特別な動作をしたい場合は派生クラスで実装
 	protected virtual void ToStop() { currentState = MovableObjectController.State.Stop; }
 	protected virtual void ToMove()
 	{
@@ -121,13 +131,13 @@ public abstract class BaseMoveType : ISwitchEvent
 	}
 	protected virtual void ToWait()
 	{
-		currentWaitTime = GetCurrentControlPoint().wait;
-		if (currentWaitTime == 0)
+		currentWaitSeconds = GetCurrentControlPoint().wait;
+		if (currentWaitSeconds == 0)
 		{
 			return;
 		}
 
-		waitTimeCount = 0.0f;
+		waitCount = 0.0f;
 		currentState = MovableObjectController.State.Wait;
 	}
 	protected virtual void ToCollided() { currentState = MovableObjectController.State.Collided; }
@@ -172,36 +182,36 @@ public abstract class BaseMoveType : ISwitchEvent
 			return;
 		}
 
-		linePosition += Time.deltaTime / GetCurrentControlPoint().travelTime;
+		normalPosition += Time.deltaTime / GetCurrentControlPoint().travelTime;
 
-		linePosition = Mathf.Clamp01(linePosition); // 0 ~ 1 に収める
+		normalPosition = Mathf.Clamp01(normalPosition); // 0 ~ 1 に収める
 
 		if (bezier == null)
 		{
-			transform.localPosition = Vector3.Lerp(GetCurrentControlPoint().position, GetNextControlPoint().position, linePosition);
+			transform.localPosition = Vector3.Lerp(GetCurrentControlPoint().position, GetNextControlPoint().position, normalPosition);
 		}
 		else
 		{
-			transform.localPosition = bezier.GetPointAtTime(linePosition);
+			transform.localPosition = bezier.GetPointAtTime(normalPosition);
 		}
-		transform.localScale = Vector3.Lerp(GetCurrentControlPoint().scale, GetNextControlPoint().scale, linePosition);
-		transform.localRotation = Quaternion.Lerp(GetCurrentControlPoint().rotation, GetNextControlPoint().rotation, linePosition);
+		transform.localScale = Vector3.Lerp(GetCurrentControlPoint().scale, GetNextControlPoint().scale, normalPosition);
+		transform.localRotation = Quaternion.Lerp(GetCurrentControlPoint().rotation, GetNextControlPoint().rotation, normalPosition);
 
 		// 次の制御点へ到達。Clampしているため条件式はこれで問題ない
-		if (linePosition == 0.0f || linePosition == 1.0f)
+		if (normalPosition == 0.0f || normalPosition == 1.0f)
 		{
 			Reaching();
 		}
 	}
 	protected virtual void Wait()
 	{
-		if (waitTimeCount >= currentWaitTime)
+		if (waitCount >= currentWaitSeconds)
 		{
 			ChangeState(MovableObjectController.State.Move);
 		}
 		else
 		{
-			waitTimeCount += Time.deltaTime;
+			waitCount += Time.deltaTime;
 		}
 	}
 	protected virtual void Collided()
@@ -224,28 +234,28 @@ public abstract class BaseMoveType : ISwitchEvent
 	{
 		SetNextParams();
 		ChangeState(MovableObjectController.State.Wait);
-		linePosition = 0.0f;
+		normalPosition = 0.0f;
 	}
 
 	/// <summary>
-	/// 次の制御点を計算
+	/// 次の制御点を返す
 	/// </summary>
 	/// <returns></returns>
-	public abstract void ConputeNextControlPoint();
+	public abstract void NextControlPoint();
 
 	/// <summary>
 	/// 次の制御点を計算し、パラメータに適切な値を設定する
 	/// </summary>
 	protected void SetNextParams()
 	{
-		ConputeNextControlPoint();
-		ConputeNextBezierCurve();
+		NextControlPoint();
+		SetNextBezierCurve();
 	}
 
 	/// <summary>
 	/// ベジェ曲線計算用のパラメータを設定
 	/// </summary>
-	private void ConputeNextBezierCurve()
+	private void SetNextBezierCurve()
 	{
 		if (nextControlPointIndex == -1)
 		{
@@ -266,6 +276,7 @@ public abstract class BaseMoveType : ISwitchEvent
 			nextHandle = GetCurrentControlPoint().prevHandle;
 		}
 
+		// 制御点がベジェ曲線かどうかを判定
 		if (nextHandle != GetCurrentControlPoint().position || prevHandle != GetNextControlPoint().position)
 		{
 			bezier = new Bezier();
@@ -318,7 +329,7 @@ public class PingPongMoveType : BaseMoveType, ISwitchEvent
 		Initialize(target, controlPoints);
 	}
 
-	public override void ConputeNextControlPoint()
+	public override void NextControlPoint()
 	{
 		currentControlPointIndex = nextControlPointIndex;
 
@@ -349,7 +360,7 @@ public class PingPongMoveType : BaseMoveType, ISwitchEvent
 	// 衝突時、一旦停止後向きを変えて移動
 	protected override void Collided()
 	{
-		linePosition = 1.0f - linePosition;
+		normalPosition = 1.0f - normalPosition;
 		isReverse = !isReverse;
 		SetNextParams();
 		ToWait();
@@ -371,7 +382,7 @@ public class CirculatingMoveType : BaseMoveType
 		Initialize(target, controlPoints);
 	}
 
-	public override void ConputeNextControlPoint()
+	public override void NextControlPoint()
 	{
 		currentControlPointIndex = nextControlPointIndex;
 
@@ -418,7 +429,7 @@ public class SwitchingMoveType : BaseMoveType
 		base.Initialize(target, controlPoints);
 	}
 
-	public override void ConputeNextControlPoint()
+	public override void NextControlPoint()
 	{
 		currentControlPointIndex = nextControlPointIndex;
 
@@ -459,14 +470,14 @@ public class SwitchingMoveType : BaseMoveType
 		else
 		{
 			ChangeState(MovableObjectController.State.Wait);
-			linePosition = 0.0f;
+			normalPosition = 0.0f;
 		}
 	}
 
 	public override void Switch()
 	{
 		switchState = !switchState;
-		linePosition = 1.0f - linePosition; // 折り返した時の位置を再計算
+		normalPosition = 1.0f - normalPosition; // 折り返した時の位置を再計算
 		isReverse = !isReverse;
 		SetNextParams();
 		//Debug.Log(currentState);
@@ -481,7 +492,7 @@ public class SwitchingMoveType : BaseMoveType
 		else if (currentState == MovableObjectController.State.Wait)
 		{
 			SetNextParams();
-			linePosition = 0.0f;
+			normalPosition = 0.0f;
 		}
 		else if(currentState == MovableObjectController.State.Collided)
 		{
@@ -506,7 +517,7 @@ public class OneStepMoveType : BaseMoveType, IActionEvent
 		ChangeState(MovableObjectController.State.Stop);
 	}
 
-	public override void ConputeNextControlPoint()
+	public override void NextControlPoint()
 	{
 		currentControlPointIndex = nextControlPointIndex;
 
@@ -548,7 +559,7 @@ public class OneStepMoveType : BaseMoveType, IActionEvent
 
 	public void Action()
 	{
-		linePosition = 0.0f;
+		normalPosition = 0.0f;
 		ChangeState(MovableObjectController.State.Move);
 	}
 }

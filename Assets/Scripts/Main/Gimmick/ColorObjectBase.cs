@@ -8,7 +8,6 @@ public abstract class ColorObjectBase : Gimmick
 {
 	[SerializeField]
 	private ObjectColor _objectColor;  // オブジェクトの色
-
 	private bool _isDisappearance = false; // 消失状態を表すフラグ
 
 	/// <summary>
@@ -166,7 +165,7 @@ public abstract class ColorObjectBase : Gimmick
 	/// <summary>
 	/// 消失中に呼ばれる
 	/// </summary>
-	protected void FadeAway()
+	protected virtual void FadeAway()
 	{
 		if (endurance <= 0.0f)
 			return;
@@ -194,7 +193,7 @@ public abstract class ColorObjectBase : Gimmick
 	/// <summary>
 	/// 再生中に呼ばれる
 	/// </summary>
-	protected void ReGeneration()
+	protected virtual void ReGeneration()
 	{
 		if (endurance >= 1.0f)
 			return;
@@ -279,7 +278,7 @@ public abstract class ColorObjectBase : Gimmick
 	/// エフェクトを停止
 	/// </summary>
 	/// <param name="particleSystem"></param>
-	protected void StopParticle(ParticleSystem particleSystem)
+	protected void StopParticle(ParticleSystem particleSystem, bool isClear = false)
 	{
 		if (!isUseParticle ||
 			!particleSystem.isPlaying)
@@ -288,5 +287,6 @@ public abstract class ColorObjectBase : Gimmick
 		}
 
 		particleSystem.Stop();
+		particleSystem.Clear();
 	}
 }

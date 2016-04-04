@@ -15,8 +15,11 @@ public abstract class GimmickState
 /// </summary>
 public abstract class Gimmick : EventObject
 {
-	[SerializeField, Tooltip("ギミック起動時にアイコンを表示する位置")]
+	[SerializeField, Tooltip("ギミック起動時に表示するアイコン")]
 	private GameObject pickIconPrefab;
+	[SerializeField, Tooltip("アイコンを表示する位置")]
+	protected Transform pickIconShowPosition;
+
 	private GameObject pickIcon;
 
 	protected override void Awake()
@@ -31,7 +34,10 @@ public abstract class Gimmick : EventObject
 	/// <param name="pickIconPrefab"></param>
 	protected void ShowPickIcon()
 	{
-		ShowPickIcon(transform.position);
+		if (pickIconShowPosition == null)
+			ShowPickIcon(transform.position);
+		else
+			ShowPickIcon(pickIconShowPosition.position);
 	}
 
 	private Vector3 pickIconDefaultScale; // 本来のスケールを記録

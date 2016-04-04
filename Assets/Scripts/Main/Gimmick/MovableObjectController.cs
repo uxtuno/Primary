@@ -285,8 +285,6 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 				}
 			}
 		}
-
-
 	}
 
 	protected override void Awake()
@@ -366,7 +364,10 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 		switchState = !switchState;
 		MovableObject.Switch();
 
-		ShowPickIcon(transform.TransformPoint(controlPoints[0].position), scaffoldsTransform);
+		if (pickIconShowPosition == null)
+			ShowPickIcon(transform.TransformPoint(controlPoints[0].position), scaffoldsTransform);
+		else
+			ShowPickIcon(pickIconShowPosition.position);
 	}
 
 	public void Action()
