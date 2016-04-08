@@ -15613,7 +15613,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
   pickIconShowPosition: {fileID: 602024513}
   moveType: 2

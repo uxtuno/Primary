@@ -6,8 +6,7 @@ using System.Collections.Generic;
 /// </summary>
 public abstract class ColorObjectBase : Gimmick
 {
-	[SerializeField]
-	private ObjectColor _objectColor;  // オブジェクトの色
+	[SerializeField] private ObjectColor _objectColor; // オブジェクトの色
 	private bool _isDisappearance = false; // 消失状態を表すフラグ
 
 	/// <summary>
@@ -16,7 +15,7 @@ public abstract class ColorObjectBase : Gimmick
 	public bool isDisappearance
 	{
 		get { return _isDisappearance; }
-		set
+		protected set
 		{
 			_isDisappearance = value;
 			if (!(collider is MeshCollider))
@@ -34,10 +33,10 @@ public abstract class ColorObjectBase : Gimmick
 		get { return _objectColor; }
 	}
 
-	protected static readonly float eraseTime = 1.0f;   // 消えるまでの時間(秒)
-	protected float defaultAlpha = 0.0f;   // 透明度の初期値
-	protected ObjectColor IrradiationColor = ColorState.NONE;   // 現在のフレームで照射されているレーザーの色
-	private float currentFrame; // 現在のフレーム
+	protected static readonly float eraseTime = 1.0f; // 消えるまでの時間(秒)
+	protected float defaultAlpha; // 透明度の初期値
+	protected ObjectColor IrradiationColor = ColorState.NONE; // 現在のフレームで照射されているレーザーの色
+	private int currentFrame; // 現在のフレーム
 	protected bool isPlayback = false; // 再生中
 	protected float endurance = 1.0f; // 現在の耐久値。1～0に正規化された値
 
@@ -46,18 +45,12 @@ public abstract class ColorObjectBase : Gimmick
 
 	// todo : エフェクトを全て手作業で設定しなければならないので作業量的に問題がある
 	// ほぼ同じエフェクトを使うことになるのでプログラム上で読み込みたい
-	[SerializeField]
-	protected bool isUseParticle = false;
-	[SerializeField]
-	protected ParticleSystem duringDisappearance; // 消失中エフェクト
-	[SerializeField]
-	protected ParticleSystem completeDisappearance; // 消失後エフェクト
-	[SerializeField]
-	protected ParticleSystem regeneration; // 再生中エフェクト
-	[SerializeField]
-	protected ParticleSystem burst; // 消失時、爆発エフェクト
-	[SerializeField]
-	protected ParticleSystem irradiation; // 照射中エフェクト
+	[SerializeField] protected bool isUseParticle = false;
+	[SerializeField] protected ParticleSystem duringDisappearance; // 消失中エフェクト
+	[SerializeField] protected ParticleSystem completeDisappearance; // 消失後エフェクト
+	[SerializeField] protected ParticleSystem regeneration; // 再生中エフェクト
+	[SerializeField] protected ParticleSystem burst; // 消失時、爆発エフェクト
+	[SerializeField] protected ParticleSystem irradiation; // 照射中エフェクト
 
 	private GraspItem graspItem; // 持ち運び動作を制御
 
@@ -86,10 +79,10 @@ public abstract class ColorObjectBase : Gimmick
 		// パーティクルを使用するなら色を設定
 		if (isUseParticle)
 		{
-			duringDisappearance.startColor = (Color)objectColor;
-			completeDisappearance.startColor = (Color)objectColor;
-			regeneration.startColor = (Color)objectColor;
-			burst.startColor = (Color)objectColor;
+			duringDisappearance.startColor = (Color) objectColor;
+			completeDisappearance.startColor = (Color) objectColor;
+			regeneration.startColor = (Color) objectColor;
+			burst.startColor = (Color) objectColor;
 
 			// 照射中エフェクトは照射されるレーザーの色に応じて変更するのでここでは設定しない
 		}
@@ -126,7 +119,7 @@ public abstract class ColorObjectBase : Gimmick
 			if (isUseParticle)
 			{
 				// 消失中エフェクト
-				irradiation.startColor = (Color)IrradiationColor;
+				irradiation.startColor = (Color) IrradiationColor;
 				PlayParticle(irradiation);
 			}
 		}
@@ -142,7 +135,7 @@ public abstract class ColorObjectBase : Gimmick
 			FadeAway();
 		}
 		else if (IrradiationColor.state != objectColor.state &&
-				 IrradiationColor.state != ColorState.NONE)
+		         IrradiationColor.state != ColorState.NONE)
 		{
 			ReGeneration();
 			// レーザーの色とオブジェクトの色が不一致
@@ -174,8 +167,8 @@ public abstract class ColorObjectBase : Gimmick
 		PlayParticle(duringDisappearance);
 
 		// 透明度を減算
-		endurance -= Time.deltaTime / eraseTime;
-		objectColor.alpha = defaultAlpha * endurance;
+		endurance -= Time.deltaTime/eraseTime;
+		objectColor.alpha = defaultAlpha*endurance;
 
 		if (endurance <= 0.0f)
 		{
@@ -212,7 +205,7 @@ public abstract class ColorObjectBase : Gimmick
 			if (isDisappearance)
 				OnPlayBack(); // 復活
 		}
-		objectColor.alpha = defaultAlpha * endurance;
+		objectColor.alpha = defaultAlpha*endurance;
 	}
 
 	/// <summary>
@@ -281,12 +274,14 @@ public abstract class ColorObjectBase : Gimmick
 	protected void StopParticle(ParticleSystem particleSystem, bool isClear = false)
 	{
 		if (!isUseParticle ||
-			!particleSystem.isPlaying)
+		    !particleSystem.isPlaying)
 		{
 			return;
 		}
 
 		particleSystem.Stop();
-		particleSystem.Clear();
+
+		if (isClear)
+			particleSystem.Clear();
 	}
 }

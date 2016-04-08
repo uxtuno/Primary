@@ -6,6 +6,9 @@ using System.Collections.Generic;
 /// </summary>
 public interface IActionEvent
 {
+	/// <summary>
+	/// 動作を起こす
+	/// </summary>
     void Action();
 }
 
@@ -14,13 +17,23 @@ public interface IActionEvent
 /// </summary>
 public interface ICheckEvent
 {
+	/// <summary>
+	/// 調べる
+	/// </summary>
     void Check();
+
+	/// <summary>
+	/// 現在調べられる状態か
+	/// </summary>
 	bool isPossible
 	{
 		get;
 	}
 
-	void ShowIcon();
+	/// <summary>
+	/// アイコンを表示する
+	/// </summary>
+	void GetIconSprite();
 }
 
 /// <summary>
@@ -28,7 +41,15 @@ public interface ICheckEvent
 /// </summary>
 public interface ISwitchEvent
 {
+	/// <summary>
+	/// スイッチの状態を切り替える
+	/// </summary>
     void Switch();
+
+	/// <summary>
+	/// スイッチの状態
+	/// オンかオフか
+	/// </summary>
 	bool switchState
     {
         get;
@@ -49,13 +70,5 @@ public class EventObject : MyMonoBehaviour
 	{
 		base.Awake();
 		soundCollector = FindObjectOfType<SoundCollector>();
-	}
-
-	[SerializeField]
-	private bool _flag = false;
-	public bool flag
-	{
-		get { return _flag; }
-		protected set { _flag = value; }
 	}
 }

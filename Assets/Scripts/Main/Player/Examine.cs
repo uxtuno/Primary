@@ -104,7 +104,7 @@ public class Examine : MyMonoBehaviour
 			{
 				foreach (ICheckEvent checkEvent in iconOwnerCheckComponents)
 				{
-					checkEvent.ShowIcon();
+					checkEvent.GetIconSprite();
 				}
 
 				if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1)) && !player.isIrradiation)

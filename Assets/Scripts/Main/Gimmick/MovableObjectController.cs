@@ -1,33 +1,23 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
+
+/// <summary>
+/// 移動オブジェクトの制御
+/// </summary>
 public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 {
-	public enum MoveType
-	{
-		None,
-		PingPong,
-		Switching,
-		Circulating,
-		OneStep,
-	}
-
 	/// <summary>
 	/// 制御点
 	/// </summary>
 	[System.Serializable]
 	public class ControlPoint
 	{
-		[HideInInspector]
-		public Vector3 position; // 位置
+		[HideInInspector] public Vector3 position; // 位置
 		public Quaternion rotation; // 回転
-		[HideInInspector]
-		public Vector3 scale = Vector3.one; // この制御点へ到達した時点でのスケール
-		public float wait;   // 待機時間
+		[HideInInspector] public Vector3 scale = Vector3.one; // この制御点へ到達した時点でのスケール
+		public float wait; // 待機時間
 		public float travelTime; // 次の制御点へ移動するのにかかる時間
-								 //[HideInInspector]
 		public Vector3 prevHandle; // 前のハンドル位置
-								   //[HideInInspector]
 		public Vector3 nextHandle; // 次のハンドル位置
 
 		public ControlPoint(Vector3 position, Vector3 scale, Quaternion rotation)
@@ -40,6 +30,7 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 		/// </summary>
 		/// <param name="position">座標</param>
 		/// <param name="scale">サイズ</param>
+		/// <param name="rotation">角度情報</param>
 		public void Initialize(Vector3 position, Vector3 scale, Quaternion rotation)
 		{
 			this.position = position;
@@ -55,76 +46,47 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 
 	/// <summary>
 	/// 現在の移動状態
-	///// </summary>
+	/// </summary>
 	public enum State
 	{
-		None,       // 状態無し
-		Stop,       // 停止
-		Move,       // 移動中
-		Wait,       // 一時停止
-		Collided,   // 衝突中
-		Burying,    // 埋没中
+		None, // 状態無し
+		Stop, // 停止
+		Move, // 移動中
+		Wait, // 一時停止
+		Collided, // 衝突中
+		Burying, // 埋没中
 	}
 
 	#region - インスペクタ指定用
-	[SerializeField]
-	private MoveType moveType = MoveType.PingPong; // 移動タイプ
-	[SerializeField]
-	private bool playOnAwake = true; // 開始時に動いているかどうか
-	[SerializeField]
-	private ControlPoint[] controlPoints = null; // 制御点
+
+	[SerializeField] private BaseMoveType.MoveType moveType = BaseMoveType.MoveType.PingPong; // 移動タイプ
+	[SerializeField] private bool playOnAwake = true; // 開始時に動いているかどうか
+	[SerializeField] private ControlPoint[] controlPoints = null; // 制御点
 
 	#endregion
 
-	private Transform scaffoldsTransform;   // 足場
-	private BaseMoveType movableObject;
-
-	//private int currentControlPointIndex = 0;   // 現在の制御点。次の制御点に達した時に切り替わる
-	//private int nextControlPointIndex = 0;   // 次の制御点
-
-	//private State _currentState = State.None;
-	//private float currentWaitTime;  // 現在の制御点での待ち時間
-	//private float waitCounter;      // 待ち時間のカウント用
-	//private bool isReturn; // 折り返し移動中
-	//private bool isCurrentBezier = false; // 現在の制御点がベジェ曲線モードか
-	//private static readonly int n = 50;
-	//private Bezier bezier = new Bezier(n); // ベジェ曲線制御用
-
-	//private static readonly float allowableDistance = 0.5f; // 足場を離れたと判断するための距離
+	private Transform controlObjectTransform; // 足場
 
 	/// <summary>
 	/// 現在の足場の状態
 	/// </summary>
 	public State currentState
 	{
-		get { return MovableObject.currentState; }
+		get { return movableObject.currentState; }
 	}
 
-	private static readonly float defaultWait = 3.0f;   // デフォルトの停止時間
-	private static readonly float defaultSpeed = 3.0f;  // デフォルトの速度
-														//private float elapsedTime = 0.0f; // 現在の制御点から次の制御点へ移動する際の経過時間(0~1)
-
-	private bool _switchState = false; // switchStateのバッキングフィールド
-
+	private static readonly float defaultWait = 3.0f; // デフォルトの停止時間
+	private static readonly float defaultSpeed = 3.0f; // デフォルトの速度
+	//private float elapsedTime = 0.0f; // 現在の制御点から次の制御点へ移動する際の経過時間(0~1)
 	/// <summary>
 	/// スイッチの状態
 	/// </summary>
-	public bool switchState
-	{
-		get { return _switchState; }
-		set { _switchState = value; }
-	}
+	public bool switchState { get; set; }
 
 	/// <summary>
 	/// 制御対象オブジェクトを取得
 	/// </summary>
-	public BaseMoveType MovableObject
-	{
-		get
-		{
-			return movableObject;
-		}
-	}
+	public BaseMoveType movableObject { get; private set; }
 
 	// 自動でインスペクタの値を設定する
 	[ContextMenu("SetAuto")]
@@ -163,7 +125,7 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 			{
 				Transform begin = child;
 				Transform end = transform.GetChild(index + 3);
-				if (controlPoints[controlPointIndex] == null) // 続けて書く場合、前回のループで生成したものがそのまま使えるはずなのでnullの時のみ生成
+				if (controlPoints[controlPointIndex] == null) // 前回のループで生成したものがそのまま使えるはずなのでnullの時のみ生成
 				{
 					controlPoints[controlPointIndex] = new ControlPoint(begin.localPosition, begin.localScale, begin.localRotation);
 					controlPoints[controlPointIndex].nextHandle = transform.GetChild(index + 1).localPosition;
@@ -205,7 +167,7 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 		}
 	}
 
-	void OnDrawGizmos()
+	private void OnDrawGizmos()
 	{
 		if (transform.childCount == 0)
 		{
@@ -290,49 +252,46 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 	protected override void Awake()
 	{
 		base.Awake();
-		//Quaternion initRotation = transform.GetChild(0).rotation;
-		scaffoldsTransform = transform.GetChild(0);
-		scaffoldsTransform.gameObject.AddComponent<MovableObject>();
-		movableObject = BaseMoveType.Create(scaffoldsTransform, moveType, controlPoints);
+		// 操作するオブジェクトを取得
+		controlObjectTransform = transform.GetChild(0);
+		controlObjectTransform.gameObject.AddComponent<MovableObject>();
+		movableObject = BaseMoveType.Create(controlObjectTransform, moveType, controlPoints);
 
+		// 実行時、操作するオブジェクト以外の子を削除
 		foreach (Transform child in transform)
 		{
-			if (scaffoldsTransform != child)
+			if (controlObjectTransform != child)
 			{
 				Destroy(child.gameObject);
 			}
 		}
 
-		scaffoldsTransform.parent = transform;
+		controlObjectTransform.parent = transform;
 
 		if (useSounds.Count == 0)
 		{
 			useSounds.Add(SoundCollector.SoundName.Driving5);
 		}
 
-		//currentControlPointIndex = 0;
-		//nextControlPointIndex = 0;
-
 		// シーン開始時の状態
 		if (playOnAwake)
 		{
 			// 開始時から起動している
-			//SoundPlayerSingleton.instance.PlaySE(scaffoldsTransform.gameObject, soundCollector[useSounds[0]], true);
 			switchState = true;
 		}
 		else
 		{
 			// デフォルトがオンなのでオフにするために呼ぶ
-			MovableObject.Switch();
+			movableObject.Switch();
 			switchState = false;
 		}
 	}
 
 	void FixedUpdate()
 	{
-		if(MovableObject != null)
+		if (movableObject != null)
 		{
-			MovableObject.Update();
+			movableObject.Update();
 		}
 	}
 
@@ -341,7 +300,7 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 	/// </summary>
 	public void Collision()
 	{
-		MovableObject.ChangeState(State.Collided);
+		movableObject.ChangeState(State.Collided);
 	}
 
 	/// <summary>
@@ -349,7 +308,7 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 	/// </summary>
 	public void CollisionDisappearance()
 	{
-		MovableObject.CollisionDisappearance();
+		movableObject.CollisionDisappearance();
 	}
 
 	/// <summary>
@@ -362,20 +321,21 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 	public void Switch()
 	{
 		switchState = !switchState;
-		MovableObject.Switch();
+		movableObject.Switch();
 
 		if (pickIconShowPosition == null)
-			ShowPickIcon(transform.TransformPoint(controlPoints[0].position), scaffoldsTransform);
+			ShowPickIcon(transform.TransformPoint(controlPoints[0].position), controlObjectTransform);
 		else
 			ShowPickIcon(pickIconShowPosition.position);
 	}
 
 	public void Action()
 	{
-		if (moveType != MoveType.OneStep)
+		if (moveType != BaseMoveType.MoveType.OneStep)
 		{
 			return;
 		}
-		(MovableObject as IActionEvent).Action();
+		var actionEvent = movableObject as IActionEvent;
+		if (actionEvent != null) actionEvent.Action();
 	}
 }

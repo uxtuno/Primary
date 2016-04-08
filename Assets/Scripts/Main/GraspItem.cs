@@ -1,17 +1,13 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System;
-
-[RequireComponent(typeof(Rigidbody))]
 
 /// <summary>
 /// プレイヤーが持ち運べるものにアタッチする
 /// </summary>
+[RequireComponent(typeof(Rigidbody))]
 public class GraspItem : Gimmick, ICheckEvent
 {
     private RigidbodyConstraints defaultConstraints = RigidbodyConstraints.None;
     private GameObject owner; // 掴んでいる者。この角度を元に自身の角度を調整
-    private bool _isGrasp; // 掴まれているかどうか
 	private Transform rideScaffolds; // 現在乗っている足場
 	private BlockRespawnPoint blockRespawnPoint;
 	private Vector3 respawnPoint;
@@ -19,18 +15,7 @@ public class GraspItem : Gimmick, ICheckEvent
     /// <summary>
     /// 掴まれているかどうか
     /// </summary>
-    public bool isGrasp
-    {
-        get
-        {
-            return _isGrasp;
-        }
-
-        private set
-        {
-            _isGrasp = value;
-        }
-    }
+    public bool isGrasp { get; private set; }
 
 	/// <summary>
 	/// 利用可能フラグ(常に利用可能)
@@ -46,6 +31,7 @@ public class GraspItem : Gimmick, ICheckEvent
 	protected override void Awake()
     {
         base.Awake();
+		// RigidBodyの初期設定を記録
         defaultConstraints = rigidbody.constraints;
 		blockRespawnPoint = GetComponentInParent<BlockRespawnPoint>();
     }
@@ -100,36 +86,30 @@ public class GraspItem : Gimmick, ICheckEvent
 			rideScaffolds = other.transform;
 		}
 
-		if (!isGrasp)
-        {
-            if (other.transform.GetComponentInChildren<Scaffolds>() == null)
-            {
-				InitParent();
-            }
+	    if (isGrasp)
+			return;
 
-			if (other.transform.GetComponent<GraspItem>() != null)
-			{
-				
-			}
-        }
+	    if (other.transform.GetComponentInChildren<Scaffolds>() == null)
+	    {
+		    InitParent();
+	    }
     }
 
 	void OnCollisionExit(Collision other)
 	{
-		if (!isGrasp)
-		{
-			if (other.transform.GetComponent<GraspItem>() != null)
-			{
-				
-			}
+		if (isGrasp)
+			return;
 
-			if(rideScaffolds == other.transform.parent)
-			{
-				rideScaffolds = null;
-			}
+		// 載ってた足場から離れた
+		if(rideScaffolds == other.transform.parent)
+		{
+			rideScaffolds = null;
 		}
 	}
 
+	/// <summary>
+	/// 再生成
+	/// </summary>
 	public void Respawn()
 	{
 		if (blockRespawnPoint != null)
@@ -153,7 +133,7 @@ public class GraspItem : Gimmick, ICheckEvent
 	/// <summary>
 	/// 右クリックで掴むアイコンを表示
 	/// </summary>
-	public void ShowIcon()
+	public void GetIconSprite()
 	{
 		if(isPossible)
 		{

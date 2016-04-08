@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections.Generic;
 
 /// <summary>
 /// 色の混ざり具合をビットの合成で表現
 /// 例) 赤(0001) + 青(0100) = マゼンタ(0101)
 /// </summary>
+[Flags]
 public enum ColorState
 {
 	NONE = 0,
@@ -17,10 +19,10 @@ public enum ColorState
 	WHITE = RED | GREEN | BLUE,	// 白
 }
 
-[System.Serializable]
 /// <summary>
 /// オブジェクトの色を表す
 /// </summary>
+[Serializable]
 public class ObjectColor
 {
 	public ObjectColor()

@@ -11384,8 +11384,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -11992,8 +11992,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   targets:
   - {fileID: 2093465800}
 --- !u!1 &802438128
@@ -13313,7 +13313,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   nextSceneName: TutorialStage02
   keyItem: {fileID: 1714642470}
 --- !u!135 &836894753
@@ -14055,8 +14054,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   color:
     _state: 7
     _alpha: 1
@@ -14647,8 +14646,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   _objectColor:
     _state: 4
     _alpha: 1
@@ -14710,8 +14709,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
 --- !u!33 &1011452611
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -16145,8 +16144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   targets: []
 --- !u!65 &1064814452
 BoxCollider:
@@ -16190,8 +16189,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   targets:
   - {fileID: 1248492277}
   - {fileID: 726834524}
@@ -16697,8 +16696,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -19808,8 +19807,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -20065,8 +20064,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   _objectColor:
     _state: 1
     _alpha: 1
@@ -20597,8 +20596,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   targets:
   - {fileID: 1122208421}
 --- !u!1 &1331468735
@@ -21195,8 +21194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   _objectColor:
     _state: 4
     _alpha: 1
@@ -21258,8 +21257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
 --- !u!33 &1369242034
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -28715,7 +28714,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   _item: 2
 --- !u!135 &1714642471
 SphereCollider:
@@ -28974,8 +28972,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   _objectColor:
     _state: 1
     _alpha: 1
@@ -29037,8 +29035,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
 --- !u!33 &1744491453
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -34263,8 +34261,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:

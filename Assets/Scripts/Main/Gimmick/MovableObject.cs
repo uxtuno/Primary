@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 /// <summary>
 /// 移動するオブジェクト
@@ -20,12 +19,11 @@ public class MovableObject : MyMonoBehaviour {
 
 	protected override void Update()
 	{
-		if(colorObstacle != null && colorObstacle.isDisappearance)
-		{
-			// もし衝突していた物体が消えたなら、コントローラ側にそれを知らせる
-			controller.CollisionDisappearance();
-			colorObstacle = null;
-		}
+		if (colorObstacle == null || !colorObstacle.isDisappearance) return;
+		
+		// もし衝突していた物体が消えたなら、コントローラ側にそれを知らせる
+		controller.CollisionDisappearance();
+		colorObstacle = null;
 	}
 
 	void OnCollisionEnter(Collision other)

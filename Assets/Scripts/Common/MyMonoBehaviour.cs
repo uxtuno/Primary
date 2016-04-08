@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Linq;
 
 /// <summary>
@@ -95,12 +94,11 @@ public class MyMonoBehaviour : MonoBehaviour
     {
         get
         {
-            if (_rigidbody == null)
-            {
-                _rigidbody = GetComponent<Rigidbody>();
-            }
+	        if (_rigidbody != null)
+				return _rigidbody;
 
-            return _rigidbody;
+			_rigidbody = GetComponent<Rigidbody>();
+	        return _rigidbody;
         }
     }
 
@@ -110,41 +108,24 @@ public class MyMonoBehaviour : MonoBehaviour
     public virtual bool IsShow
     {
 		// 子も含めて初めに見つけたRendererの状態を返す
-        get
-        {
-			foreach(Renderer renderer in GetComponentsInChildren<Renderer>())
-			{
-				return renderer.enabled;
-			}
+	    get
+	    {
+		    return GetComponentsInChildren<Renderer>()
+				.Select(renderer => renderer.enabled).FirstOrDefault();
+	    }
 
-			return false;
-        }
-
-		// 子も含めて全てのRendererの表示状態を変更する
+	    // 子も含めて全てのRendererの表示状態を変更する
 		set
 		{
-			foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
+			foreach (var renderer in GetComponentsInChildren<Renderer>())
 			{
 				renderer.enabled = value;
 			}
 
-			foreach (Light renderer in GetComponentsInChildren<Light>())
+			foreach (var renderer in GetComponentsInChildren<Light>())
 			{
 				renderer.enabled = value;
 			}
-
-			//if(GetComponent<Renderer>() != null)
-			//{
-			//	GetComponent<Renderer>().enabled = value;
-   //         }
-
-			//foreach(Transform child in transform)
-			//{
-			//	if(child.GetComponent<Renderer>() != null)
-			//	{
-			//		child.GetComponent<Renderer>().enabled = value;
-   //             }
-			//}
         }
     }
 

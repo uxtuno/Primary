@@ -209,7 +209,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 141236, guid: 50fc7ea8e46da024c9745a82857e11a8, type: 2}
       propertyPath: m_TagString
-      value: RideOn
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 447142, guid: 50fc7ea8e46da024c9745a82857e11a8, type: 2}
       propertyPath: m_RootOrder
@@ -1512,8 +1512,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -2121,7 +2121,8 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: .389999986
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11460116, guid: 576a4123f875b744796522c3cc62b20b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 576a4123f875b744796522c3cc62b20b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &676864106
@@ -3481,8 +3482,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   targets:
   - {fileID: 0}
 --- !u!95 &1203905436
@@ -3535,8 +3536,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   targets: []
 --- !u!54 &1233553263
 Rigidbody:
@@ -3567,8 +3568,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   targets:
   - {fileID: 296260683}
   - {fileID: 1249711599}
@@ -3628,8 +3629,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -3690,8 +3691,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   moveType: 3
   playOnAwake: 0
   controlPoints:
@@ -5428,8 +5429,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:

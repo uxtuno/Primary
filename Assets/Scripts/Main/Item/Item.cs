@@ -61,7 +61,7 @@ public class Item : EventObject, ICheckEvent
 	/// <summary>
 	/// Eキーで調べるアイコンを表示
 	/// </summary>
-	public void ShowIcon()
+	public void GetIconSprite()
 	{
 		// 取得不可能、もしくは取得済みならreturn
 		if (!_isAcquisition || !IsShow)

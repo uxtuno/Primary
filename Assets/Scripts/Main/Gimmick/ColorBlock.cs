@@ -1,15 +1,17 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 /// <summary>
-/// 反消失型ブロック
+///     反消失型ブロック
 /// </summary>
 public class ColorBlock : ColorObjectBase
 {
-	[SerializeField]
-	private bool isDisappearanceStart = false; // 消失中
+	[SerializeField] private bool isDisappearanceStart = false; // 消失中
+	private List<Switch> ridingSwitches = new List<Switch>(); // 自分が乗っているSwitch
+	private GameObject rideCollider; // 何かに乗るための判定用オブジェクト
 
-    protected override void Awake()
+	protected override void Awake()
 	{
 		base.Awake();
 
@@ -20,20 +22,34 @@ public class ColorBlock : ColorObjectBase
 		}
 
 		// 消失した瞬間
-		if(eraseTime == 0 || isDisappearanceStart)
+		if (eraseTime == 0 || isDisappearanceStart)
 		{
 			endurance = 0.0f;
 			objectColor.alpha = 0.0f;
 			OnDisappearance();
 		}
 
-		MeshCollider meshCollider = collider.GetComponent<MeshCollider>();
-        if (meshCollider != null)
+		var meshCollider = collider.GetComponent<MeshCollider>();
+		if (meshCollider != null)
 		{
-			if(!meshCollider.convex)
+			if (!meshCollider.convex)
 			{
 				meshCollider.convex = true;
-            }
+			}
+		}
+
+		//tag = TagName.Untagged;
+
+		// RideOnタグが付いたオブジェクトを探し格納
+		// スイッチの上に乗るために使用するColliderがついたオブジェクト
+		// 消失時に無効果したりするために使用
+		foreach (var child in GetComponentsInChildren<Transform>())
+		{
+			if (child.tag == TagName.RideOn)
+			{
+				rideCollider = child.gameObject;
+				break;
+			}
 		}
 	}
 
@@ -42,10 +58,12 @@ public class ColorBlock : ColorObjectBase
 		isPlayback = true;
 	}
 
-	// 消失完了時に呼ぶ
+	/// <summary>
+	/// オブジェクトが完全に消去された瞬間に呼ばれる
+	/// </summary>
 	protected override void OnDisappearance()
 	{
-        base.OnDisappearance();
+		base.OnDisappearance();
 		PlayParticle(completeDisappearance);
 		if (collider.GetComponent<MeshCollider>() != null)
 		{
@@ -56,11 +74,19 @@ public class ColorBlock : ColorObjectBase
 		}
 		collider.isTrigger = true;
 
-		if(rigidbody != null)
+		// 物理演算関係の挙動
+		if (rigidbody != null)
 		{
 			rigidbody.isKinematic = true;
 			rigidbody.WakeUp();
 		}
+
+		// 消失したのでスイッチから自分の情報を消す
+		ridingSwitches.ForEach(obj => obj.RemoveHitObject(rideCollider));
+
+		// あたり判定を無効化して何かに乗ることができないようにする
+		if (rideCollider != null)
+			rideCollider.SetActive(false);
 
 		// タイトル画面では音がならないように
 		if (Application.loadedLevelName == SceneName.Menu)
@@ -68,11 +94,13 @@ public class ColorBlock : ColorObjectBase
 		SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[useSounds[0]], false, true, 0.5f, 0.0f, true);
 	}
 
-	// 再生完了時に呼ぶ
+	/// <summary>
+	/// オブジェクトが再生する瞬間に呼ばれる
+	/// </summary>
 	protected override void OnPlayBack()
 	{
 		// 中のアイテムを入手できなくする
-		foreach (Item item in items)
+		foreach (var item in items)
 		{
 			item.isAcquisition = false;
 		}
@@ -100,9 +128,15 @@ public class ColorBlock : ColorObjectBase
 			rigidbody.isKinematic = false;
 		}
 
+		// 再び何かに乗せることができるようになる
+		rideCollider.SetActive(true);
+
 		SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[useSounds[1]], false, true, 0.25f, 0.0f, true);
 	}
 
+	/// <summary>
+	/// 何も照射されてない時に呼ばれる
+	/// </summary>
 	protected override void OnUnirradiated()
 	{
 		base.OnUnirradiated();
@@ -111,5 +145,23 @@ public class ColorBlock : ColorObjectBase
 			FadeAway();
 		else
 			ReGeneration();
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		var switchComponent = other.GetComponentInParent<Switch>();
+		if (switchComponent == null)
+			return;
+
+		ridingSwitches.Add(switchComponent);
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		var switchComponent = other.GetComponentInParent<Switch>();
+		if (switchComponent == null)
+			return;
+
+		ridingSwitches.Remove(switchComponent);
 	}
 }

@@ -1,26 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
 
 /// <summary>
 /// スイッチ。一つ以上のものが乗っていた場合にオン
 /// </summary>
 public class Switch : Gimmick
 {
-	[SerializeField]
-	private EventObject[] targets = null; // 操作対象
+	[SerializeField] private EventObject[] targets = null; // 操作対象
 	private List<ISwitchEvent> switchTargets = new List<ISwitchEvent>(); // スイッチの操作対象として登録可能なもの
 
 	private List<GameObject> hitList = new List<GameObject>();
-	private bool _switchState = false; // switchStateのバッキングフィールド
 
 	/// <summary>
 	/// スイッチの状態
 	/// </summary>
-	public bool switchState
-	{
-		get { return _switchState; }
-		set { _switchState = value; }
-	}
+	public bool switchState { get; set; }
 
 	protected override void Awake()
 	{
@@ -44,7 +40,7 @@ public class Switch : Gimmick
 			}
 			else
 			{
-				Debug.Log("(index : " + index.ToString() + ")スイッチの操作対象として登録出来ません");
+				Debug.Log("(index : " + index + ")スイッチの操作対象として登録出来ません");
 			}
 		}
 		// 誤って使用しないように
@@ -58,25 +54,15 @@ public class Switch : Gimmick
 			return;
 		}
 
-		if (other.GetComponentInParent<ColorObjectBase>() != null)
-		{
-			if (other.GetComponentInParent<ColorObjectBase>().isDisappearance)
-			{
-				// カラーブロックのisTriggerがtrueになったときに入るのでリストから削除
-				hitList.RemoveAll((match) => match == other.gameObject);
-				if (hitList.Count == 0 && switchState)
-				{
-					SwitchOff();
-					switchState = false;
-				}
-				return;
-			}
-		}
-
 		if (!switchState)
 		{
 			SwitchOn();
-			switchState = true;
+		}
+
+		// 同じものが含まれていた場合登録しない
+		if (hitList.Contains(other.gameObject))
+		{
+			return;
 		}
 
 		hitList.Add(other.gameObject);
@@ -89,7 +75,7 @@ public class Switch : Gimmick
 			return;
 		}
 		// スイッチから外れたオブジェクトをリストから消去
-		hitList.RemoveAll((match) => match == other.gameObject);
+		hitList.Remove(other.gameObject);
 		if (switchState && hitList.Count == 0)
 		{
 			SwitchOff();
@@ -127,5 +113,21 @@ public class Switch : Gimmick
 		}
 	}
 
+	/// <summary>
+	/// 指定GameObjectをスイッチの上に載っているものリストから外す
+	/// この操作でスイッチの上の物が無くなるとこのスイッチはOffになる
+	/// </summary>
+	/// <param name="removeGameObject">リストから外す対象</param>
+	public void RemoveHitObject(GameObject removeGameObject)
+	{
+		if (removeGameObject == null)
+			return;
 
+		hitList.RemoveAll(match => match == removeGameObject.gameObject);
+
+		if (hitList.Count == 0 && switchState)
+		{
+			SwitchOff();
+		}
+	}
 }
