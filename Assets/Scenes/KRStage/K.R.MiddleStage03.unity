@@ -209,7 +209,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 141236, guid: 50fc7ea8e46da024c9745a82857e11a8, type: 2}
       propertyPath: m_TagString
-      value: RideOn
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 447142, guid: 50fc7ea8e46da024c9745a82857e11a8, type: 2}
       propertyPath: m_RootOrder
@@ -1512,8 +1512,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -2121,7 +2121,8 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: .389999986
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11460116, guid: 576a4123f875b744796522c3cc62b20b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 576a4123f875b744796522c3cc62b20b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &676864106
@@ -3443,7 +3444,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1203905434}
   - 95: {fileID: 1203905436}
-  - 114: {fileID: 1203905435}
   m_Layer: 0
   m_Name: Floor_Switch2
   m_TagString: Untagged
@@ -3468,23 +3468,6 @@ Transform:
   - {fileID: 719728185}
   m_Father: {fileID: 1162468310}
   m_RootOrder: 0
---- !u!114 &1203905435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11408356, guid: 2f200b5100015934d927d0cc451e6b9b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1203905433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f69f2619a30dab948b038ac146d5c731, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useSounds: 
-  _flag: 0
-  pickIconPrefab: {fileID: 0}
-  targets:
-  - {fileID: 0}
 --- !u!95 &1203905436
 Animator:
   serializedVersion: 3
@@ -3535,8 +3518,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   targets: []
 --- !u!54 &1233553263
 Rigidbody:
@@ -3567,8 +3550,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   targets:
   - {fileID: 296260683}
   - {fileID: 1249711599}
@@ -3628,8 +3611,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:
@@ -3690,8 +3673,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   moveType: 3
   playOnAwake: 0
   controlPoints:
@@ -5428,8 +5411,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:

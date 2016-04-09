@@ -88,7 +88,7 @@ public class MessageEvent : EventObject, ICheckEvent
 	/// <summary>
 	/// 調べる時のアイコン
 	/// </summary>
-	public void ShowIcon()
+	public void GetIconSprite()
 	{
 		if (isPossible)
 		{

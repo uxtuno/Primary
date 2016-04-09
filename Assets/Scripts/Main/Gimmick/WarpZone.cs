@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System;
 
 /// <summary>
 /// ワープゾーン。接触したものを対応するワープ先へ移動させる
@@ -52,25 +50,11 @@ public class WarpZone : Gimmick, ISwitchEvent
 
 		if (other.tag == Tags.RideOn && !isWarp)
 		{
-			if (other.transform.parent.tag != Tags.Player)
-			{
-				Instantiate(warpEffectPrefab, other.transform.parent.position, Quaternion.identity);
-				Instantiate(warpEffectPrefab, destinationObject.transform.position, Quaternion.identity);
-
-				other.transform.parent.position = destinationObject.transform.position;
-				other.transform.parent.rotation = destinationObject.transform.rotation;
-				isWarp = true;
-
-				if (destinationWarpZone != null)
-				{
-					destinationObject.GetComponent<WarpZone>().isWarp = true;
-				}
-			}
-			else
+			if (other.transform.parent.tag == Tags.Player)
 			{
 				// プレイヤーが入ったとき。フェードアウトの演出が入る
 				FadeManager.instance.Fade(0.5f,
-					delegate ()
+					delegate
 					{
 						Instantiate(warpEffectPrefab, other.transform.parent.position, Quaternion.identity);
 						Instantiate(warpEffectPrefab, destinationObject.transform.position, Quaternion.identity);
@@ -84,6 +68,20 @@ public class WarpZone : Gimmick, ISwitchEvent
 							destinationObject.GetComponent<WarpZone>().isWarp = true;
 						}
 					});
+			}
+			else
+			{
+				Instantiate(warpEffectPrefab, other.transform.parent.position, Quaternion.identity);
+				Instantiate(warpEffectPrefab, destinationObject.transform.position, Quaternion.identity);
+
+				other.transform.parent.position = destinationObject.transform.position;
+				other.transform.parent.rotation = destinationObject.transform.rotation;
+				isWarp = true;
+
+				if (destinationWarpZone != null)
+				{
+					destinationObject.GetComponent<WarpZone>().isWarp = true;
+				}
 			}
 		}
 	}

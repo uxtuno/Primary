@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
+
+// Todo : 現状、ゲーム内で使用するかはわからないので動作確認が不完全。
 
 /// <summary>
 /// ブロックの出現を管理するスクリプト

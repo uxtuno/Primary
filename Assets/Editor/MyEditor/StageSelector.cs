@@ -1,13 +1,10 @@
 ﻿//C# Example
 using System;
 using UnityEditor;
-using UnityEditorInternal;
-using System.Text;
 using System.IO;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 [InitializeOnLoad]
 public class StageSelector : EditorWindow
@@ -24,10 +21,13 @@ public class StageSelector : EditorWindow
 	}
 
 	private static List<ReadScene> stages = new List<ReadScene>();
-	private Vector2 scrollPos = Vector2.zero;
+	private static List<ReadScene> otherScenes = new List<ReadScene>();
+	private Vector2 stageListScrollPos = Vector2.zero;
+	private Vector2 otherSceneListScrollPos = Vector2.zero;
+	private static StageData stageData;
 
 	// Add menu item named "My Window" to the Window menu
-    [MenuItem("Window/StageSelector")]
+	[MenuItem("Window/StageSelector")]
 	public static void ShowWindow()
 	{
 		//Show existing window instance. If one doesn't exist, make one.
@@ -36,15 +36,26 @@ public class StageSelector : EditorWindow
 
 	static StageSelector()
 	{
-		AddStage("TutorialStage", "Assets/Scenes/{0}.unity");
-		AddStage("Stage", "Assets/Scenes/{0}.unity");
-		AddStage("K.R.EasyStage", "Assets/Scenes/KRStage/{0}.unity");
-		AddStage("K.R.MiddleStage", "Assets/Scenes/KRStage/{0}.unity");
-		AddStage("K.R.HardStage", "Assets/Scenes/KRStage/{0}.unity");
-		AddStage("N.EasyStage", "Assets/Scenes/NSStage/{0}.unity");
-		AddStage("N.MiddleStage", "Assets/Scenes/NSStage/{0}.unity");
-		AddStage("N.HardStage", "Assets/Scenes/NSStage/{0}.unity");
-		AddStage("UXStage", "Assets/Scenes/UXStage/{0}.unity");
+
+		//AddStage("TutorialStage", "Assets/Scenes/{0}.unity");
+		//AddStage("Stage", "Assets/Scenes/{0}.unity");
+		//AddStage("K.R.EasyStage", "Assets/Scenes/KRStage/{0}.unity");
+		//AddStage("K.R.MiddleStage", "Assets/Scenes/KRStage/{0}.unity");
+		//AddStage("K.R.HardStage", "Assets/Scenes/KRStage/{0}.unity");
+		//AddStage("N.EasyStage", "Assets/Scenes/NSStage/{0}.unity");
+		//AddStage("N.MiddleStage", "Assets/Scenes/NSStage/{0}.unity");
+		//AddStage("N.HardStage", "Assets/Scenes/NSStage/{0}.unity");
+		//AddStage("UXStage", "Assets/Scenes/UXStage/{0}.unity");
+
+		stageData = null;
+
+		foreach (var scene in EditorBuildSettings.scenes)
+		{
+			ReadScene readScene = new ReadScene();
+			readScene.name = Path.GetFileNameWithoutExtension(scene.path);
+			readScene.path = scene.path;
+			stages.Add(readScene);
+		}
 	}
 
 	private static void AddStage(string keyName, string path)
@@ -64,6 +75,39 @@ public class StageSelector : EditorWindow
 		stages.Sort(count, stages.Count - count, null);
 	}
 
+	void Start()
+	{
+		stageData = null;
+	}
+
+	void Update()
+	{
+		if (stageData == null || stageData.param.Count == 0)
+			LoadStageData();
+	}
+
+	private void LoadStageData()
+	{
+		stageData = Resources.Load<StageData>("StageData/StageData");
+
+		var allScene = stages
+			.OrderBy(stage =>
+			{
+				int index = -1;
+				// StageData上の位置を求める
+				foreach (var param in stageData.param.Where(param => stage.name == param.Name))
+				{
+					index = stageData.param.IndexOf(param);
+				}
+
+				return index >= 0 ? index : stages.Count;
+			})
+			.ToList();
+
+		stages = allScene.Take(stageData.param.Count).ToList();
+		otherScenes = allScene.Skip(stageData.param.Count).ToList();
+	}
+
 	void OnGUI()
 	{
 		GUILayout.Label(Path.GetFileNameWithoutExtension(EditorApplication.currentScene), EditorStyles.boldLabel);
@@ -72,44 +116,36 @@ public class StageSelector : EditorWindow
 		{
 			string currentScene = Path.GetFileNameWithoutExtension(EditorApplication.currentScene);
 			int currentStageIndex = 0;
-
-			foreach(ReadScene readScene in stages)
+			foreach (var readScene in stages)
 			{
-				if(readScene.name == currentScene)
-				{
+				if (readScene.name == currentScene)
 					break;
-				}
-				else
-				{
-					currentStageIndex++;
-				}
+
+				currentStageIndex++;
 			}
 
 			if (currentStageIndex > 0)
 			{
-				OpenScene(stages[--currentStageIndex].name, stages[--currentStageIndex].path);
+				OpenScene(stages[currentStageIndex - 1].name, stages[currentStageIndex - 1].path);
 			}
 		}
 
 		if (GUILayout.Button("次のステージ"))
 		{
 			string currentScene = Path.GetFileNameWithoutExtension(EditorApplication.currentScene);
-			int currentStageIndex = 0;
 
-			foreach (ReadScene readScene in stages)
+			int currentStageIndex = 0;
+			foreach (var readScene in stages)
 			{
 				if (readScene.name == currentScene)
-				{
 					break;
-				}
-				else
-				{
-					currentStageIndex++;
-				}
-			} 
-			if (currentStageIndex < stages.Count() - 1)
+
+				currentStageIndex++;
+			}
+
+			if (currentStageIndex < stages.Count - 1)
 			{
-				OpenScene(stages[++currentStageIndex].name, stages[++currentStageIndex].path);
+				OpenScene(stages[currentStageIndex + 1].name, stages[currentStageIndex + 1].path);
 			}
 		}
 
@@ -134,18 +170,41 @@ public class StageSelector : EditorWindow
 
 		EditorGUILayout.Separator();
 
-		scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUI.skin.box);
+		EditorGUILayout.LabelField("Stage List");
+
+		EditorGUILayout.BeginHorizontal();
 		{
-			foreach (ReadScene scene in stages)
+			stageListScrollPos = EditorGUILayout.BeginScrollView(stageListScrollPos, GUI.skin.box);
 			{
-				if (GUILayout.Button(scene.name))
+				// インデント！ 波動拳！！
+				foreach (var scene in stages)
 				{
-					OpenScene(scene.name, scene.path);
+					bool isDisable = scene.path == EditorApplication.currentScene;
+
+					EditorGUI.BeginDisabledGroup(isDisable);
+					{
+						if (GUILayout.Button(scene.name))
+						{
+							OpenScene(scene.name, scene.path);
+						}
+					}
+					EditorGUI.EndDisabledGroup();
+				}
+
+				EditorGUILayout.Separator();
+				EditorGUILayout.LabelField("Other Scenes");
+
+				foreach (var scene in otherScenes)
+				{
+					if (GUILayout.Button(scene.name))
+					{
+						OpenScene(scene.name, scene.path);
+					}
 				}
 			}
+			EditorGUILayout.EndScrollView();
 		}
-
-		EditorGUILayout.EndScrollView();
+		EditorGUILayout.EndHorizontal();
 	}
 
 	private static void OpenScene(string scene, string path)
@@ -155,7 +214,7 @@ public class StageSelector : EditorWindow
 			return;
 		}
 
-		if(EditorApplication.SaveCurrentSceneIfUserWantsTo())
+		if (EditorApplication.SaveCurrentSceneIfUserWantsTo())
 		{
 			Debug.Log(scene);
 			EditorApplication.OpenScene(string.Format(path, scene));

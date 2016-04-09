@@ -67,7 +67,7 @@ public class Goal : EventObject, ICheckEvent
 	/// <summary>
 	/// アイコンを表示
 	/// </summary>
-	public void ShowIcon()
+	public void GetIconSprite()
     {
         if (isPossible)
         {

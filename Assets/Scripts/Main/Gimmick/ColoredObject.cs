@@ -1,14 +1,16 @@
-﻿using UnityEngine;
-using System.Collections;
-using System;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
-/// プライマリーレイガンによって完全に消失されるオブジェクト
-/// ColorBlockと同じく基底クラスにColorObjectBaseを持つが、クラスの役割分担がうまくいってないため
-/// 共通コードが目立つ。そのうち直したい
+///     プライマリーレイガンによって完全に消失されるオブジェクト
+///     ColorBlockと同じく基底クラスにColorObjectBaseを持つが、クラスの役割分担がうまくいってないため
+///     共通コードが目立つ。そのうち直したい
 /// </summary>
 public class ColoredObject : ColorObjectBase
 {
+	private List<Switch> ridingSwitches = new List<Switch>(); // 自分が乗っているSwitch
+	private GameObject rideCollider; // 何かに乗るための判定用オブジェクト
+
 	protected override void Awake()
 	{
 		base.Awake();
@@ -22,6 +24,18 @@ public class ColoredObject : ColorObjectBase
 		{
 			useSounds.Add(SoundCollector.SoundName.Explosion);
 		}
+
+		// RideOnタグが付いたオブジェクトを探し格納
+		// スイッチの上に乗るために使用するColliderがついたオブジェクト
+		// 消失時に無効果したりするために使用
+		foreach (var child in GetComponentsInChildren<Transform>())
+		{
+			if (child.tag == TagName.RideOn)
+			{
+				rideCollider = child.gameObject;
+				break;
+			}
+		}
 	}
 
 	protected override void Update()
@@ -34,87 +48,8 @@ public class ColoredObject : ColorObjectBase
 		}
 	}
 
-	protected override void LateUpdate()
-	{
-		if (!collider.enabled)
-		{
-			return;
-		}
-
-		if (IrradiationColor.state == objectColor.state)
-		{
-			FadeAway();
-			if (isDisappearance)
-			{
-				return;
-			}
-		}
-		else
-		{
-			if (endurance < 1.0f)
-			{
-				ReGeneration();
-			}
-		}
-
-		if (IrradiationColor.state != ColorState.NONE)
-		{
-			if (isUseParticle)
-			{
-				irradiation.startColor = (Color)IrradiationColor;
-				irradiation.Play();
-				if (endurance != 1.0f && !isDisappearance)
-				{
-					PlayParticle(duringDisappearance);
-				}
-				else
-				{
-					regeneration.Stop();
-				}
-			}
-		}
-		else
-		{
-			if (isUseParticle)
-			{
-				irradiation.Stop();
-			}
-		}
-
-		//Debug.Log(endurance);
-		renderer.material.color = objectColor.color;
-		IrradiationColor = ColorState.NONE;
-	}
-
 	/// <summary>
-	/// 消失中
-	/// </summary>
-	private void FadeAway()
-	{
-		endurance -= Time.deltaTime / eraseTime;
-		objectColor.alpha = defaultAlpha * endurance;
-
-		if (endurance < 0.0f)
-		{
-			endurance = 0.0f;
-			OnDisappearance();
-		}
-	}
-
-	// 再生中
-	private void ReGeneration()
-	{
-		endurance += Time.deltaTime;
-		if (endurance > 1.0f)
-		{
-			endurance = 1.0f;
-			OnPlayBack();
-		}
-		objectColor.alpha = defaultAlpha * endurance;
-	}
-
-	/// <summary>
-	/// 完全に消失した瞬間
+	///     完全に消失した瞬間
 	/// </summary>
 	protected override void OnDisappearance()
 	{
@@ -137,17 +72,54 @@ public class ColoredObject : ColorObjectBase
 			rigidbody.WakeUp();
 		}
 
+		// 消失したのでスイッチから自分の情報を消す
+		ridingSwitches.ForEach(obj => obj.RemoveHitObject(rideCollider));
+
+		// あたり判定を無効化して何かに乗ることができないようにする
+		if (rideCollider != null)
+			rideCollider.SetActive(false);
+
 		renderer.enabled = false;
 		SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[useSounds[0]], false, true, 0.5f, 0.0f, true);
 	}
 
-	// 再生完了した瞬間
+	/// <summary>
+	/// 何も照射されてない時に呼ばれる
+	/// </summary>
+	protected override void OnUnirradiated()
+	{
+		base.OnUnirradiated();
+		ReGeneration();
+	}
+
+	/// <summary>
+	/// オブジェクトが再生する瞬間に呼ばれる
+	/// </summary>
 	protected override void OnPlayBack()
 	{
 		base.OnPlayBack();
-		if(isUseParticle)
+		if (isUseParticle)
 		{
 			duringDisappearance.Stop();
 		}
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		var switchComponent = other.GetComponentInParent<Switch>();
+		if (switchComponent == null)
+			return;
+
+		// スイッチに触れたら情報を送信するため格納
+		ridingSwitches.Add(switchComponent);
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		var switchComponent = other.GetComponentInParent<Switch>();
+		if (switchComponent == null)
+			return;
+
+		ridingSwitches.Remove(switchComponent);
 	}
 }

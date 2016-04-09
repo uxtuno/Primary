@@ -1,15 +1,17 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
-/// 反消失型ブロック
+///     反消失型ブロック
 /// </summary>
 public class ColorBlock : ColorObjectBase
 {
 	[SerializeField]
 	private bool isDisappearanceStart = false; // 消失中
+	private List<Switch> ridingSwitches = new List<Switch>(); // 自分が乗っているSwitch
+	private GameObject rideCollider; // 何かに乗るための判定用オブジェクト
 
-    protected override void Awake()
+	protected override void Awake()
 	{
 		base.Awake();
 
@@ -20,20 +22,34 @@ public class ColorBlock : ColorObjectBase
 		}
 
 		// 消失した瞬間
-		if(eraseTime == 0 || isDisappearanceStart)
+		if (eraseTime == 0 || isDisappearanceStart)
 		{
 			endurance = 0.0f;
 			objectColor.alpha = 0.0f;
 			OnDisappearance();
 		}
 
-		MeshCollider meshCollider = collider.GetComponent<MeshCollider>();
-        if (meshCollider != null)
+		var meshCollider = collider.GetComponent<MeshCollider>();
+		if (meshCollider != null)
 		{
-			if(!meshCollider.convex)
+			if (!meshCollider.convex)
 			{
 				meshCollider.convex = true;
-            }
+			}
+		}
+
+		//tag = TagName.Untagged;
+
+		// RideOnタグが付いたオブジェクトを探し格納
+		// スイッチの上に乗るために使用するColliderがついたオブジェクト
+		// 消失時に無効果したりするために使用
+		foreach (var child in GetComponentsInChildren<Transform>())
+		{
+			if (child.tag == TagName.RideOn)
+			{
+				rideCollider = child.gameObject;
+				break;
+			}
 		}
 	}
 
@@ -42,132 +58,12 @@ public class ColorBlock : ColorObjectBase
 		isPlayback = true;
 	}
 
-	protected override void LateUpdate()
-	{
-		// 半透明で判定が無い状態
-		if (collider.isTrigger)
-		{
-			if (IrradiationColor.state != objectColor.state && IrradiationColor.state != ColorState.NONE)
-			{
-				// 自分の色とは違う色が当たっているので再生させる
-				ReGeneration();
-			}
-			else if(endurance != 0.0f)
-			{
-				// 自分の色と同じ色が当たっているので消失させる
-				PlayParticle(duringDisappearance);
-				FadeAway();
-			}
-		}
-		else // 判定がある状態
-		{
-			// 同じ色の光線が当たっているので
-			if (IrradiationColor.state == objectColor.state)
-			{
-				FadeAway();
-			}
-			else
-			{
-                if (endurance < 1.0f)
-                {
-				    ReGeneration();
-                }
-			}
-		}
-
-        if (IrradiationColor.state != ColorState.NONE)
-        {
-			// 白なら光を反射するので消えない
-			if (isUseParticle && objectColor.state != ColorState.WHITE)
-			{
-				irradiation.startColor = (Color)IrradiationColor;
-				irradiation.Stop();
-				irradiation.Play();
-			}
-        }
-        else
-        {
-			// 何も光線が当たっていないのでエフェクトを消す
-			if (isUseParticle)
-			{
-				irradiation.Stop();
-			}
-        }
-
-		if(IrradiationColor.state == objectColor.state)
-		{
-			if(endurance != 0)
-			{
-				// 消失中エフェクト
-				PlayParticle(duringDisappearance);
-			}
-		}
-		else if(IrradiationColor.state != ColorState.NONE)
-		{
-			if (endurance != 1.0f)
-			{
-				// 再生中エフェクト
-				PlayParticle(regeneration);
-			}
-			else
-			{
-				if (isUseParticle)
-				{
-					regeneration.Stop();
-				}
-			}
-		}
-		else
-		{
-			if (isUseParticle)
-			{
-				duringDisappearance.Stop();
-				regeneration.Stop();
-			}
-		}
-		renderer.material.color = objectColor.color;
-
-		// 毎フレーム照射されている色をリセット
-		IrradiationColor = ColorState.NONE;
-	}
-
-	// 消失させる
-	private void FadeAway()
-	{
-		endurance -= Time.deltaTime / eraseTime;
-
-		if (endurance < 0.0f)
-		{
-			endurance = 0.0f;
-			if(!isDisappearance)
-			{
-				OnDisappearance();
-			}
-			else
-			{
-				// 消失完了エフェクト
-				PlayParticle(completeDisappearance);
-			}
-		}
-        objectColor.alpha = defaultAlpha * endurance;
-    }
-
-	// 再生させる
-	private void ReGeneration()
-	{
-		endurance += Time.deltaTime;
-		if (endurance > 1.0f)
-		{
-			endurance = 1.0f;
-            OnPlayBack();
-		}
-		objectColor.alpha = defaultAlpha * endurance;
-	}
-
-	// 消失完了時に呼ぶ
+	/// <summary>
+	/// オブジェクトが完全に消去された瞬間に呼ばれる
+	/// </summary>
 	protected override void OnDisappearance()
 	{
-        base.OnDisappearance();
+		base.OnDisappearance();
 		PlayParticle(completeDisappearance);
 		if (collider.GetComponent<MeshCollider>() != null)
 		{
@@ -178,11 +74,19 @@ public class ColorBlock : ColorObjectBase
 		}
 		collider.isTrigger = true;
 
-		if(rigidbody != null)
+		// 物理演算関係の挙動
+		if (rigidbody != null)
 		{
 			rigidbody.isKinematic = true;
 			rigidbody.WakeUp();
 		}
+
+		// 消失したのでスイッチから自分の情報を消す
+		ridingSwitches.ForEach(obj => obj.RemoveHitObject(rideCollider));
+
+		// あたり判定を無効化して何かに乗ることができないようにする
+		if (rideCollider != null)
+			rideCollider.SetActive(false);
 
 		// タイトル画面では音がならないように
 		if (Application.loadedLevelName == SceneName.Menu)
@@ -190,10 +94,24 @@ public class ColorBlock : ColorObjectBase
 		SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[useSounds[0]], false, true, 0.5f, 0.0f, true);
 	}
 
-	// 再生完了時に呼ぶ
+	/// <summary>
+	/// オブジェクトが再生する瞬間に呼ばれる
+	/// </summary>
 	protected override void OnPlayBack()
 	{
-        base.OnPlayBack();
+		// 中のアイテムを入手できなくする
+		foreach (var item in items)
+		{
+			item.isAcquisition = false;
+		}
+
+		isDisappearance = false;
+
+		// 持ち運び可能にする
+		if (GetComponent<GraspItem>() != null)
+		{
+			GetComponent<GraspItem>().enabled = true;
+		}
 
 		if (collider.GetComponent<MeshCollider>() != null)
 		{
@@ -210,6 +128,41 @@ public class ColorBlock : ColorObjectBase
 			rigidbody.isKinematic = false;
 		}
 
+		// 再び何かに乗せることができるようになる
+		if (rideCollider != null)
+			rideCollider.SetActive(true);
+
 		SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[useSounds[1]], false, true, 0.25f, 0.0f, true);
+	}
+
+	/// <summary>
+	/// 何も照射されてない時に呼ばれる
+	/// </summary>
+	protected override void OnUnirradiated()
+	{
+		base.OnUnirradiated();
+
+		if (isDisappearance)
+			FadeAway();
+		else
+			ReGeneration();
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		var switchComponent = other.GetComponentInParent<Switch>();
+		if (switchComponent == null)
+			return;
+		// スイッチに触れたら情報を送信するため格納
+		ridingSwitches.Add(switchComponent);
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		var switchComponent = other.GetComponentInParent<Switch>();
+		if (switchComponent == null)
+			return;
+
+		ridingSwitches.Remove(switchComponent);
 	}
 }

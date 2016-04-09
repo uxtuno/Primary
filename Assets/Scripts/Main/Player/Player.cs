@@ -75,11 +75,7 @@ public class Player : MyMonoBehaviour
 		set { _isOperationPossible = value; }
 	}
 
-	public Scaffolds rideScaffolds
-	{
-		get { return _rideScaffolds; }
-		set { _rideScaffolds = value; }
-	}
+	public Scaffolds rideScaffolds { get; set; }
 
 	public bool isRide
 	{
@@ -124,10 +120,7 @@ public class Player : MyMonoBehaviour
 	private float rightClickWindowTimeCount = 0.0f;
 
 	//	private MovableScaffoldsController;
-	private Scaffolds _rideScaffolds; // 現在乗っている足場
 	private bool _isRide = false;
-
-	private int rollCount = 0; // レイガンの色アイコンを回転させる回数
 
 	[SerializeField, Tooltip("レイガンのコア(マテリアルを変更する部分)")]
 	private GameObject rayGunCoreCylinder = null;
@@ -424,7 +417,6 @@ public class Player : MyMonoBehaviour
 		int laserIndex = currentLaserIndex;
 		do
 		{
-			rollCount++;
 			if (++laserIndex >= laserMax)
 			{
 				laserIndex = 0;
@@ -534,29 +526,12 @@ public class Player : MyMonoBehaviour
 		items.Remove(item);
 	}
 
-	///// <summary>
-	///// 指定のアイテムを持っているか
-	///// </summary>
-	///// <typeparam name="T">アイテムを表す型</typeparam>
-	///// <returns></returns>
-	//public bool ContainsItem<T>() where T : Item
-	//{
-	//	foreach (T item in items)
-	//	{
-	//		if (item is T)
-	//		{
-	//			return true;
-	//		}
-	//	}
-
-	//	return false;
-	//}
-
 	void OnControllerColliderHit(ControllerColliderHit hit)
 	{
 		Rigidbody body = hit.collider.attachedRigidbody;
-		if (body == null)
-			return;
+		if (body != null)
+		{
+		}
 	}
 
 	public void Respawn()

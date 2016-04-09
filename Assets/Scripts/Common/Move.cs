@@ -1,23 +1,32 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-public class Move : MonoBehaviour {
-
+/// <summary>
+/// 指定した軸の方向へ移動する
+/// シンプルな移動
+/// </summary>
+public class Move : MonoBehaviour
+{
+	/// <summary>
+	/// 移動方向軸
+	/// </summary>
 	public enum Axis
 	{
 		forward,
 		up,
-		right,
+		right
 	}
 
 	[SerializeField]
-	private Axis direction = Axis.forward;
-	[SerializeField]
-	private float speed = 1.0f;
-	Vector3 directionVec;
+	private Axis direction = Axis.forward; // 移動方向
 
-	void Start()
+	private Vector3 directionVec; // 移動ベクトル
+
+	[SerializeField]
+	private float speed = 1.0f; // 移動速度
+
+	private void Start()
 	{
+		// 列挙体から対応するベクトルに変換
 		switch (direction)
 		{
 			case Axis.forward:
@@ -31,8 +40,9 @@ public class Move : MonoBehaviour {
 				break;
 		}
 	}
-	
-	void Update () {
+
+	private void Update()
+	{
 		transform.Translate(directionVec * Time.deltaTime * speed);
 	}
 }

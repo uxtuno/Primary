@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class EraseLaser : MyMonoBehaviour
 {
 	public GameObject hitPointLightPrefab = null;
 	private GameObject hitPointLight = null; // レーザーの当たった地点に表示するライト
 	[SerializeField]
-	private float length = 20.0f;   // レーザーの長さ
+	private float length = 20.0f; // レーザーの長さ
 	[SerializeField]
 	private ObjectColor _color = null; // レーザーの色
 
@@ -15,10 +14,7 @@ public class EraseLaser : MyMonoBehaviour
 	/// </summary>
 	public ObjectColor color
 	{
-		get
-		{
-			return _color;
-		}
+		get { return _color; }
 
 		set
 		{
@@ -68,6 +64,7 @@ public class EraseLaser : MyMonoBehaviour
 		RaycastHit hit;
 		transform.LookAt(point);
 		int layerMask = ~((1 << Layers.Leaser.layer) | (1 << Layers.IgnoreRaycast.layer));
+		// 対象に向けて照射してみる
 		if (Physics.Raycast(transform.position, transform.forward, out hit, length, layerMask))
 		{
 			isHit = true;
@@ -192,10 +189,7 @@ public class EraseLaser : MyMonoBehaviour
 	/// </summary>
 	public override bool IsShow
 	{
-		get
-		{
-			return base.IsShow;
-		}
+		get { return base.IsShow; }
 
 		set
 		{

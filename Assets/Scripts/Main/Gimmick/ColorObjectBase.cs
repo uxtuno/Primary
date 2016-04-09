@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 
 /// <summary>
-/// レーザーによって消去できる色のついたオブジェクトの抽象クラス
+/// レーザーによって消去できる色のついたオブジェクトの基底クラス
 /// </summary>
 public abstract class ColorObjectBase : Gimmick
 {
 	[SerializeField]
-	private ObjectColor _objectColor;  // オブジェクトの色
+	private ObjectColor _objectColor; // オブジェクトの色
+	private bool _isDisappearance = false; // 消失状態を表すフラグ
 
-	private bool _isDisappearance = false;
 	/// <summary>
 	/// 消失状態を切り替える(true : 消失)
 	/// </summary>
 	public bool isDisappearance
 	{
 		get { return _isDisappearance; }
-		set
+		protected set
 		{
 			_isDisappearance = value;
-			if(!(collider is MeshCollider))
+			if (!(collider is MeshCollider))
 			{
 				collider.isTrigger = value;
 			}
@@ -34,13 +34,14 @@ public abstract class ColorObjectBase : Gimmick
 		get { return _objectColor; }
 	}
 
-	protected static readonly float eraseTime = 1.0f;   // 消えるまでの時間(秒)
-	protected float defaultAlpha = 0.0f;   // 透明度の初期値
-	protected ObjectColor IrradiationColor = ColorState.NONE;   // 現在のフレームで照射されているレーザーの色
-	private float currentFrame; // 現在のフレーム
-	protected bool isPlayback = false;
+	protected static readonly float eraseTime = 1.0f; // 消えるまでの時間(秒)
+	protected float defaultAlpha; // 透明度の初期値
+	protected ObjectColor IrradiationColor = ColorState.NONE; // 現在のフレームで照射されているレーザーの色
+	private int currentFrame; // 現在のフレーム
+	protected bool isPlayback = false; // 再生中
 	protected float endurance = 1.0f; // 現在の耐久値。1～0に正規化された値
 
+	// 子に含まれるItemを保持する
 	protected List<Item> items = new List<Item>();
 
 	// todo : エフェクトを全て手作業で設定しなければならないので作業量的に問題がある
@@ -57,6 +58,8 @@ public abstract class ColorObjectBase : Gimmick
 	protected ParticleSystem burst; // 消失時、爆発エフェクト
 	[SerializeField]
 	protected ParticleSystem irradiation; // 照射中エフェクト
+
+	private GraspItem graspItem; // 持ち運び動作を制御
 
 	protected override void Awake()
 	{
@@ -78,6 +81,8 @@ public abstract class ColorObjectBase : Gimmick
 			}
 		}
 
+		graspItem = GetComponent<GraspItem>();
+
 		// パーティクルを使用するなら色を設定
 		if (isUseParticle)
 		{
@@ -85,6 +90,8 @@ public abstract class ColorObjectBase : Gimmick
 			completeDisappearance.startColor = (Color)objectColor;
 			regeneration.startColor = (Color)objectColor;
 			burst.startColor = (Color)objectColor;
+
+			// 照射中エフェクトは照射されるレーザーの色に応じて変更するのでここでは設定しない
 		}
 	}
 
@@ -93,6 +100,7 @@ public abstract class ColorObjectBase : Gimmick
 	/// </summary>
 	public virtual void Irradiated(ObjectColor laserColor)
 	{
+		// 同フレームに照射されている色を全て合成していく
 		if (currentFrame == Time.frameCount)
 		{
 			IrradiationColor.state |= laserColor.state;
@@ -102,8 +110,123 @@ public abstract class ColorObjectBase : Gimmick
 			currentFrame = Time.frameCount;
 			IrradiationColor.state = laserColor.state;
 		}
+	}
 
-		return;
+	protected override void LateUpdate()
+	{
+		if (!collider.enabled)
+		{
+			return;
+		}
+
+		if (IrradiationColor.state != ColorState.NONE)
+		{
+			if (isUseParticle)
+			{
+				// 消失中エフェクト
+				irradiation.startColor = (Color)IrradiationColor;
+				PlayParticle(irradiation);
+			}
+		}
+		else
+		{
+			StopParticle(irradiation);
+		}
+
+		// レーザーの色とオブジェクトの色が一致
+		if (IrradiationColor.state == objectColor.state)
+		{
+			// 消失中
+			FadeAway();
+		}
+		else if (IrradiationColor.state != objectColor.state &&
+				 IrradiationColor.state != ColorState.NONE)
+		{
+			ReGeneration();
+			// レーザーの色とオブジェクトの色が不一致
+			OnAnotherColorIrradiation();
+		}
+		else
+		{
+			// 再生中。ここでの再生は消失しきれなかった時などに
+			// 元に戻ろうとする状態を言う
+			if (endurance != 0.0f || endurance != 1.0f)
+			{
+				OnUnirradiated();
+			}
+		}
+
+		renderer.material.color = objectColor.color;
+		IrradiationColor = ColorState.NONE;
+	}
+
+	/// <summary>
+	/// 消失中に呼ばれる
+	/// </summary>
+	protected virtual void FadeAway()
+	{
+		if (endurance <= 0.0f)
+			return;
+
+		StopParticle(regeneration);
+		PlayParticle(duringDisappearance);
+
+		// 透明度を減算
+		endurance -= Time.deltaTime / eraseTime;
+		objectColor.alpha = defaultAlpha * endurance;
+
+		if (endurance <= 0.0f)
+		{
+			StopParticle(duringDisappearance);
+
+			// 消失
+			endurance = 0.0f;
+			if (isDisappearance)
+				PlayParticle(completeDisappearance);
+			else
+				OnDisappearance();
+		}
+	}
+
+	/// <summary>
+	/// 再生中に呼ばれる
+	/// </summary>
+	protected virtual void ReGeneration()
+	{
+		if (endurance >= 1.0f)
+			return;
+
+		StopParticle(completeDisappearance);
+		PlayParticle(regeneration);
+
+		// 透明度を加算
+		endurance += Time.deltaTime;
+		if (endurance >= 1.0f)
+		{
+			StopParticle(regeneration);
+
+			endurance = 1.0f;
+
+			if (isDisappearance)
+				OnPlayBack(); // 復活
+		}
+		objectColor.alpha = defaultAlpha * endurance;
+	}
+
+	/// <summary>
+	/// 別の色が照射されている時に呼ばれる
+	/// </summary>
+	protected virtual void OnAnotherColorIrradiation()
+	{
+		StopParticle(duringDisappearance);
+	}
+
+	/// <summary>
+	/// 何も照射されてない時に呼ばれる
+	/// </summary>
+	protected virtual void OnUnirradiated()
+	{
+		StopParticle(duringDisappearance);
 	}
 
 	/// <summary>
@@ -111,17 +234,21 @@ public abstract class ColorObjectBase : Gimmick
 	/// </summary>
 	protected virtual void OnDisappearance()
 	{
+		// アイテムを入手可能に
 		foreach (Item item in items)
 		{
 			item.isAcquisition = true;
 		}
 
+		// 爆発エフェクト
 		PlayParticle(burst);
+
 		isDisappearance = true;
-		if(GetComponent<GraspItem>() != null)
+		// 持ち運び不可に
+		if (graspItem != null)
 		{
-			GetComponent<GraspItem>().enabled = false;
-        }
+			graspItem.enabled = false;
+		}
 	}
 
 	/// <summary>
@@ -129,22 +256,10 @@ public abstract class ColorObjectBase : Gimmick
 	/// </summary>
 	protected virtual void OnPlayBack()
 	{
-		//Debug.Log("オブジェクト再生");
-		foreach (Item item in items)
-		{
-			item.isAcquisition = false;
-		}
-		isDisappearance = false;
-		if (GetComponent<GraspItem>() != null)
-		{
-			GetComponent<GraspItem>().enabled = true;
-		}
 	}
 
 	/// <summary>
 	/// エフェクトを再生
-	/// 同時に再生しないエフェクトは止める
-	/// もっとスマートに書けないか模索したい
 	/// </summary>
 	/// <param name="particleSystem"></param>
 	protected void PlayParticle(ParticleSystem particleSystem)
@@ -154,47 +269,25 @@ public abstract class ColorObjectBase : Gimmick
 			return;
 		}
 
-		if (particleSystem == completeDisappearance)
-		{
-			completeDisappearance.Play();
-			duringDisappearance.Stop();
-			duringDisappearance.Clear();
-			regeneration.Stop();
-			regeneration.Clear();
+		particleSystem.Play();
+	}
 
-		}
-		else if (particleSystem == duringDisappearance)
+	/// <summary>
+	/// エフェクトを停止
+	/// </summary>
+	/// <param name="particleSystem"></param>
+	/// <param name="isClear">エフェクトを即座に削除するか</param>
+	protected void StopParticle(ParticleSystem particleSystem, bool isClear = false)
+	{
+		if (!isUseParticle ||
+			!particleSystem.isPlaying)
 		{
-			completeDisappearance.Stop();
-			completeDisappearance.Clear();
-			duringDisappearance.Play();
-			regeneration.Stop();
-			regeneration.Clear();
+			return;
 		}
-		else if (particleSystem == regeneration)
-		{
-			completeDisappearance.Stop();
-			completeDisappearance.Clear();
-			duringDisappearance.Stop();
-			duringDisappearance.Clear();
-			regeneration.Play();
-		}
-		else if (particleSystem == burst)
-		{
-			completeDisappearance.Stop();
-			completeDisappearance.Clear();
-			duringDisappearance.Stop();
-			duringDisappearance.Clear();
-			regeneration.Stop();
-			regeneration.Clear();
-			burst.Play();
-		}
-		else if (particleSystem == null)
-		{
-			completeDisappearance.Stop();
-			duringDisappearance.Stop();
-			regeneration.Stop();
-			burst.Stop();
-		}
+
+		particleSystem.Stop();
+
+		if (isClear)
+			particleSystem.Clear();
 	}
 }
