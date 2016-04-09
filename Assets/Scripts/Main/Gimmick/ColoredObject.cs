@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
 ///     プライマリーレイガンによって完全に消失されるオブジェクト
@@ -7,6 +8,9 @@
 /// </summary>
 public class ColoredObject : ColorObjectBase
 {
+	private List<Switch> ridingSwitches = new List<Switch>(); // 自分が乗っているSwitch
+	private GameObject rideCollider; // 何かに乗るための判定用オブジェクト
+
 	protected override void Awake()
 	{
 		base.Awake();
@@ -19,6 +23,18 @@ public class ColoredObject : ColorObjectBase
 		if (useSounds.Count == 0)
 		{
 			useSounds.Add(SoundCollector.SoundName.Explosion);
+		}
+
+		// RideOnタグが付いたオブジェクトを探し格納
+		// スイッチの上に乗るために使用するColliderがついたオブジェクト
+		// 消失時に無効果したりするために使用
+		foreach (var child in GetComponentsInChildren<Transform>())
+		{
+			if (child.tag == TagName.RideOn)
+			{
+				rideCollider = child.gameObject;
+				break;
+			}
 		}
 	}
 
@@ -56,6 +72,13 @@ public class ColoredObject : ColorObjectBase
 			rigidbody.WakeUp();
 		}
 
+		// 消失したのでスイッチから自分の情報を消す
+		ridingSwitches.ForEach(obj => obj.RemoveHitObject(rideCollider));
+
+		// あたり判定を無効化して何かに乗ることができないようにする
+		if (rideCollider != null)
+			rideCollider.SetActive(false);
+
 		renderer.enabled = false;
 		SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[useSounds[0]], false, true, 0.5f, 0.0f, true);
 	}
@@ -79,5 +102,24 @@ public class ColoredObject : ColorObjectBase
 		{
 			duringDisappearance.Stop();
 		}
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		var switchComponent = other.GetComponentInParent<Switch>();
+		if (switchComponent == null)
+			return;
+
+		// スイッチに触れたら情報を送信するため格納
+		ridingSwitches.Add(switchComponent);
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		var switchComponent = other.GetComponentInParent<Switch>();
+		if (switchComponent == null)
+			return;
+
+		ridingSwitches.Remove(switchComponent);
 	}
 }

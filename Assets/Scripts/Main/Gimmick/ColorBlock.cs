@@ -6,7 +6,8 @@ using UnityEngine;
 /// </summary>
 public class ColorBlock : ColorObjectBase
 {
-	[SerializeField] private bool isDisappearanceStart = false; // 消失中
+	[SerializeField]
+	private bool isDisappearanceStart = false; // 消失中
 	private List<Switch> ridingSwitches = new List<Switch>(); // 自分が乗っているSwitch
 	private GameObject rideCollider; // 何かに乗るための判定用オブジェクト
 
@@ -128,7 +129,8 @@ public class ColorBlock : ColorObjectBase
 		}
 
 		// 再び何かに乗せることができるようになる
-		rideCollider.SetActive(true);
+		if (rideCollider != null)
+			rideCollider.SetActive(true);
 
 		SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[useSounds[1]], false, true, 0.25f, 0.0f, true);
 	}
@@ -151,7 +153,6 @@ public class ColorBlock : ColorObjectBase
 		var switchComponent = other.GetComponentInParent<Switch>();
 		if (switchComponent == null)
 			return;
-
 		// スイッチに触れたら情報を送信するため格納
 		ridingSwitches.Add(switchComponent);
 	}

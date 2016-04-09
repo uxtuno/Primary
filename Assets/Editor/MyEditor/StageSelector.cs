@@ -100,7 +100,6 @@ public class StageSelector : EditorWindow
 					index = stageData.param.IndexOf(param);
 				}
 
-				Debug.Log(index);
 				return index >= 0 ? index : stages.Count;
 			})
 			.ToList();
