@@ -380,6 +380,9 @@ public abstract class BaseMoveType : ISwitchEvent
 
 	/// <summary>
 	/// スイッチの状態を切り替える
+	/// スイッチに反応する派生クラスが多いことが分かっているので
+	/// ここでISwichEventインターフェイスを実装しておく
+	/// 無効にしたければ派生クラス側で何もしないメソッドとしてオーバーライドする
 	/// </summary>
 	public virtual void Switch()
 	{

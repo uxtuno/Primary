@@ -1,31 +1,40 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
 /// <summary>
-/// オブジェクトを一定時間点滅後、破棄する
+///     オブジェクトを一定時間点滅後、破棄する
 /// </summary>
 public class PickIconFlashing : MyMonoBehaviour
 {
-	[SerializeField, Tooltip("生存時間")]
-	private float lifeSeconds = 0.0f;
 	[SerializeField, Tooltip("点滅間隔")]
 	private float flashingIntervalSeconds = 0.5f;
+	[SerializeField, Tooltip("生存時間")]
+	private float lifeSeconds = 0.0f;
 
-	IEnumerator Start()
+	private static readonly float showTimeRate = 0.64f;
+	private static readonly float hideTimeRate = 0.36f;
+
+	private IEnumerator Start()
 	{
-		float count = 0.0f;
+		var count = 0.0f;
+		IsShow = true;
 		while (count < lifeSeconds)
 		{
-			yield return new WaitForSeconds(flashingIntervalSeconds * 0.64f);
+			// 表示中
+			yield return new WaitForSeconds(flashingIntervalSeconds * showTimeRate);
 			IsShow = !IsShow;
-			yield return new WaitForSeconds(flashingIntervalSeconds * 0.36f);
+			// 非表示中
+			yield return new WaitForSeconds(flashingIntervalSeconds * hideTimeRate);
 			IsShow = !IsShow;
 			count += flashingIntervalSeconds;
 		}
 		Destroy(gameObject);
 	}
 
-	void OnValidate()
+	/// <summary>
+	/// インスペクタ範囲チェック
+	/// </summary>
+	private void OnValidate()
 	{
 		if (lifeSeconds < 0.0f)
 			lifeSeconds = 0.0f;

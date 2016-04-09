@@ -21,6 +21,7 @@ public class GameManager : MyMonoBehaviour
 
 	/// <summary>
 	/// 現在のステージ進行を管理するオブジェクト
+	/// 現在未使用
 	/// </summary>
 	public StageController stageController
 	{
@@ -94,6 +95,7 @@ public class GameManager : MyMonoBehaviour
 		}
 		else
 		{
+			// シーン上にプレイヤーが存在すれば
 			player = playerGameObject.GetComponentInParent<Player>();
 
 			if ((player != null) && (Application.loadedLevelName != Scenes.TutorialStage01.name))
@@ -103,32 +105,12 @@ public class GameManager : MyMonoBehaviour
 		}
 	}
 
-	public void CheckViewIcon()
-	{
-		if (icon != null)
-		{
-			HideIcon();
-		}
-
-		icon = Instantiate(checkIconPrefab);
-	}
-
 	public void HideIcon()
 	{
 		if (icon)
 		{
 			Destroy(icon);
 		}
-	}
-
-	public void GrabViewIcon()
-	{
-		if (icon != null)
-		{
-			HideIcon();
-		}
-
-		icon = Instantiate(grabIconPrefab);
 	}
 
 	/// <summary>

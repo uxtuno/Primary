@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-
 /// <summary>
 /// 移動オブジェクトの制御
 /// </summary>
@@ -12,9 +11,11 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 	[System.Serializable]
 	public class ControlPoint
 	{
-		[HideInInspector] public Vector3 position; // 位置
+		[HideInInspector]
+		public Vector3 position; // 位置
 		public Quaternion rotation; // 回転
-		[HideInInspector] public Vector3 scale = Vector3.one; // この制御点へ到達した時点でのスケール
+		[HideInInspector]
+		public Vector3 scale = Vector3.one; // この制御点へ到達した時点でのスケール
 		public float wait; // 待機時間
 		public float travelTime; // 次の制御点へ移動するのにかかる時間
 		public Vector3 prevHandle; // 前のハンドル位置
@@ -59,9 +60,12 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 
 	#region - インスペクタ指定用
 
-	[SerializeField] private BaseMoveType.MoveType moveType = BaseMoveType.MoveType.PingPong; // 移動タイプ
-	[SerializeField] private bool playOnAwake = true; // 開始時に動いているかどうか
-	[SerializeField] private ControlPoint[] controlPoints = null; // 制御点
+	[SerializeField]
+	private BaseMoveType.MoveType moveType = BaseMoveType.MoveType.PingPong; // 移動タイプ
+	[SerializeField]
+	private bool playOnAwake = true; // 開始時に動いているかどうか
+	[SerializeField]
+	private ControlPoint[] controlPoints = null; // 制御点
 
 	#endregion
 
@@ -77,7 +81,7 @@ public class MovableObjectController : Gimmick, ISwitchEvent, IActionEvent
 
 	private static readonly float defaultWait = 3.0f; // デフォルトの停止時間
 	private static readonly float defaultSpeed = 3.0f; // デフォルトの速度
-	//private float elapsedTime = 0.0f; // 現在の制御点から次の制御点へ移動する際の経過時間(0~1)
+
 	/// <summary>
 	/// スイッチの状態
 	/// </summary>

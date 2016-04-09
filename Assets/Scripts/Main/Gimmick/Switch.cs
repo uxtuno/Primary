@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using System.Linq;
-using JetBrains.Annotations;
 
 /// <summary>
 /// スイッチ。一つ以上のものが乗っていた場合にオン
@@ -11,7 +9,7 @@ public class Switch : Gimmick
 	[SerializeField] private EventObject[] targets = null; // 操作対象
 	private List<ISwitchEvent> switchTargets = new List<ISwitchEvent>(); // スイッチの操作対象として登録可能なもの
 
-	private List<GameObject> hitList = new List<GameObject>();
+	private List<GameObject> hitList = new List<GameObject>(); // スイッチの上に載っているもののリスト
 
 	/// <summary>
 	/// スイッチの状態

@@ -399,8 +399,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   _objectColor:
     _state: 1
     _alpha: 1
@@ -6801,7 +6801,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   nextSceneName: TutorialStage02
   keyItem: {fileID: 1625097160}
 --- !u!135 &469754658
@@ -6902,7 +6901,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   _item: 4
 --- !u!114 &502348465
 MonoBehaviour:
@@ -6916,7 +6914,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   messageIndex: 0
   oneTime: 1
   conditions: 1
@@ -16412,7 +16409,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   messageIndex: 1
   oneTime: 0
   conditions: 1
@@ -16837,8 +16833,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   _objectColor:
     _state: 2
     _alpha: 1
@@ -17544,7 +17540,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   _item: 4
 --- !u!1 &1319115747
 GameObject:
@@ -23187,7 +23182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   _item: 2
 --- !u!1 &1626099497
 GameObject:
@@ -30880,8 +30874,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   _objectColor:
     _state: 2
     _alpha: 1
@@ -40011,8 +40005,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   _objectColor:
     _state: 2
     _alpha: 1
@@ -40269,8 +40263,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   _objectColor:
     _state: 1
     _alpha: 1

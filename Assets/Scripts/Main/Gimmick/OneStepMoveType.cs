@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Action()が呼ばれた時に一区間だけ移動する
+///     Action()が呼ばれた時に一区間だけ移動する
 /// </summary>
 public sealed class OneStepMoveType : BaseMoveType, IActionEvent
 {
@@ -11,7 +11,16 @@ public sealed class OneStepMoveType : BaseMoveType, IActionEvent
 	}
 
 	/// <summary>
-	/// 初期化
+	///     動作を起こす
+	/// </summary>
+	public void Action()
+	{
+		normalPosition = 0.0f;
+		ChangeState(MovableObjectController.State.Move);
+	}
+
+	/// <summary>
+	///     初期化
 	/// </summary>
 	/// <param name="target">操作対象</param>
 	/// <param name="controlPoints">制御点</param>
@@ -22,7 +31,7 @@ public sealed class OneStepMoveType : BaseMoveType, IActionEvent
 	}
 
 	/// <summary>
-	/// 次の制御点を返す
+	///     次の制御点を返す
 	/// </summary>
 	/// <returns></returns>
 	protected override void NextControlPoint()
@@ -52,14 +61,14 @@ public sealed class OneStepMoveType : BaseMoveType, IActionEvent
 	}
 
 	/// <summary>
-	/// 衝突状態
+	///     衝突状態
 	/// </summary>
 	protected override void Collided()
 	{
 	}
 
 	/// <summary>
-	/// 次の制御点へ到達
+	///     次の制御点へ到達
 	/// </summary>
 	protected override void Reaching()
 	{
@@ -68,18 +77,9 @@ public sealed class OneStepMoveType : BaseMoveType, IActionEvent
 	}
 
 	/// <summary>
-	/// スイッチの状態を切り替える
+	///     スイッチの状態を切り替える
 	/// </summary>
 	public override void Switch()
 	{
-	}
-
-	/// <summary>
-	/// 動作を起こす
-	/// </summary>
-	public void Action()
-	{
-		normalPosition = 0.0f;
-		ChangeState(MovableObjectController.State.Move);
 	}
 }

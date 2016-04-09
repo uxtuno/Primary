@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System;
 
 /// <summary>
-/// プライマリーレイガンによって完全に消失されるオブジェクト
-/// ColorBlockと同じく基底クラスにColorObjectBaseを持つが、クラスの役割分担がうまくいってないため
-/// 共通コードが目立つ。そのうち直したい
+///     プライマリーレイガンによって完全に消失されるオブジェクト
+///     ColorBlockと同じく基底クラスにColorObjectBaseを持つが、クラスの役割分担がうまくいってないため
+///     共通コードが目立つ。そのうち直したい
 /// </summary>
 public class ColoredObject : ColorObjectBase
 {
@@ -35,7 +33,7 @@ public class ColoredObject : ColorObjectBase
 	}
 
 	/// <summary>
-	/// 完全に消失した瞬間
+	///     完全に消失した瞬間
 	/// </summary>
 	protected override void OnDisappearance()
 	{
@@ -62,17 +60,22 @@ public class ColoredObject : ColorObjectBase
 		SoundPlayerSingleton.instance.PlaySE(gameObject, soundCollector[useSounds[0]], false, true, 0.5f, 0.0f, true);
 	}
 
+	/// <summary>
+	/// 何も照射されてない時に呼ばれる
+	/// </summary>
 	protected override void OnUnirradiated()
 	{
 		base.OnUnirradiated();
 		ReGeneration();
 	}
 
-	// 再生完了した瞬間
+	/// <summary>
+	/// オブジェクトが再生する瞬間に呼ばれる
+	/// </summary>
 	protected override void OnPlayBack()
 	{
 		base.OnPlayBack();
-		if(isUseParticle)
+		if (isUseParticle)
 		{
 			duringDisappearance.Stop();
 		}

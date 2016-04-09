@@ -1,31 +1,26 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
-using System;
 
 /// <summary>
-/// フィールドに固定されているレイガン
+///     フィールドに固定されているレイガン
 /// </summary>
 [ExecuteInEditMode]
 public class FixedRaygun : Gimmick, ISwitchEvent
 {
-	[SerializeField]
-	private GameObject lookTarget = null; // 向きたいターゲット。実行時は無効
+	private bool _isIrradiation;
 	private EraseLaser eraseLaser = null; // 照射するレーザー
 
-	private bool _isIrradiation;
+	[SerializeField]
+	private GameObject lookTarget = null; // 向きたいターゲット。実行時は無効
 
 	[SerializeField]
 	private bool playOnAwake = true; // 開始時から照射するか
 
 	/// <summary>
-	/// 照射状態を取得
+	///     照射状態を取得
 	/// </summary>
 	public bool isIrradiation
 	{
-		get
-		{
-			return _isIrradiation;
-		}
+		get { return _isIrradiation; }
 
 		private set
 		{
@@ -35,13 +30,23 @@ public class FixedRaygun : Gimmick, ISwitchEvent
 	}
 
 	/// <summary>
-	/// スイッチとしての状態
+	///     スイッチとしての状態
 	/// </summary>
 	public bool switchState
 	{
-		get
+		get { return isIrradiation; }
+	}
+
+	/// <summary>
+	///     照射開始/停止
+	/// </summary>
+	public void Switch()
+	{
+		isIrradiation = !isIrradiation;
+		// オンになった時のみアイコンを出す
+		if (isIrradiation)
 		{
-			return isIrradiation;
+			ShowPickIcon();
 		}
 	}
 
@@ -84,19 +89,6 @@ public class FixedRaygun : Gimmick, ISwitchEvent
 			{
 				transform.LookAt(lookTarget.transform);
 			}
-		}
-	}
-
-	/// <summary>
-	/// 照射開始/停止
-	/// </summary>
-	public void Switch()
-	{
-		isIrradiation = !isIrradiation;
-		// オンになった時のみアイコンを出す
-		if(isIrradiation)
-		{
-			ShowPickIcon();
 		}
 	}
 }

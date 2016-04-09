@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -153,6 +152,7 @@ public class ColorBlock : ColorObjectBase
 		if (switchComponent == null)
 			return;
 
+		// スイッチに触れたら情報を送信するため格納
 		ridingSwitches.Add(switchComponent);
 	}
 

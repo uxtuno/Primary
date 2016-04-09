@@ -18,7 +18,7 @@ public sealed class CirculatingMoveType : BaseMoveType
 	{
 		currentControlPointIndex = nextControlPointIndex;
 
-		int increasingDirection; // 制御点の増加方向(プラスか、マイナスか)
+		int increasingDirection; // 制御点の増加方向(逆方向へ移動中はマイナスになる)
 		if (!isReverse)
 		{
 			increasingDirection = 1;

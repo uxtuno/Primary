@@ -104,6 +104,11 @@ public class ObjectColor
 		return colorTable[color];
 	}
 
+	private int add(int x, int y)
+	{
+		return x + y;
+	}
+
 	/// <summary>
 	/// Color型へのキャスト
 	/// </summary>

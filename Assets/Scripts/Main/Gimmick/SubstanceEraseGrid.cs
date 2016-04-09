@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 /// <summary>
-/// 物質消去グリッド
+///		物質消去グリッド
 /// </summary>
 public class SubstanceEraseGrid : Gimmick
 {

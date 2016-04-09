@@ -1,29 +1,42 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
+/// <summary>
+/// フェードイン、フェードアウトを管理する
+/// </summary>
 public class FadeManager : MonoBehaviour
 {
-	private static GameObject fadeCanvasPrefab;
-	private static Canvas fadeCanvas;
-	private static Image fadeImage;
-	private static readonly int defaultSortOrder = 5;
+	// 唯一のインスタンス
+	private static FadeManager _instance;
 
 	/// <summary>
-	/// フェード中に実行させる処理
+	///     フェード中に実行させる処理
 	/// </summary>
 	public delegate void Processing();
 
-	// 唯一のインスタンス
-	private static FadeManager _instance;
+	// フェードをかけるために使用するCanvas。子にImageが必要
+	private static GameObject fadeCanvasPrefab; 
+	private static Canvas fadeCanvas;
+	private static Image fadeImage;
+
+	private static readonly int defaultSortOrder = 5;
+
+	private Coroutine fadeCoroutine; // フェードアウト、フェードインを実行するコルーチン
+
+	public FadeManager()
+	{
+		IsFading = false;
+	}
+
 	public static FadeManager instance
 	{
 		get
 		{
 			if (_instance == null)
 			{
-				GameObject SceneChangeSingleton = new GameObject("FadeManager");
+				var SceneChangeSingleton = new GameObject("FadeManager");
 				_instance = SceneChangeSingleton.AddComponent<FadeManager>();
 				fadeCanvasPrefab = Resources.Load<GameObject>("Prefabs/UI/FadeCanvas");
 				DontDestroyOnLoad(SceneChangeSingleton.gameObject);
@@ -33,32 +46,15 @@ public class FadeManager : MonoBehaviour
 		}
 	}
 
-	List<string> scenePaths { get; set; }   // 読み込み可能なシーンのパス
-	private Texture2D overTexture;
-	//private float FadeAlpha = 0.0f; // フェード中の透明度
-	private bool isFading = false; // フェード中かどうか
-	public bool IsFading
-	{
-		get
-		{
-			return isFading;
-		}
-	}
+	private List<string> scenePaths { get; set; } // 読み込み可能なシーンのパス
 
-	public void Awake()
-	{
-		//ここでテクスチャ作る
-		overTexture = Texture2D.whiteTexture;
-		overTexture.Apply();
-	}
-
-	Coroutine fadeCoroutine;
+	public bool IsFading { get; private set; }
 
 	/// <summary>
-	/// フェードイン、フェードアウトでシーンを切り替える
+	///     フェードイン、フェードアウトでシーンを切り替える
 	/// </summary>
-	/// <param name='scene'>シーン名</param>
 	/// <param name='interval'>暗転にかかる時間(秒)</param>
+	/// <param name="processing">フェードアウト完了時に実行する処理</param>
 	public void Fade(float interval = 0.5f, Processing processing = null)
 	{
 		if (IsFading)
@@ -71,10 +67,11 @@ public class FadeManager : MonoBehaviour
 	}
 
 	/// <summary>
-	/// フェードイン、フェードアウトでシーンを切り替える
+	///     フェードイン、フェードアウトでシーンを切り替える
 	/// </summary>
-	/// <param name='scene'>シーン名</param>
 	/// <param name='interval'>暗転にかかる時間(秒)</param>
+	/// <param name="sortOrder">フェードを掛ける面</param>
+	/// <param name="processing">フェードアウト完了時に実行する処理</param>
 	public void Fade(float interval = 0.5f, int sortOrder = 5, Processing processing = null)
 	{
 		if (IsFading)
@@ -87,20 +84,23 @@ public class FadeManager : MonoBehaviour
 	}
 
 	/// <summary>
-	/// フェードイン、フェードアウトでシーンを切り替える
+	///     フェードイン、フェードアウトでシーンを切り替える
 	/// </summary>
-	/// <param name='scene'>シーン名</param>
+	/// <param name="startColor">色</param>
 	/// <param name='interval'>暗転にかかる時間(秒)</param>
+	/// <param name="processing">フェードアウト完了時に実行する処理</param>
 	public void Fade(Color startColor, float interval = 0.5f, Processing processing = null)
 	{
 		Fade(startColor, interval, defaultSortOrder, processing);
 	}
 
 	/// <summary>
-	/// フェードイン、フェードアウトでシーンを切り替える
+	///     フェードイン、フェードアウトでシーンを切り替える
 	/// </summary>
-	/// <param name='scene'>シーン名</param>
+	/// <param name="startColor">色</param>
 	/// <param name='interval'>暗転にかかる時間(秒)</param>
+	/// <param name="sortOrder">フェードを掛ける面</param>
+	/// <param name="processing">フェードアウト完了時に実行する処理</param>
 	public void Fade(Color startColor, float interval = 0.5f, int sortOrder = 5, Processing processing = null)
 	{
 		if (IsFading)
@@ -113,21 +113,29 @@ public class FadeManager : MonoBehaviour
 	}
 
 
-	// シーン遷移用コルーチン
-	IEnumerator TransScene(float interval, int sortOrder, Color startColor, Processing processing)
+	/// <summary>
+	/// 実際にフェードアウトを実行
+	/// </summary>
+	/// <param name="interval">暗転にかかる時間(秒)</param>
+	/// <param name="sortOrder">フェードを掛ける面</param>
+	/// <param name="startColor">色</param>
+	/// <param name="processing">フェードアウト完了時に実行する処理</param>
+	/// <returns></returns>
+	private IEnumerator TransScene(float interval, int sortOrder, Color startColor, Processing processing)
 	{
 		fadeCanvas = Instantiate(fadeCanvasPrefab).GetComponent<Canvas>();
+		// シーン遷移が行われても問題なく動作するように、破棄しないようにする
 		DontDestroyOnLoad(fadeCanvas.gameObject);
 		fadeImage = fadeCanvas.GetComponentInChildren<Image>();
 		fadeImage.color = startColor;
 
 		//だんだん暗く
-		this.isFading = true;
+		IsFading = true;
 		float time = 0;
 		while (time <= interval)
 		{
 			//this.FadeAlpha = Mathf.Lerp(0f, 1f, time / interval);
-			Color c = fadeImage.color;
+			var c = fadeImage.color;
 			c.a = Mathf.Lerp(0f, 1f, time / interval);
 			fadeImage.color = c;
 			time += Time.deltaTime;
@@ -145,7 +153,7 @@ public class FadeManager : MonoBehaviour
 		while (time <= interval)
 		{
 			//this.FadeAlpha = Mathf.Lerp(1.0f, 0.0f, time / interval);
-			Color c = fadeImage.color;
+			var c = fadeImage.color;
 			c.a = Mathf.Lerp(1.0f, 0.0f, time / interval);
 			fadeImage.color = c;
 
@@ -154,9 +162,12 @@ public class FadeManager : MonoBehaviour
 		}
 
 		Destroy(fadeCanvas.gameObject);
-		this.isFading = false;
+		IsFading = false;
 	}
 
+	/// <summary>
+	/// フェードを強制停止
+	/// </summary>
 	public void FadeStop()
 	{
 		if (fadeCanvas != null)
@@ -167,6 +178,6 @@ public class FadeManager : MonoBehaviour
 		if (fadeCoroutine != null)
 			StopCoroutine(fadeCoroutine);
 
-		isFading = false;
+		IsFading = false;
 	}
 }

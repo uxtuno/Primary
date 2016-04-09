@@ -1,76 +1,76 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 /// <summary>
-/// 足場
-/// 判定のため、足場の表面にIsTriggerのコライダが必要
+///     足場
+///     判定のため、足場の表面にIsTriggerのコライダが必要
+///		本体はこのスクリプトがアタッチされているオブジェクトの親
 /// </summary>
 public class Scaffolds : MyMonoBehaviour
 {
-	private bool isOver = false;
-	private bool isNotOverChange = false;
-	private bool isStop = false;
-	private static readonly float overCapacityTime = 0.1f;
+	private static readonly float overCapacityTime = 0.1f; // 埋まってないと判定するための時間
 	private float overCapacityTimeCount = 0.0f;
+
 	private ColorObjectBase collisionColorObject = null; // 現在衝突しているカラーオブジェクト
+
+	private MovableObjectController controller; // 足場を操作するスクリプト
+	private bool isNotOverChange = false; // 埋まってない状態になろうとしている
+	private bool isOver = false; // 埋まっている
+	private bool isStop = false; // 停止している
 
 	/// <summary>
 	/// 足場の本体
-	/// 移動するときはこれを操作する
 	/// </summary>
-	private Transform _scaffoldingBody; // 本体
-
-	public Transform scaffoldingBody
-	{
-		get { return _scaffoldingBody; }
-		protected set { _scaffoldingBody = value; }
-	}
-
-	private MovableObjectController controller; // 足場を操作するスクリプト
+	public Transform scaffoldingBody { get; protected set; }
 
 	protected override void Awake()
 	{
 		base.Awake();
 		//rideOnTags = new string[] { Tags.Player };
+
+		// RigidBodyの初期状態を記録する
 		if (rigidbody != null)
 		{
-			rigidbody.constraints = (RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation);
+			rigidbody.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
 		}
 
+		// 本体はこのスクリプトがアタッチされているオブジェクトの親
 		scaffoldingBody = transform.parent;
 	}
 
-	void Start()
+	private void Start()
 	{
+		// この足場を操作しているスクリプトを取得
 		controller = GetComponentInParent<MovableObjectController>();
 	}
 
 	protected override void Update()
 	{
-		if (collisionColorObject != null)
+		if (collisionColorObject == null)
+			return;
+
+		// ぶつかっていたカラーオブジェクトが消失したので
+		// コントローラへ通知する
+		if (collisionColorObject.isDisappearance)
 		{
-			if (collisionColorObject.isDisappearance)
-			{
-				controller.CollisionDisappearance();
-				collisionColorObject = null;
-			}
+			controller.CollisionDisappearance();
+			collisionColorObject = null;
 		}
 	}
 
-	void OnTriggerEnter(Collider other)
+	private void OnTriggerEnter(Collider other)
 	{
 		if (other.GetComponent<ColorBlock>() != null)
 		{
+			// カラーブロックが消失状態で重なっている
 			isOver = true;
 			overCapacityTimeCount = 0.0f;
 		}
 
 		if (other.tag != Tags.RideOn)
-		{
 			return;
-		}
-
-		GraspItem graspItem = other.transform.GetComponentInParent<GraspItem>();
+		
+		// ぶつかったオブジェクトが掴めるものならオブジェクトの構造が違うので特殊処理
+		var graspItem = other.transform.GetComponentInParent<GraspItem>();
 		if (graspItem != null)
 		{
 			if (!graspItem.isGrasp)
@@ -80,6 +80,7 @@ public class Scaffolds : MyMonoBehaviour
 		}
 		else if (other.GetComponentInParent<Player>() != null)
 		{
+			// プレイヤーが乗ったのでプレイヤーに対する設定
 			player.transform.parent = scaffoldingBody;
 			player.rideScaffolds = this;
 			player.isRide = true;
@@ -90,10 +91,11 @@ public class Scaffolds : MyMonoBehaviour
 		}
 	}
 
-	void OnTriggerExit(Collider other)
+	private void OnTriggerExit(Collider other)
 	{
 		if (isOver)
 		{
+			// ぶつかっていたものが離れた、判定開始
 			isNotOverChange = true;
 		}
 
@@ -102,12 +104,11 @@ public class Scaffolds : MyMonoBehaviour
 			return;
 		}
 
-		GraspItem graspItem = other.transform.GetComponentInParent<GraspItem>();
+		var graspItem = other.transform.GetComponentInParent<GraspItem>();
 		if (graspItem != null)
 		{
 			if (graspItem.isGrasp)
 			{
-				return;
 			}
 		}
 		else if (other.GetComponentInParent<Player>() != null)
@@ -120,7 +121,7 @@ public class Scaffolds : MyMonoBehaviour
 		}
 	}
 
-	void OnCollisionEnter(Collision other)
+	private void OnCollisionEnter(Collision other)
 	{
 		controller = GetComponentInParent<MovableObjectController>();
 		if (other.transform.tag == Tags.RideOn || controller == null)
@@ -128,24 +129,27 @@ public class Scaffolds : MyMonoBehaviour
 			return;
 		}
 
-		Rigidbody rigidBody = other.transform.GetComponent<Rigidbody>();
+		var rigidBody = other.transform.GetComponent<Rigidbody>();
 
 		if (isOver)
 		{
+			// カラーブロックが消失状態で重なっている間に再生された
+			// つまり埋まった
 			isStop = true;
 			if (rigidBody == null || (other.transform.GetComponent<GraspItem>() == null))
 			{
+				// 埋まった時の処理
 				controller.Burying();
 				collisionColorObject = other.transform.GetComponent<ColorObjectBase>();
 			}
 		}
 		else
 		{
+			// 何かにぶつかったので停止
 			if (rigidBody == null || (other.transform.GetComponent<GraspItem>() == null))
 			{
-				if(other.transform == transform)
+				if (other.transform == transform)
 				{
-					
 					return;
 				}
 				controller.Collision();
@@ -154,7 +158,7 @@ public class Scaffolds : MyMonoBehaviour
 		}
 	}
 
-	void OnCollisionExit(Collision other)
+	private void OnCollisionExit(Collision other)
 	{
 		controller = GetComponentInParent<MovableObjectController>();
 		if (other.transform.tag == Tags.RideOn || controller == null)
@@ -162,6 +166,7 @@ public class Scaffolds : MyMonoBehaviour
 			return;
 		}
 
+		// ぶつかっていたものが離れたので停止解除
 		if (isStop)
 		{
 			isStop = false;
@@ -169,20 +174,20 @@ public class Scaffolds : MyMonoBehaviour
 		// controller.CollisionDisappearance();
 	}
 
-	void FixedUpdate()
+	private void FixedUpdate()
 	{
-		if (isNotOverChange)
+		if (!isNotOverChange)
+			return;
+
+		if (overCapacityTimeCount > overCapacityTime)
 		{
-			if (overCapacityTimeCount > overCapacityTime)
-			{
-				isOver = false;
-				isNotOverChange = false;
-				overCapacityTimeCount = 0.0f;
-			}
-			else
-			{
-				overCapacityTimeCount += Time.deltaTime;
-			}
+			isOver = false;
+			isNotOverChange = false;
+			overCapacityTimeCount = 0.0f;
+		}
+		else
+		{
+			overCapacityTimeCount += Time.deltaTime;
 		}
 	}
 }

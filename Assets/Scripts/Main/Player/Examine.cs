@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+
 /// <summary>
 /// プレイヤー前方を調べる動作を担当
 /// イベント発生や、箱を掴むなど
@@ -98,6 +99,7 @@ public class Examine : MyMonoBehaviour
 			}
 		}
 
+		// 調べられるものがあるとき
 		if (iconOwnerCheckComponents != null && iconOwnerCheckComponents.Length != 0)
 		{
 			if (grabbedObject == null)
@@ -107,8 +109,10 @@ public class Examine : MyMonoBehaviour
 					checkEvent.GetIconSprite();
 				}
 
+				// 調べるコマンドが実行されたとき
 				if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(1)) && !player.isIrradiation)
 				{
+					// 調べられるものなら調べる
 					foreach (ICheckEvent component in iconOwnerCheckComponents)
 					{
 						component.Check();
@@ -117,6 +121,7 @@ public class Examine : MyMonoBehaviour
 			}
 			else
 			{
+				// 掴んでいるときは調べられない
 				ExamineIconManager.HideIcon();
 			}
 		}
@@ -125,57 +130,9 @@ public class Examine : MyMonoBehaviour
 			ExamineIconManager.HideIcon();
 		}
 
-		if (hitList.Count != 0)
-		{
-			if (Input.GetMouseButtonDown(1) && !Input.GetMouseButton(0))
-			{
-				minDistance = Mathf.Infinity;
-				GraspItem grabItem = null;
-				foreach (GraspItem item in hitList)
-				{
-					float distance = (item.transform.position - transform.position).magnitude;
-					if (minDistance > distance && !item.collider.isTrigger)
-					{
-						grabItem = item.GetComponent<GraspItem>();
-						minDistance = distance;
-					}
-				}
+		InputGrasp();
 
-				if (grabItem != null)
-				{
-					grabItem.Grab(transform.parent.gameObject);
-					grabbedObject = grabItem;
-					grabbedObject.transform.parent = transform.parent.parent;
-				}
-			}
-		}
-
-		if (grabbedObject != null)
-		{
-			bool isLetGo = false; // 持ってるものを離す
-			if ((transform.position - grabbedObject.transform.position).sqrMagnitude > grabbedLimitLeaving)
-			{
-				isLetGo = true;
-			}
-			else
-			{
-				grabbedObject.rigidbody.velocity = (transform.position - grabbedObject.transform.position) * grabbedMoveSpeed;
-			}
-
-			if (Input.GetMouseButtonUp(1))
-			{
-				isLetGo = true;
-			}
-			else if (grabbedObject.GetComponent<ColorObjectBase>() != null && grabbedObject.GetComponent<ColorObjectBase>().isDisappearance)
-			{
-				isLetGo = true;
-			}
-
-			if (isLetGo)
-			{
-				LetGo();
-			}
-		}
+		InputLetGo();
 	}
 
 	void OnTriggerStay(Collider other)
@@ -282,7 +239,77 @@ public class Examine : MyMonoBehaviour
 	}
 
 	/// <summary>
-	/// 掴んでいるものを放す
+	/// 物をつかむ動作
+	/// </summary>
+	private void InputGrasp()
+	{
+		float minDistance = Mathf.Infinity;
+
+		if (hitList.Count != 0)
+		{
+			if (Input.GetMouseButtonDown(1) && !Input.GetMouseButton(0))
+			{
+				minDistance = Mathf.Infinity;
+				GraspItem grabItem = null;
+				// つかめるものの中で最短の距離のものを求める
+				foreach (GraspItem item in hitList)
+				{
+					float distance = (item.transform.position - transform.position).magnitude;
+					if (minDistance > distance && !item.collider.isTrigger)
+					{
+						grabItem = item.GetComponent<GraspItem>();
+						minDistance = distance;
+					}
+				}
+
+				// 掴めるものが見つかれば掴む
+				if (grabItem != null)
+				{
+					grabItem.Grab(transform.parent.gameObject);
+					grabbedObject = grabItem;
+					grabbedObject.transform.parent = transform.parent.parent;
+				}
+			}
+		}
+	}
+
+	/// <summary>
+	/// プレイヤーの操作などによって掴んでいるものを離すかを決定し、実行する
+	/// </summary>
+	private void InputLetGo()
+	{
+		if (grabbedObject == null)
+			return;
+
+		bool isLetGo = false; // 持ってるものを離す
+		if ((transform.position - grabbedObject.transform.position).sqrMagnitude > grabbedLimitLeaving)
+		{
+			// (何かにさえぎられるなどして)一定以上離れれば掴んでいるものを離す
+			isLetGo = true;
+		}
+		else
+		{
+			grabbedObject.rigidbody.velocity = (transform.position - grabbedObject.transform.position) * grabbedMoveSpeed;
+		}
+
+		if (Input.GetMouseButtonUp(1))
+		{
+			isLetGo = true;
+		}
+		else if (grabbedObject.GetComponent<ColorObjectBase>() != null && grabbedObject.GetComponent<ColorObjectBase>().isDisappearance)
+		{
+			// 掴んでいるものが途中で消失した
+			isLetGo = true;
+		}
+
+		if (isLetGo)
+		{
+			LetGo();
+		}
+	}
+
+	/// <summary>
+	/// 掴んでいるものを離す
 	/// </summary>
 	public void LetGo()
 	{

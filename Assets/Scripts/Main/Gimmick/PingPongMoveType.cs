@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// 最後まで到達すると来た道を戻るような移動
+///     最後まで到達すると来た道を戻るような移動
 /// </summary>
 public sealed class PingPongMoveType : BaseMoveType
 {
@@ -11,7 +11,7 @@ public sealed class PingPongMoveType : BaseMoveType
 	}
 
 	/// <summary>
-	/// 次の制御点を返す
+	///     次の制御点を返す
 	/// </summary>
 	/// <returns></returns>
 	protected override void NextControlPoint()
