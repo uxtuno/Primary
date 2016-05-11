@@ -1,5 +1,10 @@
-﻿using UnityEngine;
+﻿#define DEBUG_SHOW_FPS
+
+using UnityEngine;
 using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEngine.UI;
+using Debug = UnityEngine.Debug;
 
 /// <summary>
 /// 突貫工事なので色々直したい
@@ -17,7 +22,7 @@ public class GameManager : MyMonoBehaviour
 	[SerializeField]
 	private GameObject grabIconPrefab = null; // 調べるアイコン
 	private GameObject icon; // 調べるアイコン
-	//private List<Items> playerItemList; // プレイヤーのアイテム。シーン切り替え時の引継ぎ用
+							 //private List<Items> playerItemList; // プレイヤーのアイテム。シーン切り替え時の引継ぎ用
 
 	/// <summary>
 	/// 現在のステージ進行を管理するオブジェクト
@@ -40,7 +45,7 @@ public class GameManager : MyMonoBehaviour
 	protected override void Awake()
 	{
 		base.Awake();
-		Time.captureFramerate = 30;
+		//Time.captureFramerate = 30;
 
 		if (!isCreated)
 		{
@@ -56,8 +61,28 @@ public class GameManager : MyMonoBehaviour
 		OnLevelWasLoaded(Application.loadedLevel);
 	}
 
+	private Text text;
+
+	[Conditional("DEBUG_SHOW_FPS")]
+	private void InitShowFPS()
+	{
+		var go = new GameObject("FPS");
+		var canvas = go.AddComponent<Canvas>();
+		canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+		var child = new GameObject("Text");
+		child.transform.SetParent(go.transform);
+		text = child.AddComponent<Text>();
+		text.rectTransform.position = canvas.transform.position;
+		text.font = Font.CreateDynamicFontFromOSFont("arial", 50);
+		text.fontSize = 50;
+		text.color = Color.blue;
+		text.horizontalOverflow = HorizontalWrapMode.Overflow;
+		text.verticalOverflow = VerticalWrapMode.Overflow;
+	}
+
 	public void OnLevelWasLoaded(int level)
 	{
+		InitShowFPS();
 		GameObject go = GameObject.FindGameObjectWithTag(stageManagerTag);
 		if (go != null)
 		{
@@ -103,6 +128,19 @@ public class GameManager : MyMonoBehaviour
 				player.AddItem(Items.Tablet);
 			}
 		}
+	}
+
+	private float oneSecondsCount;
+	private int frameCount;
+	void Update()
+	{
+		ShowFPS();
+	}
+
+	[Conditional("DEBUG_SHOW_FPS")]
+	void ShowFPS()
+	{
+			text.text = (1.0f / Time.deltaTime).ToString();
 	}
 
 	public void HideIcon()

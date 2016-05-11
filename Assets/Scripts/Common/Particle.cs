@@ -22,7 +22,7 @@ public class Particle : MyMonoBehaviour
 	private ParticleData[] particleData = null;
 	private float distance = 2.0f;
 	private Thread particlePoitionCalculateThread = null;
-	private const int maxParticle = 100000;
+	private const int maxParticle = 200000;
 
 	void Start()
 	{
@@ -67,9 +67,10 @@ public class Particle : MyMonoBehaviour
 		}
 	}
 
+	private bool isEnd;
 	private void ParticlePositionCalculate()
 	{
-
+		isEnd = false;
 		while (true)
 		{
 			Vector3 newPosition = new Vector3();
@@ -86,7 +87,6 @@ public class Particle : MyMonoBehaviour
 					newPosition.x = direction.x;
 					newPosition.y = direction.y + particleData[i].vy2;
 					newPosition.z = direction.z;
-					particles[i].size -= 0.08f * oneFrameSeconds;
 
 					particleData[i].cos += oneFrameSeconds / 10.0f;
 					particleData[i].vy += oneFrameSeconds / 20.0f;
@@ -102,6 +102,10 @@ public class Particle : MyMonoBehaviour
 					}
 				}
 			}
+
+			if (particleData[0].size <= 0.0f)
+				isEnd = true;
+
 			Thread.Sleep(Mathf.FloorToInt(1000 * oneFrameSeconds));
 		}
 	}
@@ -115,7 +119,7 @@ public class Particle : MyMonoBehaviour
 	{
 		Vector3 newPosition = new Vector3();
 
-		if (particles[0].size <= 0.0f)
+		if (isEnd)
 		{
 			Destroy(gameObject);
 			particlePoitionCalculateThread.Abort();

@@ -2,6 +2,11 @@ public class SceneName
 {
 
 	/// <summary>
+	/// return "UXTestScene"
+ 	/// </summary>
+	public const string @UXTestScene = "UXTestScene";
+
+	/// <summary>
 	/// return "Menu"
  	/// </summary>
 	public const string @Menu = "Menu";
@@ -50,11 +55,6 @@ public class SceneName
 	/// return "Stage04"
  	/// </summary>
 	public const string @Stage04 = "Stage04";
-
-	/// <summary>
-	/// return "UXTestScene"
- 	/// </summary>
-	public const string @UXTestScene = "UXTestScene";
 
 	/// <summary>
 	/// return "K.R.EasyStage01"
@@ -142,34 +142,35 @@ public class SceneName
 	public const string @ExtraClear = "ExtraClear";
 
 	/// <summary>
-	/// <para>0. "Menu"</para>
-	/// <para>1. "TutorialStage01"</para>
-	/// <para>2. "Stage02"</para>
-	/// <para>3. "TutorialStage02"</para>
-	/// <para>4. "UXStage01"</para>
-	/// <para>5. "UXStage02"</para>
-	/// <para>6. "Stage01"</para>
-	/// <para>7. "Stage03"</para>
-	/// <para>8. "Stage05"</para>
-	/// <para>9. "Stage04"</para>
-	/// <para>10. "UXTestScene"</para>
-	/// <para>11. "K.R.EasyStage01"</para>
-	/// <para>12. "K.R.EasyStage02"</para>
-	/// <para>13. "K.R.EasyStage03"</para>
-	/// <para>14. "K.R.EasyStage05"</para>
-	/// <para>15. "K.R.MiddleStage01"</para>
-	/// <para>16. "K.R.MiddleStage02"</para>
-	/// <para>17. "K.R.MiddleStage03"</para>
-	/// <para>18. "K.R.HardStage01"</para>
-	/// <para>19. "N.EasyStage01"</para>
-	/// <para>20. "N.EasyStage02"</para>
-	/// <para>21. "N.EasyStage03"</para>
-	/// <para>22. "N.HardStage01"</para>
-	/// <para>23. "EndScene"</para>
-	/// <para>24. "N.HardStage02"</para>
-	/// <para>25. "K.R.SpecialStage01"</para>
-	/// <para>26. "NormalClear"</para>
-	/// <para>27. "ExtraClear"</para>
+	/// <para>0. "UXTestScene"</para>
+	/// <para>1. "Menu"</para>
+	/// <para>2. "TutorialStage01"</para>
+	/// <para>3. "Stage02"</para>
+	/// <para>4. "TutorialStage02"</para>
+	/// <para>5. "UXStage01"</para>
+	/// <para>6. "UXStage02"</para>
+	/// <para>7. "Stage01"</para>
+	/// <para>8. "Stage03"</para>
+	/// <para>9. "Stage05"</para>
+	/// <para>10. "Stage04"</para>
+	/// <para>11. "UXTestScene"</para>
+	/// <para>12. "K.R.EasyStage01"</para>
+	/// <para>13. "K.R.EasyStage02"</para>
+	/// <para>14. "K.R.EasyStage03"</para>
+	/// <para>15. "K.R.EasyStage05"</para>
+	/// <para>16. "K.R.MiddleStage01"</para>
+	/// <para>17. "K.R.MiddleStage02"</para>
+	/// <para>18. "K.R.MiddleStage03"</para>
+	/// <para>19. "K.R.HardStage01"</para>
+	/// <para>20. "N.EasyStage01"</para>
+	/// <para>21. "N.EasyStage02"</para>
+	/// <para>22. "N.EasyStage03"</para>
+	/// <para>23. "N.HardStage01"</para>
+	/// <para>24. "EndScene"</para>
+	/// <para>25. "N.HardStage02"</para>
+	/// <para>26. "K.R.SpecialStage01"</para>
+	/// <para>27. "NormalClear"</para>
+	/// <para>28. "ExtraClear"</para>
 	/// </summary>
-	public static readonly string[] names = new string[]{"Menu","TutorialStage01","Stage02","TutorialStage02","UXStage01","UXStage02","Stage01","Stage03","Stage05","Stage04","UXTestScene","K.R.EasyStage01","K.R.EasyStage02","K.R.EasyStage03","K.R.EasyStage05","K.R.MiddleStage01","K.R.MiddleStage02","K.R.MiddleStage03","K.R.HardStage01","N.EasyStage01","N.EasyStage02","N.EasyStage03","N.HardStage01","EndScene","N.HardStage02","K.R.SpecialStage01","NormalClear","ExtraClear"};
+	public static readonly string[] names = new string[]{"UXTestScene","Menu","TutorialStage01","Stage02","TutorialStage02","UXStage01","UXStage02","Stage01","Stage03","Stage05","Stage04","UXTestScene","K.R.EasyStage01","K.R.EasyStage02","K.R.EasyStage03","K.R.EasyStage05","K.R.MiddleStage01","K.R.MiddleStage02","K.R.MiddleStage03","K.R.HardStage01","N.EasyStage01","N.EasyStage02","N.EasyStage03","N.HardStage01","EndScene","N.HardStage02","K.R.SpecialStage01","NormalClear","ExtraClear"};
 }

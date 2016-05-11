@@ -5,6 +5,8 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TestScenes/UXTestScene.unity
   - enabled: 0
     path: Assets/Scenes/TestStage01.unity
   - enabled: 1
