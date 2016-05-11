@@ -1,4 +1,4 @@
-﻿#define DEBUG_SHOW_FPS
+﻿//#define DEBUG_SHOW_FPS
 
 using UnityEngine;
 using System.Collections.Generic;

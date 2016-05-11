@@ -63258,7 +63258,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11446980, guid: 50fc7ea8e46da024c9745a82857e11a8, type: 2}
       propertyPath: isDisappearanceStart
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 428536, guid: 50fc7ea8e46da024c9745a82857e11a8, type: 2}
       propertyPath: m_LocalScale.x
