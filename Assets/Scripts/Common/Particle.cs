@@ -19,30 +19,43 @@ public class Particle : MyMonoBehaviour
 	}
 
 	private ParticleSystem.Particle[] particles;
-	private ParticleData[] particleData;
+	private ParticleData[] particleData = null;
 	private float distance = 2.0f;
 	private Thread particlePoitionCalculateThread = null;
+	private const int maxParticle = 100000;
 
 	void Start()
 	{
 		particleSystem = gameObject.GetComponent<ParticleSystem>();
-
-		const int maxParticle = 1000;
 		particleSystem.maxParticles = maxParticle;
 		particles = new ParticleSystem.Particle[maxParticle];
 		particleData = new ParticleData[maxParticle];
 		particleSystem.Emit(maxParticle);
 		particleSystem.GetParticles(particles);
 
+		//new Thread(new ThreadStart(ParticleGenerate)).Start();
+
+		ParticleGenerate();
+		particlePoitionCalculateThread = new Thread(
+			new ThreadStart(ParticlePositionCalculate));
+
+		particlePoitionCalculateThread.Start();
+	}
+
+	private static readonly float oneFrameSeconds = 0.032f;
+
+	private void ParticleGenerate()
+	{
+		System.Random r = new System.Random();
 		for (int i = 0; i < maxParticle; i++)
 		{
 			particles[i].position = Vector3.zero;
 			particles[i].velocity = Vector3.zero;
 			particles[i].size = 0.1f;
 
-			float rotateX = Random.value * 360;
-			float rotateY = Random.value * 180;
-			float rotateZ = Random.value * 360;
+			float rotateX = (float)r.NextDouble() * 360;
+			float rotateY = (float)r.NextDouble() * 180;
+			float rotateZ = (float)r.NextDouble() * 360;
 
 			Quaternion q = new Quaternion();
 			q.eulerAngles = new Vector3(rotateX, rotateY, rotateZ);
@@ -52,17 +65,11 @@ public class Particle : MyMonoBehaviour
 			particleData[i].position = particles[i].position;
 			particleData[i].size = particles[i].size;
 		}
-
-		particleSystem.SetParticles(particles, maxParticle);
-		particlePoitionCalculateThread = new Thread(
-			new ThreadStart(ParticlePositionCalculate));
-
-		particlePoitionCalculateThread.Start();
 	}
 
-	private static readonly float oneFrameSeconds = 0.016f;
 	private void ParticlePositionCalculate()
 	{
+
 		while (true)
 		{
 			Vector3 newPosition = new Vector3();
@@ -86,7 +93,8 @@ public class Particle : MyMonoBehaviour
 					particleData[i].vy2 += particleData[i].vy;
 					particleData[i].position = newPosition;
 					particleData[i].size = particleData[i].size - 0.08f * oneFrameSeconds;
-
+					particles[i].position = particleData[i].position;
+					particles[i].size = particleData[i].size;
 					if (particleData[i].size < 0.0f)
 					{
 						particleData[i].size = 0.0f;
@@ -94,7 +102,6 @@ public class Particle : MyMonoBehaviour
 					}
 				}
 			}
-
 			Thread.Sleep(Mathf.FloorToInt(1000 * oneFrameSeconds));
 		}
 	}
@@ -107,17 +114,11 @@ public class Particle : MyMonoBehaviour
 	protected override void Update()
 	{
 		Vector3 newPosition = new Vector3();
-		for (int i = 0; i < particles.Length; i++)
-		{
-			particles[i].position = particleData[i].position;
-			particles[i].size = particleData[i].size;
 
-			if (particles[i].size < 0.0f)
-			{
-				Destroy(gameObject);
-				particlePoitionCalculateThread.Abort();
-				break;
-			}
+		if (particles[0].size <= 0.0f)
+		{
+			Destroy(gameObject);
+			particlePoitionCalculateThread.Abort();
 		}
 
 		particleSystem.SetParticles(particles, particles.Length);
