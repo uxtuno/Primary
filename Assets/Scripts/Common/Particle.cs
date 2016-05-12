@@ -50,7 +50,7 @@ public class Particle : MyMonoBehaviour
 		particlePoitionCalculateThread.Start();
 	}
 
-	private static readonly float oneFrameSeconds = 0.032f;
+	private static readonly float oneFrameSeconds = 0.016f;
 
 	private bool isGenerated;
 	private void ParticleGenerate()
