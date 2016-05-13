@@ -63,10 +63,10 @@ LightmapSettings:
     m_CompAOExponent: 1
     m_LightmapParameters: {fileID: 0}
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherRayCount: 128
+    m_FinalGather: 1
+    m_FinalGatherRayCount: 2048
     m_ReflectionCompression: 2
-  m_LightmapSnapshot: {fileID: 112000076, guid: e54545339f354bd4597eeb728160d782,
+  m_LightmapSnapshot: {fileID: 112000061, guid: bc099347a2084424d9dfcb3acf93064c,
     type: 2}
   m_RuntimeCPUUsage: 75
 --- !u!196 &5

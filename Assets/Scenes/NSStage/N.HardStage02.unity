@@ -49,13 +49,13 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_TemporalCoherenceThreshold: 1
-    m_EnvironmentLightingMode: 0
+    m_EnvironmentLightingMode: 1
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 3
     m_Resolution: 1
-    m_BakeResolution: 20
+    m_BakeResolution: 40
     m_TextureWidth: 256
     m_TextureHeight: 1024
     m_AOMaxDistance: 1
@@ -64,9 +64,9 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_TextureCompression: 1
     m_FinalGather: 1
-    m_FinalGatherRayCount: 128
+    m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightmapSnapshot: {fileID: 112000040, guid: 29b76d5d00e49f745b514e60e4c6b652,
+  m_LightmapSnapshot: {fileID: 112000025, guid: 4320ed658cf537547a961cf41b78bcd2,
     type: 2}
   m_RuntimeCPUUsage: 75
 --- !u!196 &5
@@ -10256,8 +10256,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   moveType: 2
   playOnAwake: 1
   controlPoints:
@@ -14699,8 +14699,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   _objectColor:
     _state: 7
     _alpha: 1
@@ -14753,8 +14753,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   moveType: 2
   playOnAwake: 1
   controlPoints:
@@ -18258,8 +18258,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   _objectColor:
     _state: 4
     _alpha: 1
@@ -18363,7 +18363,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   _item: 5
 --- !u!135 &1961003641
 SphereCollider:
@@ -18389,7 +18388,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   messageIndex: 0
   oneTime: 1
   conditions: 1

@@ -49,24 +49,24 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1.5
     m_TemporalCoherenceThreshold: 1
-    m_EnvironmentLightingMode: 0
+    m_EnvironmentLightingMode: 1
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 3
-    m_Resolution: 2
+    m_Resolution: 4
     m_BakeResolution: 40
-    m_TextureWidth: 128
+    m_TextureWidth: 256
     m_TextureHeight: 1024
     m_AOMaxDistance: 1
     m_Padding: 2
     m_CompAOExponent: 1
     m_LightmapParameters: {fileID: 0}
-    m_TextureCompression: 1
+    m_TextureCompression: 0
     m_FinalGather: 1
-    m_FinalGatherRayCount: 256
+    m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightmapSnapshot: {fileID: 112000023, guid: 66747ed27f3d440498b49127df9b2632,
+  m_LightmapSnapshot: {fileID: 112000013, guid: 6e380b9111d2ffe4e97f31fcea0c7e7e,
     type: 2}
   m_RuntimeCPUUsage: 75
 --- !u!196 &5
@@ -879,8 +879,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   _objectColor:
     _state: 1
     _alpha: 1
@@ -1074,8 +1074,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   _objectColor:
     _state: 2
     _alpha: 1
@@ -2917,8 +2917,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 1
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   _objectColor:
     _state: 1
     _alpha: 1

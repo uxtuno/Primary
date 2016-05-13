@@ -64,9 +64,9 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_TextureCompression: 1
     m_FinalGather: 1
-    m_FinalGatherRayCount: 128
+    m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightmapSnapshot: {fileID: 112000026, guid: 3950f07b2c52fc74b9b4d4bd3034ac97,
+  m_LightmapSnapshot: {fileID: 112000011, guid: 181c387c213106d46aaabda329df3ff7,
     type: 2}
   m_RuntimeCPUUsage: 75
 --- !u!196 &5
@@ -1889,8 +1889,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useSounds: 
-  _flag: 0
   pickIconPrefab: {fileID: 0}
+  pickIconShowPosition: {fileID: 0}
   moveType: 2
   playOnAwake: 0
   controlPoints:

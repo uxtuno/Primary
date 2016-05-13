@@ -8,7 +8,7 @@ public class WarpZone : Gimmick, ISwitchEvent
 	private bool isWarp; // ワープした瞬間
 	private bool startOnAwake = true; // 開始時から起動しているか
 	[SerializeField]
-	private GameObject warpEffectPrefab = null; // 
+	private GameObject warpEffectPrefab = null;
 
 	//移動先のオブジェクト
 	[SerializeField]
