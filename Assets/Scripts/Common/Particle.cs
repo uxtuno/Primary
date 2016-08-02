@@ -22,7 +22,7 @@ public class Particle : MyMonoBehaviour
 	private ParticleData[] particleData = null;
 	private float distance;
 	private Thread particlePoitionCalculateThread = null;
-	private const int maxParticle = 2000;
+	private const int maxParticle = 1000;
 
 	IEnumerator Start()
 	{
@@ -112,8 +112,11 @@ public class Particle : MyMonoBehaviour
 				direction.x *= mul;
 				direction.z *= mul;
 				direction.y *= mul * 5.0f;
+				if (direction.y < -1.0f)
+					direction.y *= -1;
+
 				newPosition.x = direction.x;
-				newPosition.y = direction.y + particleData[i].vy2;
+				newPosition.y = Mathf.Lerp(particles[i].position.y, direction.y, 0.2f);
 				newPosition.z = direction.z;
 
 				particleData[i].cos += oneFrameSeconds / 10.0f;
@@ -160,7 +163,7 @@ public class Particle : MyMonoBehaviour
 		}
 
 		particleSystem.SetParticles(particles, particles.Length);
-		transform.Rotate(0.0f, 120f * Time.deltaTime, 0.0f);
+		transform.Rotate(0.0f, 240.0f * Time.deltaTime, 0.0f);
 	}
 
 	private Object syncObj = new Object();
